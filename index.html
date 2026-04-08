@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>آلية الاعتراض على المخالفات — قبل وبعد الأمر الملكي | نايف المحمدي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+/* ═══════════════════════════════════════
+   DESIGN TOKENS
+═══════════════════════════════════════ */
+:root {
+  --navy:       #0B1A2B;
+  --navy-deep:  #071018;
+  --navy-mid:   #142238;
+  --green:      #1A7F37;
+  --green-lt:   #EAF5EE;
+  --green-bd:   #A7D7B5;
+  --green-dk:   #145E28;
+  --red:        #C0392B;
+  --red-lt:     #FAECEA;
+  --red-bd:     #E5A9A2;
+  --amber:      #B7770D;
+  --amber-lt:   #FEF7E8;
+  --amber-bd:   #F0CC7A;
+  --blue:       #1A4A7F;
+  --blue-lt:    #EAF0FA;
+  --blue-bd:    #A2BDE5;
+  --bg:         #F4F6F8;
+  --surface:    #FFFFFF;
+  --text:       #1A1A1A;
+  --text-mid:   #374151;
+  --muted:      #6B7A8D;
+  --border:     #DEE4EC;
+  --radius:     16px;
+  --radius-sm:  10px;
+  --shadow:     0 2px 16px rgba(11,26,43,0.08);
+  --shadow-md:  0 4px 24px rgba(11,26,43,0.12);
+  --shadow-lg:  0 8px 36px rgba(11,26,43,0.15);
+}
+
+/* ═══════════════════════════════════════
+   RESET & BASE
+═══════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'IBM Plex Sans Arabic', 'Segoe UI', Tahoma, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+
+/* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
+.hero {
+  background: linear-gradient(160deg, var(--navy-deep) 0%, var(--navy) 55%, #1a3355 100%);
+  padding: 36px 22px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(26,127,55,0.15) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 100%, rgba(26,74,127,0.2) 0%, transparent 55%);
+  pointer-events: none;
+}
+.hero-social-top {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 24px;
+  position: relative;
+}
+.social-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.75);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 5px 11px;
+  border-radius: 20px;
+  transition: background 0.2s;
+}
+.social-pill:hover { background: rgba(255,255,255,0.18); }
+.hero-logo {
+  width: 97px;
+  height: 97px;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: invert(1) brightness(1.1);
+}
+.hero-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 4px;
+  letter-spacing: -0.3px;
+  position: relative;
+}
+.hero-title {
+  font-size: 12.5px;
+  color: rgba(255,255,255,0.55);
+  font-weight: 400;
+  margin-bottom: 26px;
+  letter-spacing: 0.3px;
+}
+.hero-divider {
+  width: 44px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(110,224,138,0.7), transparent);
+  margin: 0 auto 26px;
+  border-radius: 2px;
+}
+.decree-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #C9E8D4;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+.hero h1 {
+  color: #FFFFFF;
+  font-size: clamp(19px, 5.5vw, 26px);
+  font-weight: 700;
+  line-height: 1.45;
+  margin-bottom: 12px;
+  position: relative;
+}
+.hero h1 em { font-style: normal; color: #6EE08A; }
+.hero-sub {
+  color: rgba(255,255,255,0.6);
+  font-size: 13px;
+  max-width: 360px;
+  margin: 0 auto;
+  line-height: 1.65;
+  font-weight: 400;
+}
+
+/* ═══════════════════════════════════════
+   SECTION WRAPPER
+═══════════════════════════════════════ */
+.section {
+  padding: 28px 18px;
+}
+.section + .section { padding-top: 0; }
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 18px;
+}
+.section-label::before,
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ═══════════════════════════════════════
+   QUICK SUMMARY CARD
+═══════════════════════════════════════ */
+.summary-intro {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.summary-intro-head {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.summary-intro-head .si-icon {
+  width: 34px; height: 34px;
+  background: rgba(110,224,138,0.15);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+.summary-intro-head h2 {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+}
+.summary-intro-head p {
+  color: rgba(255,255,255,0.55);
+  font-size: 11px;
+}
+.summary-intro-body {
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.si-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 11px 14px;
+  background: var(--bg);
+  border-radius: var(--radius-sm);
+  border-right: 3px solid var(--navy);
+}
+.si-point .sp-num {
+  width: 24px; height: 24px;
+  background: var(--navy);
+  color: #fff;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.si-point .sp-text {
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 1.55;
+}
+.si-point .sp-text strong { color: var(--navy); }
+
+/* ═══════════════════════════════════════
+   TIMELINE
+═══════════════════════════════════════ */
+.timeline {
+  position: relative;
+  padding-right: 36px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  right: 15px;
+  top: 22px;
+  bottom: 22px;
+  width: 3px;
+  background: linear-gradient(to bottom,
+    var(--red) 0%,
+    var(--amber) 50%,
+    var(--green) 100%);
+  border-radius: 3px;
+}
+.tl-item {
+  position: relative;
+  margin-bottom: 22px;
+}
+.tl-item:last-child { margin-bottom: 0; }
+.tl-dot {
+  position: absolute;
+  right: -49px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  border: 3px solid var(--surface);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px;
+  z-index: 1;
+  box-shadow: 0 0 0 3px;
+}
+.tl-dot.d-red   { background: var(--red);   box-shadow: 0 0 0 3px rgba(192,57,43,0.2); }
+.tl-dot.d-amber { background: var(--amber); box-shadow: 0 0 0 3px rgba(183,119,13,0.2); }
+.tl-dot.d-green { background: var(--green); box-shadow: 0 0 0 3px rgba(26,127,55,0.2); }
+.tl-card {
+  background: var(--surface);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  padding: 14px 16px;
+}
+.tl-card.tc-red   { border-right: 4px solid var(--red); }
+.tl-card.tc-amber { border-right: 4px solid var(--amber); }
+.tl-card.tc-green { border-right: 4px solid var(--green); }
+.tl-dates {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+.tl-date-m {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+}
+.tl-date-m.c-red   { color: var(--red); }
+.tl-date-m.c-amber { color: var(--amber); }
+.tl-date-m.c-green { color: var(--green); }
+.tl-sep { color: var(--muted); font-size: 12px; align-self: center; }
+.tl-date-h {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  align-self: center;
+}
+.tl-desc {
+  font-size: 12.5px;
+  color: var(--text-mid);
+  line-height: 1.5;
+}
+.tl-badge {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-top: 6px;
+}
+.tb-red   { background: var(--red-lt);   color: var(--red);   border: 1px solid var(--red-bd);   }
+.tb-amber { background: var(--amber-lt); color: var(--amber); border: 1px solid var(--amber-bd); }
+.tb-green { background: var(--green-lt); color: var(--green); border: 1px solid var(--green-bd); }
+
+/* ═══════════════════════════════════════
+   FLOW CARDS (COMPARISON)
+═══════════════════════════════════════ */
+.compare-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+@media (min-width: 680px) {
+  .compare-wrap { flex-direction: row; align-items: flex-start; }
+  .compare-wrap .flow-card { flex: 1; }
+}
+
+.flow-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+.flow-card-head {
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.flow-card-head.fh-red   { background: var(--red-lt);   border-bottom: 2px solid var(--red-bd);   }
+.flow-card-head.fh-green { background: var(--green-lt); border-bottom: 2px solid var(--green-bd); }
+.fch-icon {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.fi-red   { background: rgba(192,57,43,0.12); }
+.fi-green { background: rgba(26,127,55,0.12); }
+.fch-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.3;
+}
+.fch-sub {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 1px;
+}
+.flow-body { padding: 20px 16px 22px; }
+
+/* Flow steps */
+.flow-steps { display: flex; flex-direction: column; align-items: stretch; }
+
+.fstep {
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 13px 15px;
+  text-align: center;
+  position: relative;
+}
+.fstep.fs-start  { border-color: var(--navy);   background: var(--blue-lt);   }
+.fstep.fs-action { border-color: var(--border);  background: #F7F9FC;           }
+.fstep.fs-ok     { border-color: var(--green-bd); background: var(--green-lt);  }
+.fstep.fs-fail   { border-color: var(--red-bd);   background: var(--red-lt);    }
+.fstep.fs-warn   { border-color: var(--amber-bd); background: var(--amber-lt);  }
+.fstep.fs-key    { border-color: var(--green);    background: var(--green-lt);
+                   border-width: 2px;              box-shadow: 0 0 0 3px rgba(26,127,55,0.1); }
+.fstep.fs-danger { border-color: var(--red);      background: var(--red-lt);
+                   border-width: 2.5px;            box-shadow: 0 0 0 3px rgba(192,57,43,0.12); }
+
+.fstep-icon { font-size: 18px; margin-bottom: 5px; display: block; }
+.fstep-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.45;
+}
+.fstep.fs-ok    .fstep-text { color: var(--green-dk); }
+.fstep.fs-fail  .fstep-text { color: var(--red); }
+.fstep.fs-warn  .fstep-text { color: var(--amber); }
+.fstep.fs-danger .fstep-text { color: var(--red); font-size: 14px; }
+.fstep.fs-key   .fstep-text { color: var(--green-dk); font-size: 14px; }
+.fstep-sub {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 4px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+.fstep.fs-ok   .fstep-sub { color: var(--green); }
+.fstep.fs-fail .fstep-sub { color: var(--red); }
+
+/* BIG ARROW */
+.big-arrow {
+  text-align: center;
+  padding: 4px 0;
+  line-height: 1;
+  color: var(--navy);
+  font-size: 28px;
+  font-weight: 900;
+  opacity: 0.55;
+  user-select: none;
+}
+.big-arrow.ba-red   { color: var(--red);   opacity: 0.6; }
+.big-arrow.ba-green { color: var(--green); opacity: 0.6; }
+
+/* Branch */
+.branch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.branch-item {
+  border-radius: var(--radius-sm);
+  padding: 11px 10px;
+  text-align: center;
+  font-size: 11.5px;
+  line-height: 1.5;
+}
+.bi-ok     { background: var(--green-lt); border: 1.5px solid var(--green-bd); color: var(--green-dk); }
+.bi-reject { background: var(--red-lt);   border: 1.5px solid var(--red-bd);   color: var(--red);      }
+.bi-court  { background: var(--blue-lt);  border: 1.5px solid var(--blue-bd);  color: var(--blue);     }
+.branch-item .bi-icon { font-size: 18px; display: block; margin-bottom: 4px; }
+.branch-item .bi-label { font-weight: 700; display: block; margin-bottom: 2px; }
+.branch-item .bi-sub { font-size: 10.5px; color: var(--muted); display: block; margin-top: 2px; }
+
+/* Note */
+.flow-note {
+  margin-top: 14px;
+  border-radius: var(--radius-sm);
+  padding: 10px 13px;
+  font-size: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.55;
+}
+.fn-navy  { background: var(--blue-lt); border: 1px solid var(--blue-bd); color: var(--blue); }
+.fn-amber { background: var(--amber-lt); border: 1px solid var(--amber-bd); color: var(--amber); }
+.fn-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+
+/* Condition pill */
+.cond-pill {
+  background: linear-gradient(135deg, var(--green-lt), #D6F0DE);
+  border: 1.5px solid var(--green-bd);
+  border-radius: var(--radius-sm);
+  padding: 11px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.cond-pill .cp-icon { font-size: 20px; flex-shrink: 0; }
+.cond-pill .cp-text { font-size: 12.5px; color: var(--navy); font-weight: 500; line-height: 1.5; }
+.cond-pill .cp-text strong { color: var(--green-dk); }
+
+/* ═══════════════════════════════════════
+   SPECIAL CARDS
+═══════════════════════════════════════ */
+.special-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+.sc-head {
+  padding: 15px 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sc-head-icon {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.sc-head-title { font-size: 15px; font-weight: 700; }
+.sc-head-sub   { font-size: 11px; color: var(--muted); }
+
+.sc-head.sh-amber { background: var(--amber-lt); border-bottom: 2px solid var(--amber-bd); }
+.sc-head.sh-amber .sc-head-icon { background: rgba(183,119,13,0.12); }
+.sc-head.sh-amber .sc-head-title { color: var(--amber); }
+
+.sc-head.sh-green { background: var(--green-lt); border-bottom: 2px solid var(--green-bd); }
+.sc-head.sh-green .sc-head-icon { background: rgba(26,127,55,0.12); }
+.sc-head.sh-green .sc-head-title { color: var(--green-dk); }
+
+.sc-head.sh-red { background: var(--red-lt); border-bottom: 2px solid var(--red-bd); }
+.sc-head.sh-red .sc-head-icon { background: rgba(192,57,43,0.12); }
+.sc-head.sh-red .sc-head-title { color: var(--red); }
+
+.sc-head.sh-navy { background: var(--navy); border-bottom: 2px solid rgba(255,255,255,0.1); }
+.sc-head.sh-navy .sc-head-icon { background: rgba(255,255,255,0.1); }
+.sc-head.sh-navy .sc-head-title { color: #6EE08A; }
+.sc-head.sh-navy .sc-head-sub   { color: rgba(255,255,255,0.45); }
+
+.sc-body { padding: 16px 18px; }
+
+/* Suspension */
+.susp-trigger {
+  background: var(--amber-lt);
+  border: 1.5px solid var(--amber-bd);
+  border-radius: var(--radius-sm);
+  padding: 12px 15px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--amber);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.susp-items { display: flex; flex-direction: column; gap: 9px; }
+.susp-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: var(--bg);
+  border-radius: var(--radius-sm);
+  padding: 10px 13px;
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 1.5;
+  border-right: 3px solid var(--amber);
+}
+.susp-item .si-bul { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+/* Conditions list */
+.cond-list { display: flex; flex-direction: column; gap: 9px; }
+.cond-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: var(--bg);
+  border-radius: var(--radius-sm);
+  padding: 11px 13px;
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 1.5;
+  border-right: 3px solid var(--green);
+}
+.cond-item .ci-check { font-size: 16px; flex-shrink: 0; margin-top: 1px; color: var(--green); }
+.cond-item .ci-text strong { color: var(--navy); }
+
+/* Exceptions */
+.exc-list { display: flex; flex-direction: column; gap: 9px; }
+.exc-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--red-lt);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--navy);
+  border-right: 3px solid var(--red);
+}
+.exc-item::before { content: '🚫'; font-size: 16px; }
+
+/* Summary final */
+.final-summary {
+  background: linear-gradient(150deg, var(--navy-deep), var(--navy) 60%, #1a3355);
+  border-radius: var(--radius);
+  padding: 22px 20px;
+  box-shadow: var(--shadow-lg);
+}
+.fs-block {
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.fs-block:last-child { border-bottom: none; padding-bottom: 0; }
+.fs-label {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.fsl-before { color: rgba(192,57,43,0.8); }
+.fsl-after  { color: #6EE08A; }
+.fs-text {
+  font-size: 13.5px;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.65;
+}
+.fs-text strong { color: #fff; }
+
+/* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
+footer {
+  background: var(--navy-deep);
+  padding: 30px 22px 24px;
+  text-align: center;
+}
+.footer-logo {
+  width: 52px; height: 52px;
+  margin: 0 auto 12px;
+}
+.footer-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: invert(1) brightness(0.65);
+}
+.footer-name {
+  font-size: 17px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 3px;
+}
+.footer-title {
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 18px;
+}
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 9px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.footer-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.6);
+  font-size: 11px;
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+.footer-disclaimer {
+  display: inline-block;
+  font-size: 11px;
+  color: rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 5px 16px;
+}
+
+/* ═══════════════════════════════════════
+   DIVIDER
+═══════════════════════════════════════ */
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 0 18px;
+}
+
+</style>
+</head>
+<body>
+
+<!-- ══════════════ HERO ══════════════ -->
+<header class="hero">
+  <div class="hero-social-top">
+    <a href="https://x.com/almohammdin" class="social-pill" target="_blank">𝕏 &nbsp;almohammdin</a>
+    <a href="https://www.linkedin.com/in/naif-almohammdi" class="social-pill" target="_blank">in &nbsp;LinkedIn</a>
+    <a href="https://snapchat.com/add/Naiffawzy" class="social-pill" target="_blank">👻 &nbsp;Snapchat</a>
+  </div>
+  <div class="hero-logo">
+    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAFtAqwDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAECAwj/xAArEAEBAAIBBAEEAgIDAAMAAAAAAQIRIRIxQVFhAyIycYGRQqETscEjUmL/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A8ZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACybpQQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAG9WYb9s27W5W91yx/8AjmXyDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANXv8Lb9nT87LzjGfAIAA10ZdPVrhMZbdReZuAyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACtf4W/wsm8J7ZynTwDIALjbjdzu1jZZd+qkn2b+Uku9AgAAAAAAAAAAAAAAAANXHi3ql13BkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHToxmO7lu+p4BzG+qzxP6Zy559ggAAAAAAAAABOaum8ZMZ1dUt9TwDHn9NZYW/dNXfrwlTdBBq84787ZBZeGsM+m7ZnPCyAze4uU1lpAAAAAAWAg1JMr4xSzQIAAAAADWE3e+tTZxqxJbFxm934BkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABcZcrqd0a3ceJxfIGU6eJz8ptrHV73SZZTWpP5AnLX1bOnHGTtzax1bkl8JQAAAAAAAXGbvqeaBJu6jpMMZN5Xd9emcpN6xu4nPYDO7u+P4iN2Yyc5c/EY8gLJs3jfGln2/duX1AM8vtmGtau2Fttu73QGvp3Wc32S20x/KbW3V4BMpZrfpG/qfjh+v/AFgAAAABvq1On+2FmvIFnpqSzHLc4TVl1OfRnluTHxAZAAAAABvCTV34XG88eZWITi7BAvcAGuJJNc+VuM1Ljd/AMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANzCa/LV1vsfSx6sr6k2l3Jd+QZAAAAAB0+lNS5/xE6dy5W6ic9pUy32vgC3aAAAAAAAAACybreVxs6ceJ/2ktxmrOb7ZBZNXbVsy1vOT40wA104+Mv9J0y3jL/SLLsEs0jWU1rnuyAAA1dThlrgDK2ybZau9fDIAAAAAALLZ2tiCyW+AQWyzvEABvDWOPVe/gGBcubueUBcZbdTvWsZN6qfSus5Vt1QZz/K/tr6WpvK+Ezu8tpLoFtiSWrhjMv8tX17amXRLxyCfW116niTf7YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFxm8pPYN45dOPT23zU+rl1ZT1JqFl3bWAAAAAFw5ym/aLOLAXKfdbIT5aymu/b2xaDphj9LV67lL8MZTHf25Wz5mk2AWaRrLK3HVnZkAAAABZzUAbtmeW7wmUwl+3K2fpnm1rXTfun8Ass7dNpcZ074/suW5rWp8JJfAIsmPte35TTNu+01ALd3aLjJ3u9GWt8dgQABqSaZamN41yC5/jjPhhcruoAAAAAC4y26gLhJeb2XLd43deImXficEoLhdXm8eU+p09W8N9N7FLLJyDK90dLOJZ2oHTvC+5y5umOWsoxZq2ATuI3ZqgmU1r9Mun1pqYX3P/XMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABv6f5b9RhrGWy6Bq3eF5c3THC2ZXfabcwAAAAAAXqvT0749Es8zf8oA6b+nrjcv6Y+fDWExnOXPwdPVlwC5Wf8ffm1zXLvr0gCz5R0yxnTJO/mgxlJLxdxGspZeWQAawx6r+gWTU3LzU5vdLvbe7066tf+glxxk5y1fSTK4/jbEyxuN1lNIAADeN1rHLt5Zz11XXbw13ysy7xgAABvHPp5xvOmAAAAAAABrHLpl45rLeWOrAOqdHb7t92HWdHTZlv4rEmMy5ts+ATd33XLLeMb+3LLtqOeWrlemXXgEa3bj0+IXHKa6pZv2uNxnu0GcfynhLzXW8fTuWu/EcgG7ZNc+GGrvpxAyu4ysl1eEAbww6pvevSY43LtOPayXn1IDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADp9G6uW/TmuOuqb7AvVfCWXW9cN3C49yZScd56BzFut8cNT6X1Onq6br2DA1jhlldSbv7W/TynfUBhZLbqTa6kvMtJlZeON+gXo1+fHwmXHbsb3WpjcuZP5Bib8NTLWP/6TK4ztzfbIANSe7oExnn0u9N2yyY4zUZywsAzy68Zxzjwws3LtvGzzjLQYk2sy1NSftq88eD/jy1vp7gnKcrZZxYkuqBcrcdVlv6mtyY+uWAGvp/nGVl1dg1ZJeUzk/LH8f+jLqttvlZxz5BgayuN/x1fhJLbqAg3fpfUnfGp05f8A1v8AQMi9N8ynTfQILJvzGuiecv8AQMDVkl81L34mgXHHLLtLS73unXb33VnIINzDKzclYssoG74Xqyve1FmOVm5ALzDpviJOLzeFzz3NYzUBm3jXiIADpjzhz4rms3ZoHSZTWrNxizng7EvsCZWNZZfZrV3V6J09WXEc7d348AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOnXllJPMjGrUdJnjcdZY8+LAZkN0nN1NN3Cz1f1QYiytf8eWt6n9sXjzP7BfJ03K8RJdfNLnlZrep6gJZq6v8Ao3da3dekXHXVN9gRvHGa3lf4hZzxZr9s6/X9g1l0/wCM0zV3dtan+XAM4243a4ZcXH+mbfE7IDetpqwuds1f7Xr9YwCWzm/wzcre9tQBqZ5Tzv8AZcpf8ZKyAAAAA6Y5To6bOfFY5vhG8M+nvjMoCaOy5ZS9twk32/7BN1eqtX6eUnaf2zZQLds6XV+P7WaBk23enzlGb0777BZdr077M7njGHXl4uv0C54XHvr+2ZdftAGrnlvfVTry83f7ZAW5W+v6N3Wt3XpGpJ2tsoMjWeFx+Z7hjxd62DI3qZd+PlnLHXzPcBFl0gDeOWH+Ut/SZWXtNMgLbb3u0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABZbO1RcZuyAg3lOm8WWT/ZrHKbl1fQM443K6i5Y3G63L+l7Y63+0lmN33BkaurLlJr4ZAAAAAAAAAAAAAAAAAAAAAXdvmoAAAAAAAAAAAuPfet6XKy3aY3XHitakx6t7BJbJrfC289p+vRO29cRMbN/dNz4AttauPThu+eyceLNJnl1X48AyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA3jJ0ZXywsugIvSty34kMpMcfylt7aBNXW5zCTxUlsu4ty3d3uDWd6ceiTV8uZeQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGssrZJe0ZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH/9k=" alt="شعار نايف المحمدي">
+  </div>
+  <div class="hero-name">نايف المحمدي</div>
+  <div class="hero-title">مستشار الحوكمة وتطوير الأعمال</div>
+  <div class="hero-divider"></div>
+  <h1>الفرق بين آلية الاعتراض<br>على المخالفات <em>قبل وبعد</em> الأمر الملكي</h1>
+  <p class="hero-sub">استثناء مؤقت أعاد فتح باب الاعتراض على مخالفات سابقة سقطت مددها وفق ضوابط محددة، وذلك بالأمر الملكي رقم (82241) — 16 شوال 1447هـ</p>
+</header>
+
+<!-- ══════════════ QUICK SUMMARY ══════════════ -->
+<section class="section">
+  <div class="section-label">تمهيد</div>
+  <div class="summary-intro">
+    <div class="summary-intro-head">
+      <div class="si-icon">⚡</div>
+      <div>
+        <h2>ما الذي تغيّر؟</h2>
+        <p>3 نقاط تكفيك</p>
+      </div>
+    </div>
+    <div class="summary-intro-body">
+      <div class="si-point">
+        <div class="sp-num">١</div>
+        <div class="sp-text">الأمر يخص مخالفات صادرة <strong>قبل 1 نوفمبر 2024م</strong> / 29 ربيع الآخر 1446هـ</div>
+      </div>
+      <div class="si-point">
+        <div class="sp-num">٢</div>
+        <div class="sp-text">مُنحت مهلة <strong>60 يومًا</strong> جديدة تبدأ من <strong>16 شوال 1447هـ / 14 أبريل 2026م</strong></div>
+      </div>
+      <div class="si-point">
+        <div class="sp-num">٣</div>
+        <div class="sp-text">يبدأ التظلم <strong>أمام الجهة الإدارية أولًا</strong> — ثم يمكن الاعتراض أمام <strong>ديوان المظالم</strong> عند الرفض</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════ TIMELINE ══════════════ -->
+<section class="section">
+  <div class="section-label">الخط الزمني</div>
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-dot d-red"></div>
+      <div class="tl-card tc-red">
+        <div class="tl-dates">
+          <span class="tl-date-m c-red">1 نوفمبر 2024م</span>
+          <span class="tl-sep">|</span>
+          <span class="tl-date-h">29 ربيع الآخر 1446هـ</span>
+        </div>
+        <div class="tl-desc">التاريخ الفاصل — المخالفات الصادرة قبله تدخل في نطاق الاستثناء الملكي</div>
+        <span class="tl-badge tb-red">📌 نقطة فاصلة</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot d-amber"></div>
+      <div class="tl-card tc-amber">
+        <div class="tl-dates">
+          <span class="tl-date-m c-amber">16 شوال 1447هـ</span>
+          <span class="tl-sep">|</span>
+          <span class="tl-date-h">14 أبريل 2026م</span>
+        </div>
+        <div class="tl-desc">بداية المهلة الاستثنائية الجديدة — صدور الأمر الملكي رقم (82241)</div>
+        <span class="tl-badge tb-amber">⏳ بداية المهلة</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot d-green"></div>
+      <div class="tl-card tc-green">
+        <div class="tl-dates">
+          <span class="tl-date-m c-green">15 ذو الحجة 1447هـ</span>
+          <span class="tl-sep">|</span>
+          <span class="tl-date-h">13 يونيو 2026م</span>
+        </div>
+        <div class="tl-desc">نهاية مهلة الستين يومًا — آخر يوم للتقدم بالتظلم</div>
+        <span class="tl-badge tb-green">⏰ نهاية المهلة</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════ COMPARISON ══════════════ -->
+<section class="section">
+  <div class="section-label">المقارنة الرئيسية</div>
+  <div class="compare-wrap">
+
+    <!-- BEFORE -->
+    <div class="flow-card">
+      <div class="flow-card-head fh-red">
+        <div class="fch-icon fi-red">⚖️</div>
+        <div>
+          <div class="fch-title">قبل الأمر الملكي</div>
+          <div class="fch-sub">النظام الأصلي</div>
+        </div>
+      </div>
+      <div class="flow-body">
+        <div class="flow-steps">
+
+          <div class="fstep fs-start">
+            <span class="fstep-icon">📄</span>
+            <div class="fstep-text">صدور المخالفة</div>
+            <div class="fstep-sub">من الجهة الحكومية المختصة</div>
+          </div>
+
+          <div class="big-arrow ba-red">▼</div>
+
+          <div class="fstep fs-action">
+            <span class="fstep-icon">🏛️</span>
+            <div class="fstep-text">التظلم أمام الجهة الإدارية</div>
+            <div class="fstep-sub">خلال المدة النظامية المقررة</div>
+          </div>
+
+          <div class="big-arrow ba-red">▼</div>
+
+          <div class="branch">
+            <div class="branch-item bi-ok">
+              <span class="bi-icon">✅</span>
+              <span class="bi-label">قُبل التظلم</span>
+              <span class="bi-sub">تنتهي المخالفة</span>
+            </div>
+            <div class="branch-item bi-reject">
+              <span class="bi-icon">❌</span>
+              <span class="bi-label">رُفض التظلم</span>
+            </div>
+          </div>
+
+          <div class="big-arrow ba-red">▼</div>
+
+          <div class="branch">
+            <div class="branch-item bi-reject">
+              <span class="bi-icon">🚫</span>
+              <span class="bi-label">فاتت مدة الـ60 يومًا</span>
+              <span class="bi-sub">يسقط الحق في الاعتراض نهائيًا</span>
+            </div>
+            <div class="branch-item bi-ok">
+              <span class="bi-icon">✅</span>
+              <span class="bi-label">اعتراض خلال 60 يومًا</span>
+              <span class="bi-sub">من قرار الجهة برفض التظلم</span>
+            </div>
+          </div>
+
+          <div class="big-arrow ba-red">▼</div>
+
+          <div class="fstep fs-action">
+            <span class="fstep-icon">⚖️</span>
+            <div class="fstep-text">الاعتراض أمام المحكمة الإدارية</div>
+            <div class="fstep-sub">خلال 60 يومًا من قرار الجهة برفض التظلم</div>
+          </div>
+
+          <div class="big-arrow ba-red">▼</div>
+
+          <div class="fstep fs-action">
+            <span class="fstep-icon">🏛️</span>
+            <div class="fstep-text">حكم المحكمة الإدارية</div>
+          </div>
+
+          <div class="big-arrow ba-red">▼</div>
+
+          <div class="branch">
+            <div class="branch-item bi-ok">
+              <span class="bi-icon">✅</span>
+              <span class="bi-label">إلغاء القرار الإداري</span>
+              <span class="bi-sub">تنتهي المخالفة</span>
+            </div>
+            <div class="branch-item bi-reject">
+              <span class="bi-icon">❌</span>
+              <span class="bi-label">تأييد القرار الإداري</span>
+              <span class="bi-sub">يبقى القرار نافذًا</span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="flow-note fn-amber">
+          <span class="fn-icon">⚠️</span>
+          <span>مدة التظلم أمام الجهة الإدارية قد تختلف بحسب الجهة أو التنظيم المنطبق</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- AFTER -->
+    <div class="flow-card">
+      <div class="flow-card-head fh-green">
+        <div class="fch-icon fi-green">📜</div>
+        <div>
+          <div class="fch-title">بعد الأمر الملكي</div>
+          <div class="fch-sub">استثناء مؤقت</div>
+        </div>
+      </div>
+      <div class="flow-body">
+
+        <div class="cond-pill">
+          <span class="cp-icon">📌</span>
+          <span class="cp-text">يسري على المخالفات الصادرة<br><strong>قبل 1 نوفمبر 2024م</strong> التي فات ميعادها</span>
+        </div>
+
+        <div class="flow-steps">
+
+          <div class="fstep fs-action">
+            <span class="fstep-icon">❓</span>
+            <div class="fstep-text">هل المخالفة قبل 1/11/2024م؟</div>
+            <div class="fstep-sub">29 ربيع الآخر 1446هـ</div>
+          </div>
+
+          <div class="big-arrow ba-green">▼</div>
+
+          <div class="fstep fs-action">
+            <span class="fstep-icon">🔍</span>
+            <div class="fstep-text">هل تختص المحكمة الإدارية بنظر الاعتراض؟</div>
+          </div>
+
+          <div class="big-arrow ba-green">▼</div>
+
+          <div class="fstep fs-action">
+            <span class="fstep-icon">📋</span>
+            <div class="fstep-text">هل لم يسبق الاعتراض عليها؟</div>
+            <div class="fstep-sub">أمام أي جهة حكومية</div>
+          </div>
+
+          <div class="big-arrow ba-green">▼</div>
+
+          <div class="fstep fs-key">
+            <span class="fstep-icon">✅</span>
+            <div class="fstep-text">تبدأ مهلة استثنائية جديدة مستقلة</div>
+            <div class="fstep-sub"><strong>60 يومًا من 16 شوال 1447هـ / 14 أبريل 2026م</strong></div>
+          </div>
+
+          <div class="big-arrow ba-green">▼</div>
+
+          <div class="fstep fs-action">
+            <span class="fstep-icon">🏛️</span>
+            <div class="fstep-text">التظلم أمام الجهة الإدارية</div>
+            <div class="fstep-sub">أول خطوة إلزامية</div>
+          </div>
+
+          <div class="big-arrow ba-green">▼</div>
+
+          <div class="branch">
+            <div class="branch-item bi-ok">
+              <span class="bi-icon">✅</span>
+              <span class="bi-label">قُبل التظلم</span>
+              <span class="bi-sub">تنتهي المخالفة</span>
+            </div>
+            <div class="branch-item bi-court">
+              <span class="bi-icon">❌</span>
+              <span class="bi-label">رُفض التظلم</span>
+            </div>
+          </div>
+
+          <div class="big-arrow ba-green">▼</div>
+
+          <div class="fstep fs-action">
+            <span class="fstep-icon">⚖️</span>
+            <div class="fstep-text">الاعتراض أمام المحكمة الإدارية</div>
+            <div class="fstep-sub">خلال 60 يومًا من قرار الجهة برفض التظلم</div>
+          </div>
+
+          <div class="big-arrow ba-green">▼</div>
+
+          <div class="fstep fs-action">
+            <span class="fstep-icon">🏛️</span>
+            <div class="fstep-text">حكم المحكمة الإدارية</div>
+          </div>
+
+          <div class="big-arrow ba-green">▼</div>
+
+          <div class="branch">
+            <div class="branch-item bi-ok">
+              <span class="bi-icon">✅</span>
+              <span class="bi-label">إلغاء القرار الإداري</span>
+              <span class="bi-sub">تنتهي المخالفة</span>
+            </div>
+            <div class="branch-item bi-court">
+              <span class="bi-icon">❌</span>
+              <span class="bi-label">تأييد القرار الإداري</span>
+              <span class="bi-sub">يبقى القرار نافذًا</span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="flow-note fn-navy" style="margin-top:14px">
+          <span class="fn-icon">📌</span>
+          <span>هذه <strong>مهلة استثنائية جديدة مستقلة</strong> — وليست امتدادًا للمدة السابقة أو إعادة احتساب لها</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════ SUSPENSION ══════════════ -->
+<section class="section">
+  <div class="section-label">أثر التظلم</div>
+  <div class="special-card">
+    <div class="sc-head sh-amber">
+      <div class="sc-head-icon">⏸</div>
+      <div>
+        <div class="sc-head-title">وقف التنفيذ</div>
+        <div class="sc-head-sub">ميزة مهمة جدًا عمليًا</div>
+      </div>
+    </div>
+    <div class="sc-body">
+      <div class="susp-trigger">
+        <span>⚡</span>
+        عند تقديم التظلم أمام الجهة الحكومية خلال المهلة…
+      </div>
+      <div class="susp-items">
+        <div class="susp-item">
+          <span class="si-bul">⏸</span>
+          <span>يوقف تنفيذ القرار الصادر بإيقاع المخالفة</span>
+        </div>
+        <div class="susp-item">
+          <span class="si-bul">📅</span>
+          <span>يستمر وقف التنفيذ حتى <strong>الفصل في الاعتراض</strong> أو <strong>انتهاء مدة الستين يومًا</strong> دون تقديم اعتراض</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════ CONDITIONS ══════════════ -->
+<section class="section">
+  <div class="section-label">الشروط</div>
+  <div class="special-card">
+    <div class="sc-head sh-green">
+      <div class="sc-head-icon">✅</div>
+      <div>
+        <div class="sc-head-title">يشمله القرار إذا توفرت:</div>
+        <div class="sc-head-sub">جميع الشروط يجب أن تكون متوفرة</div>
+      </div>
+    </div>
+    <div class="sc-body">
+      <div class="cond-list">
+        <div class="cond-item">
+          <span class="ci-check">✅</span>
+          <span class="ci-text">المخالفة صادرة قبل <strong>1 نوفمبر 2024م / 29 ربيع الآخر 1446هـ</strong></span>
+        </div>
+        <div class="cond-item">
+          <span class="ci-check">✅</span>
+          <span class="ci-text">المخالفة من النوع الذي يختص <strong>ديوان المظالم</strong> بنظر الاعتراض عليه</span>
+        </div>
+        <div class="cond-item">
+          <span class="ci-check">✅</span>
+          <span class="ci-text">لم يسبق الاعتراض عليها أمام الجهة الحكومية</span>
+        </div>
+        <div class="cond-item">
+          <span class="ci-check">✅</span>
+          <span class="ci-text">تم تقديم التظلم خلال <strong>60 يومًا من 16 شوال 1447هـ / 14 أبريل 2026م</strong></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════ EXCEPTIONS ══════════════ -->
+<section class="section">
+  <div class="section-label">الاستثناءات</div>
+  <div class="special-card">
+    <div class="sc-head sh-red">
+      <div class="sc-head-icon">🚫</div>
+      <div>
+        <div class="sc-head-title">لا يشمل القرار:</div>
+        <div class="sc-head-sub">هذه الفئات مستثناة صراحةً — انتبه جيدًا</div>
+      </div>
+    </div>
+    <div class="sc-body">
+      <div class="exc-list">
+        <div class="exc-item">المخالفات المرورية</div>
+        <div class="exc-item">مخالفات الإجراءات الاحترازية</div>
+        <div class="exc-item">المخالفات المسددة (المدفوعة)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════ FINAL SUMMARY ══════════════ -->
+<section class="section">
+  <div class="section-label">الخلاصة</div>
+  <div class="final-summary">
+    <div class="fs-block">
+      <div class="fs-label fsl-before">⚠️ سابقًا</div>
+      <div class="fs-text">إذا فاتت المدد النظامية <strong>سقط الحق في الاعتراض</strong> نهائيًا ولا سبيل للمراجعة</div>
+    </div>
+    <div class="fs-block">
+      <div class="fs-label fsl-after">✅ بعد الأمر الملكي</div>
+      <div class="fs-text">فُتح استثناء مؤقت لبعض المخالفات القديمة عبر <strong>مهلة جديدة مستقلة قدرها 60 يومًا</strong>، تبدأ من <strong>16 شوال 1447هـ</strong>، مع التظلم أولًا أمام الجهة الإدارية، <strong>ووقف التنفيذ</strong> عند التقديم خلال المهلة</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer>
+  <div class="footer-logo">
+    <img src="data:image/jpeg;base64,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" alt="شعار نايف المحمدي">
+  </div>
+  <div class="footer-name">نايف المحمدي</div>
+  <div class="footer-title">مستشار الحوكمة وتطوير الأعمال</div>
+  <div class="footer-social">
+    <a href="https://x.com/almohammdin" class="footer-pill" target="_blank">𝕏 @almohammdin</a>
+    <a href="https://www.linkedin.com/in/naif-almohammdi" class="footer-pill" target="_blank">in LinkedIn</a>
+    <a href="https://snapchat.com/add/Naiffawzy" class="footer-pill" target="_blank">👻 Naiffawzy</a>
+  </div>
+  <div class="footer-disclaimer">⚠️ معلومة توعوية — لا تُعد استشارة قانونية</div>
+</footer>
+
+</body>
+</html>
