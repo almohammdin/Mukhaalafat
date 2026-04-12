@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>آلية الاعتراض على المخالفات — قبل وبعد الأمر الملكي | نايف المحمدي</title>
+<title>الاعتراض على المخالفات بعد الأمر الملكي | نموذج اعتراض جاهز | نايف المحمدي</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -1221,8 +1221,38 @@ footer {
   .asst-preview-wrap  { position: static; }
 }
 
-.asst-toast {
-  position: fixed;
+/* ═══ PRE-TOOL BOX ═══ */
+.pre-tool-box {
+  background: var(--navy);
+  border-radius: var(--radius);
+  padding: 20px 20px 18px;
+  box-shadow: var(--shadow-md);
+}
+.pre-tool-head { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+.pre-tool-icon { font-size: 20px; }
+.pre-tool-title { font-size: 15px; font-weight: 700; color: #6EE08A; }
+.pre-tool-list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; padding: 0; }
+.pre-tool-list li { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: rgba(255,255,255,0.82); line-height: 1.55; }
+.pre-tool-list li::before { content: '✓'; color: #6EE08A; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+.pre-tool-notice { display: flex; align-items: flex-start; gap: 8px; background: rgba(183,119,13,0.18); border: 1px solid rgba(240,204,122,0.35); border-radius: var(--radius-sm); padding: 10px 13px; font-size: 12px; color: #F0CC7A; line-height: 1.55; margin-bottom: 10px; }
+.pre-tool-trust  { display: flex; align-items: flex-start; gap: 8px; background: rgba(26,74,127,0.35); border: 1px solid rgba(162,189,229,0.3); border-radius: var(--radius-sm); padding: 10px 13px; font-size: 12px; color: #A2BDE5; line-height: 1.55; }
+
+.asst-back-btn {
+  background: var(--bg);
+  color: var(--navy);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 20px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+.asst-back-btn:hover { background: #e8ecf0; border-color: var(--navy); }
+
+
   bottom: 24px;
   left: 50%;
   transform: translateX(-50%);
@@ -1459,9 +1489,33 @@ footer {
   <div class="hero-name">نايف المحمدي</div>
   <div class="hero-title">مستشار الحوكمة وتطوير الأعمال</div>
   <div class="hero-divider"></div>
-  <h1>الفرق بين آلية الاعتراض<br>على المخالفات <em>قبل وبعد</em> الأمر الملكي</h1>
-  <p class="hero-sub">استثناء مؤقت أعاد فتح باب الاعتراض على مخالفات سابقة سقطت مددها وفق ضوابط محددة، وذلك بالأمر الملكي رقم (82241) — 16 شوال 1447هـ</p>
+  <div class="decree-badge">⚡ استثناء مؤقت أعاد فتح باب الاعتراض على مخالفات سابقة ضمن شروط محددة</div>
+  <h1>الاعتراض على المخالفات<br>بعد الأمر الملكي<br><em>نموذج اعتراض جاهز للتقديم</em></h1>
+  <p class="hero-sub">تحقّق من أهليتك، وأنشئ اعتراضك تلقائيًا، وتعرّف على آلية التقديم وفق الضوابط المحددة في الأمر الملكي رقم (82241) وتاريخه 16/10/1447هـ.</p>
 </header>
+
+<!-- ══ PRE-TOOL INTRO ══ -->
+<section class="section" style="padding-bottom:0">
+  <div class="pre-tool-box">
+    <div class="pre-tool-head">
+      <span class="pre-tool-icon">🧠</span>
+      <span class="pre-tool-title">قبل أن تبدأ</span>
+    </div>
+    <ul class="pre-tool-list">
+      <li>هذا النموذج يساعدك على تقييم مبدئي لأهليتك للاعتراض</li>
+      <li>ويُمكّنك من إنشاء نص اعتراض احترافي بشكل تلقائي</li>
+      <li>مع توضيح آلية التقديم على الجهة المختصة</li>
+    </ul>
+    <div class="pre-tool-notice">
+      <span>⚠️</span>
+      <span>هذا التقييم إرشادي، ويعتمد على المعلومات التي تدخلها، ولا يُعد حكمًا نظاميًا نهائيًا.</span>
+    </div>
+    <div class="pre-tool-trust">
+      <span>🔒</span>
+      <span>هذه الأداة لا تحفظ أي بيانات — جميع المعلومات تبقى في جهازك فقط وتُستخدم لتوليد نص الاعتراض.</span>
+    </div>
+  </div>
+</section>
 
 <!-- ══ INTERACTIVE ASSISTANT ══ -->
 <section class="section" id="assistant-section">
@@ -1538,7 +1592,6 @@ footer {
 
   <!-- PHASE 2 -->
   <div id="phase-2" class="asst-phase hidden">
-    <div class="trust-banner"><span class="trust-icon">🔒</span><span>هذه الأداة لا تحفظ أي بيانات. جميع المعلومات تبقى في جهازك فقط، وتُستخدم لتوليد نص اعتراض مبدئي.</span></div>
 
     <div class="asst-phase2-layout">
       <!-- FORM -->
@@ -1652,7 +1705,10 @@ footer {
                 <input class="asst-input" id="f-today" type="text" placeholder="مثال: 10/05/2026م">
               </div>
             </div>
-            <button class="asst-next-btn" style="width:100%;margin-top:8px" onclick="goToPhase(3)">الانتقال لآلية التقديم ←</button>
+            <div style="display:flex;gap:10px;margin-top:8px">
+              <button class="asst-back-btn" onclick="goToPhase(1)">→ السابق</button>
+              <button class="asst-next-btn" style="flex:1" onclick="goToPhase(3)">الانتقال لآلية التقديم ←</button>
+            </div>
           </div>
         </div>
       </div>
@@ -1681,7 +1737,8 @@ footer {
       <div class="asst-warn-card asst-warn-amber"><div class="asst-warn-icon">⚠️</div><div class="asst-warn-text">هذه الأداة تقدم تقييمًا مبدئيًا وصياغة أولية فقط، ولا تُعد استشارة قانونية. التحقق النهائي مسؤولية المستخدم أو من يستشيره.</div></div>
       <div class="asst-warn-card asst-warn-blue"><div class="asst-warn-icon">⚖️</div><div class="asst-warn-text">عند رفض الجهة للاعتراض، قد يكون لك — بحسب الحالة — حق الاعتراض أمام المحكمة الإدارية خلال 60 يومًا من تاريخ الرفض.</div></div>
     </div>
-    <div style="text-align:center;margin-top:16px">
+    <div style="text-align:center;margin-top:16px;display:flex;gap:10px;justify-content:center">
+      <button class="asst-back-btn" onclick="goToPhase(2)">→ السابق</button>
       <button class="asst-reset-btn" onclick="resetAssistant()">🔄 البدء من جديد</button>
     </div>
   </div>
@@ -2134,46 +2191,71 @@ function getAgencyName() {
 }
 
 function buildLetterText() {
-  var name   = document.getElementById('f-name').value.trim();
-  var entity = document.getElementById('f-entity').value.trim();
-  var fid    = document.getElementById('f-id').value.trim();
-  var fcr    = document.getElementById('f-cr').value.trim();
-  var flic   = document.getElementById('f-lic').value.trim();
-  var vnum   = document.getElementById('f-vnum').value.trim();
-  var vdate  = document.getElementById('f-vdate').value.trim();
-  var famt   = document.getElementById('f-vamt').value.trim();
-  var agency = getAgencyName();
-  var desc   = document.getElementById('f-desc').value.trim();
-  var reasons= document.getElementById('f-reasons').value.trim();
-  var phone  = document.getElementById('f-phone').value.trim();
-  var today  = document.getElementById('f-today').value.trim();
+  var name    = document.getElementById('f-name').value.trim();
+  var entity  = document.getElementById('f-entity').value.trim();
+  var fid     = document.getElementById('f-id').value.trim();
+  var fcr     = document.getElementById('f-cr').value.trim();
+  var flic    = document.getElementById('f-lic').value.trim();
+  var vnum    = document.getElementById('f-vnum').value.trim();
+  var vdate   = document.getElementById('f-vdate').value.trim();
+  var famt    = document.getElementById('f-vamt').value.trim();
+  var agency  = getAgencyName();
+  var desc    = document.getElementById('f-desc').value.trim();
+  var reasons = document.getElementById('f-reasons').value.trim();
+  var phone   = document.getElementById('f-phone').value.trim();
+  var today   = document.getElementById('f-today').value.trim();
 
-  var agencyD  = (agency && agency !== '\u0627\u0644\u062c\u0647\u0629 \u0627\u0644\u0645\u062e\u062a\u0635\u0629') ? agency : '\u2014';
-  var vnumD    = vnum    || '\u2014';
-  var vdateD   = vdate   || '\u2014';
-  var descD    = desc    || '[ \u064a\u064f\u0633\u062a\u0643\u0645\u0644 \u0644\u0627\u062d\u0642\u064b\u0627 ]';
-  var reasonsD = reasons || '[ \u064a\u064f\u0633\u062a\u0643\u0645\u0644 \u0644\u0627\u062d\u0642\u064b\u0627 ]';
-  var todayD   = today   || '\u2014';
-  var amtLine  = famt ? ' \u0628\u0642\u064a\u0645\u0629 ' + famt + ' \u0631\u064a\u0627\u0644' : '';
+  var agencyD  = (agency && agency !== 'الجهة المختصة') ? agency : '—';
+  var vnumD    = vnum    || '—';
+  var vdateD   = vdate   || '—';
+  var descD    = desc    || '[ يُستكمل لاحقًا ]';
+  var reasonsD = reasons || '[ يُستكمل لاحقًا ]';
+  var todayD   = today   || '—';
+  var amtLine  = famt ? ' بقيمة ' + famt + ' ريال' : '';
 
   var NL = '\n';
-  var sig = (name || '\u2014');
-  if (entity) sig += NL + '\u0627\u0644\u0645\u0646\u0634\u0623\u0629: ' + entity;
-  if (fid)    sig += NL + '\u0631\u0642\u0645 \u0627\u0644\u0647\u0648\u064a\u0629 / \u0627\u0644\u0625\u0642\u0627\u0645\u0629: ' + fid;
-  if (fcr)    sig += NL + '\u0631\u0642\u0645 \u0627\u0644\u0633\u062c\u0644 \u0627\u0644\u062a\u062c\u0627\u0631\u064a: ' + fcr;
-  if (flic)   sig += NL + '\u0631\u0642\u0645 \u0627\u0644\u0631\u062e\u0635\u0629 / \u0627\u0644\u0645\u0646\u0634\u0623\u0629: ' + flic;
-  sig += NL + '\u0631\u0642\u0645 \u0627\u0644\u062c\u0648\u0627\u0644: ' + (phone || '\u2014');
-  sig += NL + '\u0627\u0644\u062a\u0627\u0631\u064a\u062e: ' + todayD;
+  var sig = (name || '—');
+  if (entity) sig += NL + 'المنشأة: ' + entity;
+  if (fid)    sig += NL + 'رقم الهوية / الإقامة: ' + fid;
+  if (fcr)    sig += NL + 'رقم السجل التجاري: ' + fcr;
+  if (flic)   sig += NL + 'رقم الرخصة / المنشأة: ' + flic;
+  sig += NL + 'رقم الجوال: ' + (phone || '—');
+  sig += NL + 'التاريخ: ' + todayD;
 
-  var L1  = '\u0627\u0644\u0633\u0627\u062f\u0629 / ' + agencyD;
-  var L2  = '\u0627\u0644\u0633\u0644\u0627\u0645 \u0639\u0644\u064a\u0643\u0645 \u0648\u0631\u062d\u0645\u0629 \u0627\u0644\u0644\u0647 \u0648\u0628\u0631\u0643\u0627\u062a\u0647\u060c \u0648\u0628\u0639\u062f:';
-  var L3  = '\u0625\u0634\u0627\u0631\u0629 \u0625\u0644\u0649 \u0627\u0644\u0623\u0645\u0631 \u0627\u0644\u0645\u0644\u0643\u064a \u0627\u0644\u0643\u0631\u064a\u0645 \u0631\u0642\u0645 (82241) \u0648\u062a\u0627\u0631\u064a\u062e 16/10/1447\u0647\u0640\u060c \u0648\u0645\u0627 \u062a\u0636\u0645\u0646\u0647 \u0645\u0646 \u0625\u062a\u0627\u062d\u0629 \u0627\u0644\u062a\u0638\u0644\u0645 \u0639\u0644\u0649 \u0628\u0639\u0636 \u0627\u0644\u0645\u062e\u0627\u0644\u0641\u0627\u062a \u062e\u0644\u0627\u0644 \u0645\u062f\u0629 \u0633\u062a\u064a\u0646 \u064a\u0648\u0645\u064b\u0627 \u0648\u0641\u0642 \u0627\u0644\u0636\u0648\u0627\u0628\u0637 \u0627\u0644\u0645\u0639\u0644\u0646\u0629\u060c \u0648\u062d\u064a\u062b \u0635\u062f\u0631\u062a \u0628\u062d\u0642\u064a / \u0628\u062d\u0642 \u0627\u0644\u0645\u0646\u0634\u0623\u0629 \u0645\u062e\u0627\u0644\u0641\u0629 \u0631\u0642\u0645 (' + vnumD + ') \u0628\u062a\u0627\u0631\u064a\u062e ' + vdateD + amtLine + '\u060c \u0648\u0643\u0627\u0646\u062a \u2014 \u0628\u062d\u0633\u0628 \u0625\u0641\u0627\u062f\u062a\u064a \u2014 \u0645\u0646 \u0627\u0644\u0645\u062e\u0627\u0644\u0641\u0627\u062a \u0627\u0644\u062a\u064a \u062a\u0646\u0637\u0628\u0642 \u0639\u0644\u064a\u0647\u0627 \u0627\u0644\u0634\u0631\u0648\u0637 \u0627\u0644\u0645\u0634\u0627\u0631 \u0625\u0644\u064a\u0647\u0627\u060c \u0645\u0646 \u062d\u064a\u062b \u0635\u062f\u0648\u0631\u0647\u0627 \u0642\u0628\u0644 1 \u0646\u0648\u0641\u0645\u0628\u0631 2024\u0645\u060c \u0648\u0639\u062f\u0645 \u0633\u062f\u0627\u062f\u0647\u0627\u060c \u0648\u0639\u062f\u0645 \u0633\u0628\u0642 \u0627\u0644\u0627\u0639\u062a\u0631\u0627\u0636 \u0639\u0644\u064a\u0647\u0627\u060c \u0648\u0639\u062f\u0645 \u0643\u0648\u0646\u0647\u0627 \u0645\u0646 \u0645\u062e\u0627\u0644\u0641\u0627\u062a \u0627\u0644\u0625\u062c\u0631\u0627\u0621\u0627\u062a \u0627\u0644\u0627\u062d\u062a\u0631\u0627\u0632\u064a\u0629 \u0623\u0648 \u0627\u0644\u0645\u062e\u0627\u0644\u0641\u0627\u062a \u0627\u0644\u0645\u0631\u0648\u0631\u064a\u0629\u060c \u0641\u0625\u0646\u064a \u0623\u062a\u0642\u062f\u0645 \u0625\u0644\u0649 \u0645\u0642\u0627\u0645\u0643\u0645 \u0628\u0647\u0630\u0627 \u0627\u0644\u0627\u0639\u062a\u0631\u0627\u0636 \u0631\u0627\u062c\u064a\u064b\u0627 \u0627\u0644\u0646\u0638\u0631 \u0641\u064a\u0647 \u0648\u0625\u0644\u063a\u0627\u0621 \u0627\u0644\u0645\u062e\u0627\u0644\u0641\u0629 \u0623\u0648 \u0625\u0639\u0627\u062f\u0629 \u062a\u0642\u064a\u064a\u0645\u0647\u0627 \u0648\u0641\u0642 \u0645\u0627 \u064a\u0638\u0647\u0631 \u0644\u0643\u0645.';
-  var L4  = '\u0623\u0648\u0644\u064b\u0627 \u2014 \u0648\u0642\u0627\u0626\u0639 \u0627\u0644\u0645\u062e\u0627\u0644\u0641\u0629:';
-  var L5  = '\u062b\u0627\u0646\u064a\u064b\u0627 \u2014 \u0623\u0633\u0628\u0627\u0628 \u0627\u0644\u0627\u0639\u062a\u0631\u0627\u0636:';
-  var L6  = '\u0648\u0639\u0644\u064a\u0647\u060c \u0622\u0645\u0644 \u0645\u0646 \u0645\u0642\u0627\u0645\u0643\u0645 \u0627\u0644\u062a\u0643\u0631\u0645 \u0628\u0642\u0628\u0648\u0644 \u0647\u0630\u0627 \u0627\u0644\u0627\u0639\u062a\u0631\u0627\u0636\u060c \u0648\u0627\u0644\u0646\u0638\u0631 \u0641\u064a \u0623\u0633\u0628\u0627\u0628\u0647 \u0648\u0645\u0631\u0641\u0642\u0627\u062a\u0647\u060c \u0648\u0625\u0644\u063a\u0627\u0621 \u0627\u0644\u0645\u062e\u0627\u0644\u0641\u0629 \u0623\u0648 \u062a\u0639\u062f\u064a\u0644\u0647\u0627 \u0628\u062d\u0633\u0628 \u0645\u0627 \u064a\u0638\u0647\u0631 \u0644\u0643\u0645.\n\u0648\u062a\u0641\u0636\u0644\u0648\u0627 \u0628\u0642\u0628\u0648\u0644 \u0641\u0627\u0626\u0642 \u0627\u0644\u0627\u062d\u062a\u0631\u0627\u0645 \u0648\u0627\u0644\u062a\u0642\u062f\u064a\u0631.';
-  var L7  = '\u0645\u0642\u062f\u0645\u0647:';
+  var intro =
+    '\u0625\u0634\u0627\u0631\u0629 \u0625\u0644\u0649 \u0627\u0644\u0623\u0645\u0631 \u0627\u0644\u0645\u0644\u0643\u064a \u0627\u0644\u0643\u0631\u064a\u0645 \u0631\u0642\u0645 (82241) \u0648\u062a\u0627\u0631\u064a\u062e 16/10/1447\u0647\u0640\u060c \u0627\u0644\u0645\u062a\u0636\u0645\u0651\u0646 \u0625\u062a\u0627\u062d\u0629 \u0627\u0644\u062a\u0638\u0644\u0645 \u0639\u0644\u0649 \u0628\u0639\u0636 \u0627\u0644\u0645\u062e\u0627\u0644\u0641\u0627\u062a \u062e\u0644\u0627\u0644 \u0645\u062f\u0629 \u0633\u062a\u064a\u0646 \u064a\u0648\u0645\u064b\u0627 \u0648\u0641\u0642 \u0627\u0644\u0636\u0648\u0627\u0628\u0637 \u0627\u0644\u0645\u062d\u062f\u062f\u0629\u060c' +
+    ' \u0648\u062d\u064a\u062b \u0635\u062f\u0631\u062a \u0628\u062d\u0642\u064a \u0645\u062e\u0627\u0644\u0641\u0629 \u0631\u0642\u0645 (' + vnumD + ') \u0628\u062a\u0627\u0631\u064a\u062e ' + vdateD + amtLine + ' \u062a\u0646\u0637\u0628\u0642 \u0639\u0644\u064a\u0647\u0627 \u0627\u0644\u0634\u0631\u0648\u0637 \u0627\u0644\u0645\u0634\u0627\u0631 \u0625\u0644\u064a\u0647\u0627\u060c' +
+    ' \u0641\u0625\u0646\u064a \u0623\u062a\u0642\u062f\u0645 \u0628\u0647\u0630\u0627 \u0627\u0644\u0627\u0639\u062a\u0631\u0627\u0636\u060c \u0648\u0623\u0637\u0644\u0628 \u0625\u0644\u063a\u0627\u0621 \u0627\u0644\u0645\u062e\u0627\u0644\u0641\u0629 \u0645\u062d\u0644 \u0627\u0644\u0627\u0639\u062a\u0631\u0627\u0636\u060c \u0648\u0630\u0644\u0643 \u0644\u0644\u0623\u0633\u0628\u0627\u0628 \u0627\u0644\u0645\u0628\u064a\u0646\u0629 \u0623\u062f\u0646\u0627\u0647.'
 
-  return [L1, NL, L2, NL + NL, L3, NL + NL, L4, NL, descD, NL + NL, L5, NL, reasonsD, NL + NL, L6, NL + NL, L7, NL, sig].join('');
+  var closing =
+    'وعليه، أتمسك بهذا الاعتراض،' +
+    ' وأطلب إلغاء المخالفة محل الاعتراض،' +
+    ' لعدم قيامها على أساس نظامي سليم،' +
+    ' وذلك وفق ما تم بيانه أعلاه.' +
+    '\nوتفضلوا بقبول فائق الاحترام والتقدير.';
+
+  var parts = [
+    'السادة / ' + agencyD,
+    NL,
+    'السلام عليكم ورحمة الله وبركاته، وبعد:',
+    NL + NL,
+    intro,
+    NL + NL,
+    'أولًا — وقائع المخالفة:',
+    NL,
+    descD,
+    NL + NL,
+    'ثانيًا — أسباب الاعتراض:',
+    NL,
+    reasonsD,
+    NL + NL,
+    closing,
+    NL + NL,
+    'مقدمه:',
+    NL,
+    sig
+  ];
+  return parts.join('');
 }
 function livePreview() {
   var box = document.getElementById('letter-text');
