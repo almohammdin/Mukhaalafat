@@ -2665,178 +2665,170 @@ function resetAssistant() {
 
 /* ════════════════════════════════════
    DATE PICKER v3 — Popup Calendar
-   خوارزمية الجوليان الصحيحة
+   (تقويم أم القرى الأصلي - Intl.DateTimeFormat)
 ════════════════════════════════════ */
-var HIJRI_M=['محرم','صفر','ربيع الأول','ربيع الآخر','جمادى الأولى','جمادى الآخرة','رجب','شعبان','رمضان','شوال','ذو القعدة','ذو الحجة'];
-var GREG_M =['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'];
-var dpSt={};
-var DP_NOW=(function(){var d=new Date();return{y:d.getFullYear(),m:d.getMonth()+1,d:d.getDate()};})();
+var HIJRI_M = ['محرم', 'صفر', 'ربيع الأول', 'ربيع الآخر', 'جمادى الأولى', 'جمادى الآخرة', 'رجب', 'شعبان', 'رمضان', 'شوال', 'ذو القعدة', 'ذو الحجة'];
+var GREG_M  = ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'];
+var dpSt = {};
 
-/* ── Julian Day Number ── */
-function gToJD(y,m,d){
-  var a=Math.floor((14-m)/12); var yy=y+4800-a; var mm=m+12*a-3;
-  return d+Math.floor((153*mm+2)/5)+365*yy+Math.floor(yy/4)-Math.floor(yy/100)+Math.floor(yy/400)-32045;
+/* استخراج تاريخ أم القرى من كائن Date */
+function getUmalqura(date) {
+  var parts = new Intl.DateTimeFormat('en-US-u-ca-islamic-umalqura', {
+    timeZone: 'Asia/Riyadh', year: 'numeric', month: 'numeric', day: 'numeric'
+  }).formatToParts(date);
+  return {
+    y: parseInt(parts.find(function(p){ return p.type==='year';  }).value),
+    m: parseInt(parts.find(function(p){ return p.type==='month'; }).value),
+    d: parseInt(parts.find(function(p){ return p.type==='day';   }).value)
+  };
 }
-function hToJD(hy,hm,hd){
-  return Math.floor((11*hy+3)/30)+354*hy+30*hm-Math.floor((hm-1)/2)+hd+1948440-385;
-}
-function jdToG(JD){
-  var l=JD+68569, n=Math.floor(4*l/146097);
-  l=l-Math.floor((146097*n+3)/4);
-  var i=Math.floor(4000*(l+1)/1461001);
-  l=l-Math.floor(1461*i/4)+31;
-  var j=Math.floor(80*l/2447);
-  var gd=l-Math.floor(2447*j/80);
-  l=Math.floor(j/11); var gm=j+2-12*l; var gy=100*(n-49)+i+l;
-  return{y:gy,m:gm,d:gd};
-}
-function jdToH(JD){
-  var l=JD-1948440+10632, n=Math.floor((l-1)/10631);
-  l=l-10631*n+354;
-  var j=Math.floor((10985-l)/5316)*Math.floor(50*l/17719)+Math.floor(l/5670)*Math.floor(43*l/15238);
-  l=l-Math.floor((30-j)/15)*Math.floor(17719*j/50)-Math.floor(j/16)*Math.floor(15238*j/43)+29;
-  var hm=Math.min(12,Math.floor(24*l/709));
-  var hd=l-Math.floor(709*hm/24);
-  return{y:30*n+j-30,m:hm,d:hd};
-}
-function g2h(gy,gm,gd){return jdToH(gToJD(gy,gm,gd));}
-function h2g(hy,hm,hd){return jdToG(hToJD(hy,hm,hd));}
 
-/* ── أيام الشهر ── */
-function hLeap(hy){return[2,5,7,10,13,16,18,21,24,26,29].indexOf(hy%30)>=0;}
-function hDays(hy,hm){if(hm%2===1)return 30;if(hm===12)return hLeap(hy)?30:29;return 29;}
-function gDays(gy,gm){if(gm===2)return(gy%4===0&&(gy%100!==0||gy%400===0))?29:28;return[31,28,31,30,31,30,31,31,30,31,30,31][gm-1];}
+/* تحويل تاريخ هجري → ميلادي (بحث) */
+function hijriToGregorian(hy, hm, hd) {
+  var gYear = Math.floor((hy - 1446) * 0.970229) + 2024;
+  var d = new Date(gYear, 5, 1);
+  for (var i = 0; i < 500; i++) {
+    var h = getUmalqura(d);
+    if (h.y === hy && h.m === hm) {
+      d.setDate(d.getDate() - h.d + 1);
+      d.setDate(d.getDate() + hd - 1);
+      return d;
+    }
+    var diff = (hy - h.y) * 354 + (hm - h.m) * 29.5;
+    d.setDate(d.getDate() + (Math.round(diff) || (diff > 0 ? 1 : -1)));
+  }
+  return d;
+}
 
 /* ── رسم التقويم ── */
-function dpRender(id){
-  var st=dpSt[id]; if(!st)return;
-  var cal=st.cal, vy=st.vy, vm=st.vm;
-  /* العنوان */
-  document.getElementById('dp-'+id+'-label').textContent=
-    (cal==='hijri'?HIJRI_M[vm-1]+' '+vy+'هـ':GREG_M[vm-1]+' '+vy+'م');
-  /* أول يوم في الشهر — يوم الأسبوع */
-  var firstDow, maxDays;
-  if(cal==='hijri'){
-    var g=h2g(vy,vm,1); firstDow=new Date(g.y,g.m-1,g.d).getDay(); maxDays=hDays(vy,vm);
+function dpRender(id) {
+  var st = dpSt[id]; if (!st) return;
+  var cal = st.cal, vy = st.vy, vm = st.vm;
+
+  document.getElementById('dp-' + id + '-label').textContent =
+    (cal === 'hijri' ? HIJRI_M[vm-1] + ' ' + vy + 'هـ' : GREG_M[vm-1] + ' ' + vy + 'م');
+
+  var box = document.getElementById('dp-' + id + '-days');
+  box.innerHTML = '';
+
+  var firstDayDate, maxDays;
+  if (cal === 'hijri') {
+    firstDayDate = hijriToGregorian(vy, vm, 1);
+    var nextMonthDate = hijriToGregorian(vm === 12 ? vy + 1 : vy, vm === 12 ? 1 : vm + 1, 1);
+    nextMonthDate.setDate(nextMonthDate.getDate() - 1);
+    maxDays = getUmalqura(nextMonthDate).d;
   } else {
-    firstDow=new Date(vy,vm-1,1).getDay(); maxDays=gDays(vy,vm);
+    firstDayDate = new Date(vy, vm - 1, 1);
+    maxDays = new Date(vy, vm, 0).getDate();
   }
-  var box=document.getElementById('dp-'+id+'-days'); box.innerHTML='';
-  /* خلايا فارغة */
-  for(var e=0;e<firstDow;e++){var em=document.createElement('div');em.className='dp-day dp-mt';em.textContent='·';box.appendChild(em);}
-  /* تاريخ اليوم الحالي هجري */
-  var th=g2h(DP_NOW.y,DP_NOW.m,DP_NOW.d);
-  for(var dy=1;dy<=maxDays;dy++){
-    var cell=document.createElement('div'); cell.className='dp-day';
-    var dow=(firstDow+dy-1)%7;
-    if(dow===5)cell.classList.add('dp-fri');
-    /* اليوم الحالي */
-    var isNow=cal==='hijri'?(dy===th.d&&vm===th.m&&vy===th.y):(dy===DP_NOW.d&&vm===DP_NOW.m&&vy===DP_NOW.y);
-    if(isNow)cell.classList.add('dp-today-mark');
-    /* المختار */
-    if(st.sd&&dy===st.sd&&vm===st.sm&&vy===st.sy)cell.classList.add('dp-selected');
-    cell.textContent=dy;
-    (function(day){cell.addEventListener('click',function(){dpPick(id,day);});})(dy);
+
+  var firstDow = firstDayDate.getDay();
+  for (var e = 0; e < firstDow; e++) {
+    var em = document.createElement('div'); em.className = 'dp-day dp-mt'; em.textContent = '·'; box.appendChild(em);
+  }
+
+  var nowG = new Date();
+  var nowH = getUmalqura(nowG);
+
+  for (var dy = 1; dy <= maxDays; dy++) {
+    var cell = document.createElement('div'); cell.className = 'dp-day';
+    var dow = (firstDow + dy - 1) % 7;
+    if (dow === 5) cell.classList.add('dp-fri');
+    var isNow = (cal === 'hijri') ?
+      (dy === nowH.d && vm === nowH.m && vy === nowH.y) :
+      (dy === nowG.getDate() && vm === (nowG.getMonth()+1) && vy === nowG.getFullYear());
+    if (isNow) cell.classList.add('dp-today-mark');
+    if (st.sd && dy === st.sd && vm === st.sm && vy === st.sy && st.scal === cal)
+      cell.classList.add('dp-selected');
+    cell.textContent = dy;
+    (function(day){ cell.addEventListener('click', function(){ dpPick(id, day); }); })(dy);
     box.appendChild(cell);
   }
 }
 
 /* ── اختيار يوم ── */
-function dpPick(id,day){
-  var st=dpSt[id]; st.sd=day; st.sm=st.vm; st.sy=st.vy;
-  var fmt=String(day).padStart(2,'0')+'/'+String(st.vm).padStart(2,'0')+'/'+st.vy+(st.cal==='hijri'?'هـ':'م');
-  var valEl=document.getElementById('dp-'+id+'-val');
-  valEl.textContent=fmt; valEl.classList.add('has-val');
-  document.getElementById('f-'+id).value=fmt;
+function dpPick(id, day) {
+  var st = dpSt[id]; st.sd = day; st.sm = st.vm; st.sy = st.vy; st.scal = st.cal;
+  var fmt = String(day).padStart(2,'0') + '/' + String(st.sm).padStart(2,'0') + '/' + st.sy + (st.cal==='hijri'?'هـ':'م');
+  var valEl = document.getElementById('dp-' + id + '-val');
+  valEl.textContent = fmt; valEl.classList.add('has-val');
+  document.getElementById('f-' + id).value = fmt;
   dpRender(id); dpClose(id); livePreview();
-  /* تحقق من تاريخ المخالفة */
-  if(id==='vdate') checkVdateWarning(st);
+  if (id === 'vdate') checkVdateWarning(st);
 }
 
-/* ── التحقق: تاريخ المخالفة يجب أن يكون قبل 1 نوفمبر 2024م ── */
-/* الحد الأقصى: 31 أكتوبر 2024 = 27 ربيع الآخر 1446 هـ */
-/* أي تاريخ >= 1 نوفمبر 2024 يُظهر التحذير */
-var VDATE_LIMIT_JD = gToJD(2024, 11, 1); /* JD ليوم 1 نوفمبر 2024 */
-
-function checkVdateWarning(st){
+/* ── التحقق: تاريخ المخالفة يجب قبل 1 نوفمبر 2024م ── */
+function checkVdateWarning(st) {
   var warn = document.getElementById('vdate-warning');
-  if(!warn||!st||!st.sd) return;
-  var jd;
-  if(st.cal==='hijri') jd = hToJD(st.sy, st.sm, st.sd);
-  else                  jd = gToJD(st.sy, st.sm, st.sd);
-  if(jd >= VDATE_LIMIT_JD){
-    warn.style.display='flex';
-  } else {
-    warn.style.display='none';
-  }
+  if (!warn || !st || !st.sd) return;
+  var selGreg = (st.scal === 'hijri') ? hijriToGregorian(st.sy, st.sm, st.sd) : new Date(st.sy, st.sm-1, st.sd);
+  var limitDate = new Date(2024, 10, 1);
+  selGreg.setHours(0,0,0,0); limitDate.setHours(0,0,0,0);
+  warn.style.display = (selGreg >= limitDate) ? 'flex' : 'none';
 }
 
-/* ── فتح / إغلاق ── */
-function dpOpen(id){document.getElementById('dp-'+id+'-panel').style.display='block';}
-function dpClose(id){document.getElementById('dp-'+id+'-panel').style.display='none';}
-function dpToggle(id){
-  var p=document.getElementById('dp-'+id+'-panel');
-  if(p.style.display==='block'){p.style.display='none';}else{
-    /* أغلق باقي التقاويم */
-    ['vdate','today'].forEach(function(x){if(x!==id)dpClose(x);});
-    p.style.display='block';
+/* ── فتح / إغلاق / تنقل ── */
+function dpOpen(id)  { document.getElementById('dp-' + id + '-panel').style.display = 'block'; }
+function dpClose(id) { document.getElementById('dp-' + id + '-panel').style.display = 'none';  }
+function dpToggle(id) {
+  var p = document.getElementById('dp-' + id + '-panel');
+  if (p.style.display === 'block') { p.style.display = 'none'; } else {
+    ['vdate','today'].forEach(function(x){ if(x!==id) dpClose(x); });
+    p.style.display = 'block';
   }
 }
-
-/* ── تنقل ── */
-function dpNavMonth(id,dir){
-  var st=dpSt[id]; st.vm+=dir;
-  if(st.vm<1){st.vm=12;st.vy--;}if(st.vm>12){st.vm=1;st.vy++;}
+function dpNavMonth(id, dir) {
+  var st = dpSt[id]; st.vm += dir;
+  if (st.vm < 1) { st.vm = 12; st.vy--; } if (st.vm > 12) { st.vm = 1; st.vy++; }
   dpRender(id);
 }
-function dpNavYear(id,dir){dpSt[id].vy+=dir;dpRender(id);}
+function dpNavYear(id, dir) { dpSt[id].vy += dir; dpRender(id); }
 
 /* ── تبديل التقويم ── */
-function dpSetCal(id,cal,btn){
-  var st=dpSt[id]||{}; var old=st.cal||'hijri';
-  if(st.sd){
-    var conv;
-    if(cal==='hijri'&&old==='gregorian'){conv=g2h(st.sy,st.sm,st.sd);}
-    else if(cal==='gregorian'&&old==='hijri'){conv=h2g(st.sy,st.sm,st.sd);}
-    if(conv){st.sy=conv.y;st.sm=conv.m;st.sd=conv.d;st.vy=conv.y;st.vm=conv.m;}
-    /* تحديث العرض */
-    if(st.sd){
-      var fmt=String(st.sd).padStart(2,'0')+'/'+String(st.sm).padStart(2,'0')+'/'+st.sy+(cal==='hijri'?'هـ':'م');
-      var valEl=document.getElementById('dp-'+id+'-val');
-      valEl.textContent=fmt; valEl.classList.add('has-val');
-      document.getElementById('f-'+id).value=fmt; livePreview();
-    }
+function dpSetCal(id, cal, btn) {
+  var st = dpSt[id]; if (!st || st.cal === cal) return;
+  var centerDate = (st.cal === 'hijri') ? hijriToGregorian(st.vy, st.vm, 15) : new Date(st.vy, st.vm-1, 15);
+  st.cal = cal;
+  if (cal === 'hijri') { var h = getUmalqura(centerDate); st.vy = h.y; st.vm = h.m; }
+  else { st.vy = centerDate.getFullYear(); st.vm = centerDate.getMonth()+1; }
+  if (st.sd) {
+    var selGreg = (st.scal==='hijri') ? hijriToGregorian(st.sy, st.sm, st.sd) : new Date(st.sy, st.sm-1, st.sd);
+    if (cal === 'hijri') { var nH = getUmalqura(selGreg); st.sy=nH.y; st.sm=nH.m; st.sd=nH.d; }
+    else { st.sy=selGreg.getFullYear(); st.sm=selGreg.getMonth()+1; st.sd=selGreg.getDate(); }
+    st.scal = cal;
+    var fmt = String(st.sd).padStart(2,'0')+'/'+String(st.sm).padStart(2,'0')+'/'+st.sy+(cal==='hijri'?'هـ':'م');
+    document.getElementById('dp-' + id + '-val').textContent = fmt;
+    document.getElementById('dp-' + id + '-val').classList.add('has-val');
+    document.getElementById('f-' + id).value = fmt;
+    livePreview();
   }
-  st.cal=cal; dpSt[id]=st;
-  var wrap=document.getElementById('dp-'+id);
-  wrap.querySelectorAll('.dp-cb').forEach(function(b){b.classList.remove('dp-active');});
+  var wrap = document.getElementById('dp-' + id);
+  wrap.querySelectorAll('.dp-cb').forEach(function(b){ b.classList.remove('dp-active'); });
   btn.classList.add('dp-active');
   dpRender(id);
 }
 
 /* ── إغلاق عند النقر خارج التقويم ── */
-document.addEventListener('click',function(e){
-  ['vdate','today'].forEach(function(id){
-    var root=document.getElementById('dp-'+id);
-    if(root&&!root.contains(e.target))dpClose(id);
+document.addEventListener('click', function(e) {
+  ['vdate','today'].forEach(function(id) {
+    var root = document.getElementById('dp-' + id);
+    if (root && !root.contains(e.target)) dpClose(id);
   });
 });
 
-/* ── تهيئة بتاريخ اليوم ── */
-function dpInitToday(id){
-  var h=g2h(DP_NOW.y,DP_NOW.m,DP_NOW.d);
-  dpSt[id]={cal:'hijri',vy:h.y,vm:h.m,sy:h.y,sm:h.m,sd:h.d};
+/* ── التهيئة ── */
+function dpInitToday(id) {
+  var nowH = getUmalqura(new Date());
+  dpSt[id] = { cal:'hijri', vy:nowH.y, vm:nowH.m, sy:nowH.y, sm:nowH.m, sd:nowH.d, scal:'hijri' };
+  var fmt = String(nowH.d).padStart(2,'0')+'/'+String(nowH.m).padStart(2,'0')+'/'+nowH.y+'هـ';
+  var valEl = document.getElementById('dp-' + id + '-val');
+  valEl.textContent = fmt; valEl.classList.add('has-val');
+  document.getElementById('f-' + id).value = fmt;
   dpRender(id);
-  var fmt=String(h.d).padStart(2,'0')+'/'+String(h.m).padStart(2,'0')+'/'+h.y+'هـ';
-  var valEl=document.getElementById('dp-'+id+'-val');
-  valEl.textContent=fmt; valEl.classList.add('has-val');
-  document.getElementById('f-'+id).value=fmt;
 }
-
-/* ── تهيئة فارغة ── */
-function dpInitEmpty(id){
-  var h=g2h(DP_NOW.y,DP_NOW.m,DP_NOW.d);
-  dpSt[id]={cal:'hijri',vy:h.y,vm:h.m};
+function dpInitEmpty(id) {
+  var nowH = getUmalqura(new Date());
+  dpSt[id] = { cal:'hijri', vy:nowH.y, vm:nowH.m, sy:null, sm:null, sd:null, scal:null };
   dpRender(id);
 }
 
