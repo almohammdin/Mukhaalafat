@@ -1774,7 +1774,7 @@ footer {
             <!-- ③ وصف المخالفة → يظهر في متن الخطاب (أولاً) -->
             <div class="asst-form-row">
               <label class="asst-label">وصف المخالفة كما ورد في المحضر</label>
-              <textarea class="asst-input asst-textarea" id="f-desc" rows="3" placeholder="اذكر ما ورد في إشعار المخالفة باختصار — يضاف في متن الخطاب"></textarea>
+              <textarea class="asst-input asst-textarea" id="f-desc" rows="3" placeholder="اذكر ما ورد في إشعار المخالفة باختصار"></textarea>
             </div>
 
             <!-- ④ أسباب الاعتراض → يظهر في متن الخطاب (ثانياً) -->
@@ -1815,15 +1815,15 @@ footer {
 
             <!-- ⑤ بيانات التوقيع → تظهر في نهاية الخطاب -->
             <div style="border-top:1.5px dashed var(--border);margin:8px 0 16px;padding-top:14px;">
-              <div style="font-size:11px;font-weight:700;color:var(--muted);text-align:center;letter-spacing:.8px;margin-bottom:14px;">— بيانات التوقيع —</div>
+              <div style="font-size:11px;font-weight:700;color:var(--muted);text-align:center;letter-spacing:.8px;margin-bottom:14px;">— بيانات مقدم الطلب —</div>
 
               <div class="asst-form-row">
                 <label class="asst-label">اسم مقدم الاعتراض</label>
-                <input class="asst-input" id="f-name" type="text" placeholder="اختياري — يضاف في توقيع الخطاب">
+                <input class="asst-input" id="f-name" type="text" placeholder="اختياري ">
               </div>
               <div class="asst-form-row">
                 <label class="asst-label">اسم المنشأة / المؤسسة</label>
-                <input class="asst-input" id="f-entity" type="text" placeholder="اختياري — يضاف في توقيع الخطاب">
+                <input class="asst-input" id="f-entity" type="text" placeholder="اختياري ">
               </div>
               <div class="asst-form-grid">
                 <div class="asst-form-row">
@@ -2749,7 +2749,7 @@ function dpRender(id) {
 /* ── اختيار يوم ── */
 function dpPick(id, day) {
   var st = dpSt[id]; st.sd = day; st.sm = st.vm; st.sy = st.vy; st.scal = st.cal;
-  var fmt = String(day).padStart(2,'0') + '/' + String(st.sm).padStart(2,'0') + '/' + st.sy + (st.cal==='hijri'?'هـ':'م');
+  var fmt = st.sy + '/' + String(st.sm).padStart(2, '0') + '/' + String(day).padStart(2, '0') + (st.cal === 'hijri' ? 'هـ' : 'م');
   var valEl = document.getElementById('dp-' + id + '-val');
   valEl.textContent = fmt; valEl.classList.add('has-val');
   document.getElementById('f-' + id).value = fmt;
@@ -2796,7 +2796,7 @@ function dpSetCal(id, cal, btn) {
     if (cal === 'hijri') { var nH = getUmalqura(selGreg); st.sy=nH.y; st.sm=nH.m; st.sd=nH.d; }
     else { st.sy=selGreg.getFullYear(); st.sm=selGreg.getMonth()+1; st.sd=selGreg.getDate(); }
     st.scal = cal;
-    var fmt = String(st.sd).padStart(2,'0')+'/'+String(st.sm).padStart(2,'0')+'/'+st.sy+(cal==='hijri'?'هـ':'م');
+    var fmt = st.sy + '/' + String(st.sm).padStart(2, '0') + '/' + String(st.sd).padStart(2, '0') + (cal === 'hijri' ? 'هـ' : 'م');
     document.getElementById('dp-' + id + '-val').textContent = fmt;
     document.getElementById('dp-' + id + '-val').classList.add('has-val');
     document.getElementById('f-' + id).value = fmt;
@@ -2820,7 +2820,7 @@ document.addEventListener('click', function(e) {
 function dpInitToday(id) {
   var nowH = getUmalqura(new Date());
   dpSt[id] = { cal:'hijri', vy:nowH.y, vm:nowH.m, sy:nowH.y, sm:nowH.m, sd:nowH.d, scal:'hijri' };
-  var fmt = String(nowH.d).padStart(2,'0')+'/'+String(nowH.m).padStart(2,'0')+'/'+nowH.y+'هـ';
+  var fmt = nowH.y + '/' + String(nowH.m).padStart(2, '0') + '/' + String(nowH.d).padStart(2, '0') + 'هـ';
   var valEl = document.getElementById('dp-' + id + '-val');
   valEl.textContent = fmt; valEl.classList.add('has-val');
   document.getElementById('f-' + id).value = fmt;
