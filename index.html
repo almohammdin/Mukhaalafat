@@ -1497,6 +1497,76 @@ footer {
 
 
 
+
+/* ══ Date Picker — Calendar ══ */
+.dp-wrap { border:1.5px solid var(--border); border-radius:var(--radius-sm); background:#fafbfc; overflow:hidden; transition:border-color .2s; }
+.dp-wrap:focus-within { border-color:var(--navy); box-shadow:0 0 0 3px rgba(11,26,43,.1); }
+.dp-toggle { display:flex; border-bottom:1px solid var(--border); }
+.dp-cal-btn { flex:1; padding:7px 4px; border:none; background:transparent; font-family:inherit; font-size:12.5px; font-weight:700; color:var(--muted); cursor:pointer; transition:all .2s; }
+.dp-cal-btn.dp-active { background:var(--navy); color:#fff; }
+.dp-cal-inner { padding:8px 8px 6px; }
+.dp-nav { display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; gap:2px; }
+.dp-nav-btn { background:none; border:1px solid var(--border); border-radius:6px; width:28px; height:28px; cursor:pointer; font-size:14px; color:var(--navy); display:flex; align-items:center; justify-content:center; transition:background .15s; flex-shrink:0; font-family:inherit; }
+.dp-nav-btn:hover { background:var(--blue-lt); color:var(--blue); }
+.dp-nav-label { font-size:12.5px; font-weight:700; color:var(--navy); text-align:center; flex:1; }
+.dp-daynames { display:grid; grid-template-columns:repeat(7,1fr); margin-bottom:3px; }
+.dp-daynames span { text-align:center; font-size:10px; font-weight:700; color:var(--muted); padding:2px 0; }
+.dp-days { display:grid; grid-template-columns:repeat(7,1fr); gap:2px; }
+.dp-day { text-align:center; padding:5px 1px; font-size:12px; border-radius:5px; cursor:pointer; color:var(--text-mid); transition:background .12s,color .12s; }
+.dp-day:not(.dp-empty):hover { background:var(--blue-lt); color:var(--blue); }
+.dp-day.dp-empty { cursor:default; }
+.dp-day.dp-selected { background:var(--navy) !important; color:#fff !important; font-weight:700; }
+.dp-day.dp-today-mark { background:rgba(26,127,55,.13); color:var(--green); font-weight:700; }
+.dp-day.dp-fri { color:var(--green-dk); }
+.dp-display { padding:6px 10px; font-size:12.5px; font-weight:700; color:var(--navy); border-top:1px solid var(--border); text-align:center; direction:ltr; letter-spacing:.4px; background:#f0f4f8; }
+
+/* ══ Date Picker v3 — Popup Calendar ══ */
+.dp-root { position:relative; }
+.dp-row { display:flex; align-items:center; gap:6px; }
+.dp-cb {
+  padding:5px 12px; border:1.5px solid var(--border); border-radius:20px;
+  font-family:inherit; font-size:12px; font-weight:700;
+  background:transparent; color:var(--muted); cursor:pointer; transition:all .2s; white-space:nowrap;
+}
+.dp-cb.dp-active { background:var(--navy); color:#fff; border-color:var(--navy); }
+.dp-field {
+  flex:1; display:flex; align-items:center; justify-content:space-between;
+  border:1.5px solid var(--border); border-radius:var(--radius-sm);
+  padding:10px 12px; background:#fafbfc; cursor:pointer;
+  font-family:inherit; font-size:13px; transition:border-color .2s;
+  min-height:42px;
+}
+.dp-field:hover { border-color:var(--navy); }
+.dp-field-val { color:var(--muted); }
+.dp-field-val.has-val { color:var(--navy); font-weight:700; direction:ltr; }
+.dp-field-icon { font-size:15px; flex-shrink:0; }
+.dp-panel {
+  display:none; border:1.5px solid var(--border); border-radius:var(--radius-sm);
+  background:#fff; box-shadow:0 6px 24px rgba(11,26,43,.14);
+  margin-top:4px; padding:10px 10px 8px; position:relative; z-index:200;
+}
+.dp-nav { display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; gap:3px; }
+.dp-nav-btn {
+  background:none; border:1px solid var(--border); border-radius:6px;
+  width:30px; height:30px; cursor:pointer; font-size:15px; color:var(--navy);
+  display:flex; align-items:center; justify-content:center;
+  transition:background .15s; font-family:inherit; flex-shrink:0; line-height:1;
+}
+.dp-nav-btn:hover { background:var(--blue-lt); border-color:var(--blue); }
+.dp-nav-label { font-size:13px; font-weight:700; color:var(--navy); text-align:center; flex:1; }
+.dp-dn { display:grid; grid-template-columns:repeat(7,1fr); margin-bottom:4px; border-bottom:1px solid var(--border); padding-bottom:4px; }
+.dp-dn span { text-align:center; font-size:10.5px; font-weight:700; color:var(--muted); padding:3px 0; }
+.dp-days { display:grid; grid-template-columns:repeat(7,1fr); gap:2px; }
+.dp-day {
+  text-align:center; padding:6px 1px; font-size:12.5px;
+  border-radius:6px; cursor:pointer; color:var(--text-mid);
+  transition:background .12s, color .12s; user-select:none;
+}
+.dp-day:not(.dp-mt):hover { background:var(--blue-lt); color:var(--navy); }
+.dp-mt { cursor:default; color:transparent; }
+.dp-selected { background:var(--navy) !important; color:#fff !important; font-weight:700; }
+.dp-today-mark { background:rgba(26,127,55,.12); color:var(--green-dk); font-weight:700; }
+.dp-fri { color:var(--green-dk); }
 </style>
 </head>
 <body>
@@ -1637,48 +1707,7 @@ footer {
           <div class="asst-card-head"><div class="asst-card-icon">📝</div><div><div class="asst-card-title">بيانات الاعتراض</div><div class="asst-card-sub">جميع الحقول اختيارية — والخطاب يتحدث تلقائيًا</div></div></div>
           <div class="asst-form">
 
-            <div class="asst-form-row">
-              <label class="asst-label">اسم مقدم الاعتراض</label>
-              <input class="asst-input" id="f-name" type="text" placeholder="اختياري — يضاف في توقيع الخطاب">
-            </div>
-            <div class="asst-form-row">
-              <label class="asst-label">اسم المنشأة / المؤسسة</label>
-              <input class="asst-input" id="f-entity" type="text" placeholder="اختياري — يضاف في توقيع الخطاب">
-            </div>
-            <div class="asst-form-grid">
-              <div class="asst-form-row">
-                <label class="asst-label">رقم الهوية / الإقامة</label>
-                <input class="asst-input" id="f-id" type="text" placeholder="اختياري">
-              </div>
-              <div class="asst-form-row">
-                <label class="asst-label">رقم السجل التجاري</label>
-                <input class="asst-input" id="f-cr" type="text" placeholder="اختياري">
-              </div>
-            </div>
-            <div class="asst-form-grid">
-              <div class="asst-form-row">
-                <label class="asst-label">رقم الرخصة / المنشأة</label>
-                <input class="asst-input" id="f-lic" type="text" placeholder="اختياري">
-              </div>
-              <div class="asst-form-row">
-                <label class="asst-label">رقم المخالفة</label>
-                <input class="asst-input" id="f-vnum" type="text" placeholder="أضفه لاستكمال الخطاب">
-              </div>
-            </div>
-            <div class="asst-form-grid">
-              <div class="asst-form-row">
-                <label class="asst-label">تاريخ المخالفة</label>
-                <input class="asst-input" id="f-vdate" type="text" placeholder="مثال: 15/08/2024م">
-              </div>
-              <div class="asst-form-row">
-                <label class="asst-label">قيمة المخالفة</label>
-                <input class="asst-input" id="f-vamt" type="text" placeholder="اختياري">
-              </div>
-            </div>
-            <div class="asst-form-row">
-              <label class="asst-label">المدينة</label>
-              <input class="asst-input" id="f-city" type="text" placeholder="اختياري — مثال: جدة">
-            </div>
+            <!-- ① الجهة مصدرة المخالفة -->
             <div class="asst-form-row">
               <label class="asst-label">الجهة مصدرة المخالفة</label>
               <select class="asst-input asst-select" id="f-agency">
@@ -1688,6 +1717,7 @@ footer {
                 <option value="وزارة التجارة">وزارة التجارة</option>
                 <option value="هيئة الزكاة والضريبة والجمارك">هيئة الزكاة والضريبة والجمارك</option>
                 <option value="الهيئة العامة للغذاء والدواء">الهيئة العامة للغذاء والدواء</option>
+                <option value="الهيئة العامة للنقل">الهيئة العامة للنقل</option>
                 <option value="other">أخرى</option>
               </select>
             </div>
@@ -1695,12 +1725,59 @@ footer {
               <label class="asst-label">اسم الجهة</label>
               <input class="asst-input" id="f-agency-other" type="text" placeholder="اكتب اسم الجهة">
             </div>
+
+            <!-- ② بيانات المخالفة -->
+            <div class="asst-form-grid">
+              <div class="asst-form-row">
+                <label class="asst-label">رقم المخالفة</label>
+                <input class="asst-input" id="f-vnum" type="text" placeholder="أضفه لاستكمال الخطاب">
+              </div>
+              <div class="asst-form-row">
+                <label class="asst-label">قيمة المخالفة</label>
+                <input class="asst-input" id="f-vamt" type="text" placeholder="اختياري">
+              </div>
+            </div>
+            <div class="asst-form-row">
+              <label class="asst-label">تاريخ المخالفة</label>
+              <div class="dp-root" id="dp-vdate">
+                <div class="dp-row">
+                  <button type="button" class="dp-cb dp-active" onclick="dpSetCal('vdate','hijri',this)">هجري</button>
+                  <button type="button" class="dp-cb" onclick="dpSetCal('vdate','gregorian',this)">ميلادي</button>
+                  <div class="dp-field" onclick="dpToggle('vdate')">
+                    <span class="dp-field-val" id="dp-vdate-val">اختر التاريخ</span>
+                    <span class="dp-field-icon">📅</span>
+                  </div>
+                </div>
+                <div class="dp-panel" id="dp-vdate-panel">
+                  <div class="dp-nav">
+                    <button type="button" class="dp-nav-btn" onclick="dpNavYear('vdate',-1)">«</button>
+                    <button type="button" class="dp-nav-btn" onclick="dpNavMonth('vdate',-1)">‹</button>
+                    <div class="dp-nav-label" id="dp-vdate-label">—</div>
+                    <button type="button" class="dp-nav-btn" onclick="dpNavMonth('vdate',1)">›</button>
+                    <button type="button" class="dp-nav-btn" onclick="dpNavYear('vdate',1)">»</button>
+                  </div>
+                  <div class="dp-dn"><span>أح</span><span>إث</span><span>ثل</span><span>أر</span><span>خم</span><span>جم</span><span>سب</span></div>
+                  <div class="dp-days" id="dp-vdate-days"></div>
+                </div>
+                <input type="hidden" id="f-vdate">
+              </div>
+              <div id="vdate-warning" style="display:none;margin-top:6px;background:var(--red-lt);border:1.5px solid var(--red-bd);border-radius:var(--radius-sm);padding:10px 13px;font-size:12.5px;color:var(--red);display:none;align-items:flex-start;gap:8px;line-height:1.6;">
+                <span style="flex-shrink:0;font-size:14px">⚠️</span>
+                <span>تنبيه: تأكد من تاريخ المخالفة، حيث نصّ الأمر الملكي على المخالفات الصادرة <strong>قبل</strong> 1 نوفمبر 2024م (29 ربيع الآخر 1446هـ).</span>
+              </div>
+            </div>
+            <div class="asst-form-row">
+              <label class="asst-label">المدينة</label>
+              <input class="asst-input" id="f-city" type="text" placeholder="اختياري — مثال: جدة">
+            </div>
+
+            <!-- ③ وصف المخالفة → يظهر في متن الخطاب (أولاً) -->
             <div class="asst-form-row">
               <label class="asst-label">وصف المخالفة كما ورد في المحضر</label>
               <textarea class="asst-input asst-textarea" id="f-desc" rows="3" placeholder="اذكر ما ورد في إشعار المخالفة باختصار — يضاف في متن الخطاب"></textarea>
             </div>
 
-            <!-- REASONS -->
+            <!-- ④ أسباب الاعتراض → يظهر في متن الخطاب (ثانياً) -->
             <div class="asst-form-row">
               <label class="asst-label">أسباب الاعتراض</label>
               <button class="asst-collapse-btn" id="reason-toggle-btn" onclick="toggleReasonExamples()">📋 عرض أمثلة الأسباب المقترحة</button>
@@ -1719,6 +1796,10 @@ footer {
                   <button class="asst-chip" onclick="addReason(this,'duplicate')">ازدواجية المخالفة</button>
                   <button class="asst-chip" onclick="addReason(this,'corrected')">تصحيح الوضع</button>
                   <button class="asst-chip" onclick="addReason(this,'inactive')">المنشأة مشطوبة</button>
+                  <button class="asst-chip" onclick="addReason(this,'tga-card')">بطاقة التشغيل سارية</button>
+                  <button class="asst-chip" onclick="addReason(this,'tga-doc')">وثيقة النقل مصدرة</button>
+                  <button class="asst-chip" onclick="addReason(this,'tga-sold')">المركبة مباعة</button>
+                  <button class="asst-chip" onclick="addReason(this,'tga-scale')">خطأ في الميزان</button>
                 </div>
                 <button class="asst-template-btn" onclick="insertReasonTemplate()">📄 إدراج نموذج مقترح</button>
                 <button class="asst-clear-btn" onclick="clearReasons()">🗑 مسح</button>
@@ -1732,17 +1813,66 @@ footer {
               </div>
             </div>
 
-            <div class="asst-form-grid">
+            <!-- ⑤ بيانات التوقيع → تظهر في نهاية الخطاب -->
+            <div style="border-top:1.5px dashed var(--border);margin:8px 0 16px;padding-top:14px;">
+              <div style="font-size:11px;font-weight:700;color:var(--muted);text-align:center;letter-spacing:.8px;margin-bottom:14px;">— بيانات التوقيع —</div>
+
               <div class="asst-form-row">
-                <label class="asst-label">رقم الجوال</label>
-                <input class="asst-input" id="f-phone" type="text" placeholder="اختياري — يضاف في التوقيع">
+                <label class="asst-label">اسم مقدم الاعتراض</label>
+                <input class="asst-input" id="f-name" type="text" placeholder="اختياري — يضاف في توقيع الخطاب">
               </div>
               <div class="asst-form-row">
-                <label class="asst-label">تاريخ تقديم الاعتراض</label>
-                <input class="asst-input" id="f-today" type="text" placeholder="مثال: 10/05/2026م">
+                <label class="asst-label">اسم المنشأة / المؤسسة</label>
+                <input class="asst-input" id="f-entity" type="text" placeholder="اختياري — يضاف في توقيع الخطاب">
+              </div>
+              <div class="asst-form-grid">
+                <div class="asst-form-row">
+                  <label class="asst-label">رقم الهوية / الإقامة</label>
+                  <input class="asst-input" id="f-id" type="text" placeholder="اختياري">
+                </div>
+                <div class="asst-form-row">
+                  <label class="asst-label">رقم السجل التجاري</label>
+                  <input class="asst-input" id="f-cr" type="text" placeholder="اختياري">
+                </div>
+              </div>
+              <div class="asst-form-grid">
+                <div class="asst-form-row">
+                  <label class="asst-label">رقم الرخصة / المنشأة</label>
+                  <input class="asst-input" id="f-lic" type="text" placeholder="اختياري">
+                </div>
+                <div class="asst-form-row">
+                  <label class="asst-label">رقم الجوال</label>
+                  <input class="asst-input" id="f-phone" type="text" placeholder="اختياري">
+                </div>
+              </div>
+              <div class="asst-form-row">
+                <label class="asst-label">تاريخ تقديم الاعتراض <span style="font-size:10px;color:var(--green);font-weight:400">(يُعبّأ تلقائياً)</span></label>
+                <div class="dp-root" id="dp-today">
+                <div class="dp-row">
+                  <button type="button" class="dp-cb dp-active" onclick="dpSetCal('today','hijri',this)">هجري</button>
+                  <button type="button" class="dp-cb" onclick="dpSetCal('today','gregorian',this)">ميلادي</button>
+                  <div class="dp-field" onclick="dpToggle('today')">
+                    <span class="dp-field-val" id="dp-today-val">اختر التاريخ</span>
+                    <span class="dp-field-icon">📅</span>
+                  </div>
+                </div>
+                <div class="dp-panel" id="dp-today-panel">
+                  <div class="dp-nav">
+                    <button type="button" class="dp-nav-btn" onclick="dpNavYear('today',-1)">«</button>
+                    <button type="button" class="dp-nav-btn" onclick="dpNavMonth('today',-1)">‹</button>
+                    <div class="dp-nav-label" id="dp-today-label">—</div>
+                    <button type="button" class="dp-nav-btn" onclick="dpNavMonth('today',1)">›</button>
+                    <button type="button" class="dp-nav-btn" onclick="dpNavYear('today',1)">»</button>
+                  </div>
+                  <div class="dp-dn"><span>أح</span><span>إث</span><span>ثل</span><span>أر</span><span>خم</span><span>جم</span><span>سب</span></div>
+                  <div class="dp-days" id="dp-today-days"></div>
+                </div>
+                <input type="hidden" id="f-today">
+              </div>
               </div>
             </div>
-            <div style="display:flex;gap:10px;margin-top:8px">
+
+                        <div style="display:flex;gap:10px;margin-top:8px">
               <button class="asst-back-btn" onclick="goToPhase(1)">→ السابق</button>
               <button class="asst-next-btn" style="flex:1" onclick="goToPhase(3)">الانتقال لآلية التقديم ←</button>
             </div>
@@ -2224,7 +2354,11 @@ var reasonTexts = {
   'no-evidence':     'افيد بان المخالفة لا تتضح لي اسانيدها او ادلتها بشكل كاف، مما يستوجب اعادة التحقق.',
   'duplicate':       'اشير الى ان الواقعة محل المخالفة تبدو مكررة او مزدوجة على ذات الواقعة، وهو ما يستدعي المراجعة.',
   'corrected':       'افيد بانه تم تصحيح الوضع محل الملاحظة، وارفق ما يثبت ذلك، راجيا اخذ هذا التصحيح بعين الاعتبار.',
-  'inactive':        'اتمسك بان المنشاة محل المخالفة كانت مشطوبة / متوقفة عن النشاط وقت الواقعة، وارفق ما يثبت ذلك.'
+  'inactive':        'اتمسك بان المنشاة محل المخالفة كانت مشطوبة / متوقفة عن النشاط وقت الواقعة، وارفق ما يثبت ذلك.',
+  'tga-card':        'أفيد بأن بطاقة التشغيل للمركبة كانت سارية المفعول وقت رصد المخالفة (أو قيد التجديد وحدث تأخير تقني في النظام)، وأرفق ما يثبت ذلك.',
+  'tga-doc':         'أوضح أنه تم إصدار وثيقة النقل (بيان) للرحلة المذكورة، إلا أنه حدث خلل تقني في مزامنة النظام أو خطأ في الرصد الآلي.',
+  'tga-sold':        'أتمسك بأنه تم بيع المركبة ونقل ملكيتها للغير قبل تاريخ وقوع المخالفة، وبالتالي تنتفي مسؤوليتي عن تشغيلها.',
+  'tga-scale':       'أعترض على دقة قراءة محطة الوزن، حيث أمتلك شهادة وزن من ميزان معتمد تخالف القراءة التي تم رصدها وبناء المخالفة عليها.'
 };
 
 var agencyInfo = {
@@ -2232,7 +2366,8 @@ var agencyInfo = {
   'وزارة الموارد البشرية والتنمية الاجتماعية':  { channel: 'خدمة الاعتراضات على مخالفات العمل عبر الخدمات الإلكترونية للوزارة',                 email: 'info@hrsd.gov.sa',         note: 'الأولوية للخدمة الإلكترونية المخصصة.' },
   'وزارة التجارة':                              { channel: 'خدمة الاعتراضات على قرارات مخالفات اللجان والتحصيل عبر البوابة الإلكترونية',         email: 'CS@mc.gov.sa',             note: 'بعض المخالفات لها مسارات خاصة؛ استخدم القناة المناسبة لنوع المخالفة.' },
   'هيئة الزكاة والضريبة والجمارك':              { channel: 'بوابة الهيئة الإلكترونية — قسم الاعتراضات',                                          email: 'info@zatca.gov.sa',        note: 'نوع الاعتراض يختلف بحسب كونه زكويًا أو ضريبيًا أو جمركيًا.' },
-  'الهيئة العامة للغذاء والدواء':               { channel: 'خدمة ننجزها عبر بوابة الهيئة',                                                        email: 'webmaster@sfda.gov.sa',    note: 'التقديم وفق نوع المخالفة أو النشاط محل الاعتراض.' }
+  'الهيئة العامة للغذاء والدواء':               { channel: 'خدمة ننجزها عبر بوابة الهيئة',                                                        email: 'webmaster@sfda.gov.sa',    note: 'التقديم وفق نوع المخالفة أو النشاط محل الاعتراض.' },
+  'الهيئة العامة للنقل':          { channel: 'منصة لوجستي أو بوابة نقل (خدمة التظلمات)',                                             email: '19929@tga.gov.sa',         note: 'يتم رفع الاعتراض إلكترونياً عبر منصة نقل أو لوجستي، مع ضرورة إرفاق الإثباتات (وثيقة نقل، رخصة سير، أو بطاقة تشغيل).' }
 };
 
 function getAgencyName() {
@@ -2527,7 +2662,187 @@ function resetAssistant() {
   goToPhase(1);
 }
 
+
+/* ════════════════════════════════════
+   DATE PICKER v3 — Popup Calendar
+   خوارزمية الجوليان الصحيحة
+════════════════════════════════════ */
+var HIJRI_M=['محرم','صفر','ربيع الأول','ربيع الآخر','جمادى الأولى','جمادى الآخرة','رجب','شعبان','رمضان','شوال','ذو القعدة','ذو الحجة'];
+var GREG_M =['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'];
+var dpSt={};
+var DP_NOW=(function(){var d=new Date();return{y:d.getFullYear(),m:d.getMonth()+1,d:d.getDate()};})();
+
+/* ── Julian Day Number ── */
+function gToJD(y,m,d){
+  var a=Math.floor((14-m)/12); var yy=y+4800-a; var mm=m+12*a-3;
+  return d+Math.floor((153*mm+2)/5)+365*yy+Math.floor(yy/4)-Math.floor(yy/100)+Math.floor(yy/400)-32045;
+}
+function hToJD(hy,hm,hd){
+  return Math.floor((11*hy+3)/30)+354*hy+30*hm-Math.floor((hm-1)/2)+hd+1948440-385;
+}
+function jdToG(JD){
+  var l=JD+68569, n=Math.floor(4*l/146097);
+  l=l-Math.floor((146097*n+3)/4);
+  var i=Math.floor(4000*(l+1)/1461001);
+  l=l-Math.floor(1461*i/4)+31;
+  var j=Math.floor(80*l/2447);
+  var gd=l-Math.floor(2447*j/80);
+  l=Math.floor(j/11); var gm=j+2-12*l; var gy=100*(n-49)+i+l;
+  return{y:gy,m:gm,d:gd};
+}
+function jdToH(JD){
+  var l=JD-1948440+10632, n=Math.floor((l-1)/10631);
+  l=l-10631*n+354;
+  var j=Math.floor((10985-l)/5316)*Math.floor(50*l/17719)+Math.floor(l/5670)*Math.floor(43*l/15238);
+  l=l-Math.floor((30-j)/15)*Math.floor(17719*j/50)-Math.floor(j/16)*Math.floor(15238*j/43)+29;
+  var hm=Math.min(12,Math.floor(24*l/709));
+  var hd=l-Math.floor(709*hm/24);
+  return{y:30*n+j-30,m:hm,d:hd};
+}
+function g2h(gy,gm,gd){return jdToH(gToJD(gy,gm,gd));}
+function h2g(hy,hm,hd){return jdToG(hToJD(hy,hm,hd));}
+
+/* ── أيام الشهر ── */
+function hLeap(hy){return[2,5,7,10,13,16,18,21,24,26,29].indexOf(hy%30)>=0;}
+function hDays(hy,hm){if(hm%2===1)return 30;if(hm===12)return hLeap(hy)?30:29;return 29;}
+function gDays(gy,gm){if(gm===2)return(gy%4===0&&(gy%100!==0||gy%400===0))?29:28;return[31,28,31,30,31,30,31,31,30,31,30,31][gm-1];}
+
+/* ── رسم التقويم ── */
+function dpRender(id){
+  var st=dpSt[id]; if(!st)return;
+  var cal=st.cal, vy=st.vy, vm=st.vm;
+  /* العنوان */
+  document.getElementById('dp-'+id+'-label').textContent=
+    (cal==='hijri'?HIJRI_M[vm-1]+' '+vy+'هـ':GREG_M[vm-1]+' '+vy+'م');
+  /* أول يوم في الشهر — يوم الأسبوع */
+  var firstDow, maxDays;
+  if(cal==='hijri'){
+    var g=h2g(vy,vm,1); firstDow=new Date(g.y,g.m-1,g.d).getDay(); maxDays=hDays(vy,vm);
+  } else {
+    firstDow=new Date(vy,vm-1,1).getDay(); maxDays=gDays(vy,vm);
+  }
+  var box=document.getElementById('dp-'+id+'-days'); box.innerHTML='';
+  /* خلايا فارغة */
+  for(var e=0;e<firstDow;e++){var em=document.createElement('div');em.className='dp-day dp-mt';em.textContent='·';box.appendChild(em);}
+  /* تاريخ اليوم الحالي هجري */
+  var th=g2h(DP_NOW.y,DP_NOW.m,DP_NOW.d);
+  for(var dy=1;dy<=maxDays;dy++){
+    var cell=document.createElement('div'); cell.className='dp-day';
+    var dow=(firstDow+dy-1)%7;
+    if(dow===5)cell.classList.add('dp-fri');
+    /* اليوم الحالي */
+    var isNow=cal==='hijri'?(dy===th.d&&vm===th.m&&vy===th.y):(dy===DP_NOW.d&&vm===DP_NOW.m&&vy===DP_NOW.y);
+    if(isNow)cell.classList.add('dp-today-mark');
+    /* المختار */
+    if(st.sd&&dy===st.sd&&vm===st.sm&&vy===st.sy)cell.classList.add('dp-selected');
+    cell.textContent=dy;
+    (function(day){cell.addEventListener('click',function(){dpPick(id,day);});})(dy);
+    box.appendChild(cell);
+  }
+}
+
+/* ── اختيار يوم ── */
+function dpPick(id,day){
+  var st=dpSt[id]; st.sd=day; st.sm=st.vm; st.sy=st.vy;
+  var fmt=String(day).padStart(2,'0')+'/'+String(st.vm).padStart(2,'0')+'/'+st.vy+(st.cal==='hijri'?'هـ':'م');
+  var valEl=document.getElementById('dp-'+id+'-val');
+  valEl.textContent=fmt; valEl.classList.add('has-val');
+  document.getElementById('f-'+id).value=fmt;
+  dpRender(id); dpClose(id); livePreview();
+  /* تحقق من تاريخ المخالفة */
+  if(id==='vdate') checkVdateWarning(st);
+}
+
+/* ── التحقق: تاريخ المخالفة يجب أن يكون قبل 1 نوفمبر 2024م ── */
+/* الحد الأقصى: 31 أكتوبر 2024 = 27 ربيع الآخر 1446 هـ */
+/* أي تاريخ >= 1 نوفمبر 2024 يُظهر التحذير */
+var VDATE_LIMIT_JD = gToJD(2024, 11, 1); /* JD ليوم 1 نوفمبر 2024 */
+
+function checkVdateWarning(st){
+  var warn = document.getElementById('vdate-warning');
+  if(!warn||!st||!st.sd) return;
+  var jd;
+  if(st.cal==='hijri') jd = hToJD(st.sy, st.sm, st.sd);
+  else                  jd = gToJD(st.sy, st.sm, st.sd);
+  if(jd >= VDATE_LIMIT_JD){
+    warn.style.display='flex';
+  } else {
+    warn.style.display='none';
+  }
+}
+
+/* ── فتح / إغلاق ── */
+function dpOpen(id){document.getElementById('dp-'+id+'-panel').style.display='block';}
+function dpClose(id){document.getElementById('dp-'+id+'-panel').style.display='none';}
+function dpToggle(id){
+  var p=document.getElementById('dp-'+id+'-panel');
+  if(p.style.display==='block'){p.style.display='none';}else{
+    /* أغلق باقي التقاويم */
+    ['vdate','today'].forEach(function(x){if(x!==id)dpClose(x);});
+    p.style.display='block';
+  }
+}
+
+/* ── تنقل ── */
+function dpNavMonth(id,dir){
+  var st=dpSt[id]; st.vm+=dir;
+  if(st.vm<1){st.vm=12;st.vy--;}if(st.vm>12){st.vm=1;st.vy++;}
+  dpRender(id);
+}
+function dpNavYear(id,dir){dpSt[id].vy+=dir;dpRender(id);}
+
+/* ── تبديل التقويم ── */
+function dpSetCal(id,cal,btn){
+  var st=dpSt[id]||{}; var old=st.cal||'hijri';
+  if(st.sd){
+    var conv;
+    if(cal==='hijri'&&old==='gregorian'){conv=g2h(st.sy,st.sm,st.sd);}
+    else if(cal==='gregorian'&&old==='hijri'){conv=h2g(st.sy,st.sm,st.sd);}
+    if(conv){st.sy=conv.y;st.sm=conv.m;st.sd=conv.d;st.vy=conv.y;st.vm=conv.m;}
+    /* تحديث العرض */
+    if(st.sd){
+      var fmt=String(st.sd).padStart(2,'0')+'/'+String(st.sm).padStart(2,'0')+'/'+st.sy+(cal==='hijri'?'هـ':'م');
+      var valEl=document.getElementById('dp-'+id+'-val');
+      valEl.textContent=fmt; valEl.classList.add('has-val');
+      document.getElementById('f-'+id).value=fmt; livePreview();
+    }
+  }
+  st.cal=cal; dpSt[id]=st;
+  var wrap=document.getElementById('dp-'+id);
+  wrap.querySelectorAll('.dp-cb').forEach(function(b){b.classList.remove('dp-active');});
+  btn.classList.add('dp-active');
+  dpRender(id);
+}
+
+/* ── إغلاق عند النقر خارج التقويم ── */
+document.addEventListener('click',function(e){
+  ['vdate','today'].forEach(function(id){
+    var root=document.getElementById('dp-'+id);
+    if(root&&!root.contains(e.target))dpClose(id);
+  });
+});
+
+/* ── تهيئة بتاريخ اليوم ── */
+function dpInitToday(id){
+  var h=g2h(DP_NOW.y,DP_NOW.m,DP_NOW.d);
+  dpSt[id]={cal:'hijri',vy:h.y,vm:h.m,sy:h.y,sm:h.m,sd:h.d};
+  dpRender(id);
+  var fmt=String(h.d).padStart(2,'0')+'/'+String(h.m).padStart(2,'0')+'/'+h.y+'هـ';
+  var valEl=document.getElementById('dp-'+id+'-val');
+  valEl.textContent=fmt; valEl.classList.add('has-val');
+  document.getElementById('f-'+id).value=fmt;
+}
+
+/* ── تهيئة فارغة ── */
+function dpInitEmpty(id){
+  var h=g2h(DP_NOW.y,DP_NOW.m,DP_NOW.d);
+  dpSt[id]={cal:'hijri',vy:h.y,vm:h.m};
+  dpRender(id);
+}
+
 document.addEventListener('DOMContentLoaded', function(){
+  dpInitEmpty('vdate');   /* تاريخ المخالفة — فارغ */
+  dpInitToday('today');   /* تاريخ الاعتراض — اليوم تلقائياً */
   bindAllInputs();
   document.getElementById('f-reasons').addEventListener('input', function(){ updateCharCount(); });
 });
