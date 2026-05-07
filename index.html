@@ -1876,7 +1876,7 @@ footer {
   <div class="hero-divider"></div>
   <div class="decree-badge">⚡ استثناء مؤقت أعاد فتح باب الاعتراض على مخالفات سابقة ضمن شروط محددة</div>
   <h1>الاعتراض على المخالفات<br>بعد الأمر الملكي<br><em>نموذج اعتراض جاهز للتقديم</em></h1>
-  <p class="hero-sub">تحقّق من أهليتك، وأنشئ اعتراضك تلقائيًا، وتعرّف على آلية التقديم وفق الضوابط المحددة في الأمر الملكي رقم (82241) وتاريخه 16/10/1447هـ.</p>
+  <p class="hero-sub">أنشئ نص اعتراضك تلقائيًا، وتعرّف على آلية التقديم وفق الضوابط المحددة في الأمر الملكي رقم (82241) وتاريخه 16/10/1447هـ.</p>
 </header>
 
 <!-- ══ PRE-TOOL INTRO ══ -->
@@ -1887,9 +1887,9 @@ footer {
       <span class="pre-tool-title">قبل أن تبدأ</span>
     </div>
     <ul class="pre-tool-list">
-      <li>هذا النموذج يساعدك على تقييم مبدئي لأهليتك للاعتراض</li>
-      <li>ويُمكّنك من إنشاء نص اعتراض احترافي بشكل تلقائي</li>
+      <li>هذه الأداة تمكّنك من إعداد نص اعتراض احترافي بشكل تلقائي</li>
       <li>مع توضيح آلية التقديم على الجهة المختصة</li>
+      <li>وكل بياناتك تبقى على جهازك فقط ولا تُرفع لأي جهة</li>
     </ul>
     <div class="pre-tool-notice">
       <span>⚠️</span>
@@ -1908,72 +1908,31 @@ footer {
 
   <!-- Stepper -->
   <div class="asst-stepper">
-    <div class="asst-step asst-step-active" id="stp-1"><div class="asst-step-circle">١</div><div class="asst-step-label">التحقق المبدئي</div></div>
+    <div class="asst-step asst-step-active" id="stp-1"><div class="asst-step-circle">١</div><div class="asst-step-label">إعداد الاعتراض</div></div>
     <div class="asst-step-line" id="line-1"></div>
-    <div class="asst-step" id="stp-2"><div class="asst-step-circle">٢</div><div class="asst-step-label">إعداد الاعتراض</div></div>
-    <div class="asst-step-line" id="line-2"></div>
-    <div class="asst-step" id="stp-3"><div class="asst-step-circle">٣</div><div class="asst-step-label">آلية التقديم</div></div>
+    <div class="asst-step" id="stp-2"><div class="asst-step-circle">٢</div><div class="asst-step-label">آلية التقديم</div></div>
   </div>
-  <div class="asst-progress-wrap"><div class="asst-progress-bar" id="asst-progress" style="width:12%"></div></div>
+  <div class="asst-progress-wrap"><div class="asst-progress-bar" id="asst-progress" style="width:50%"></div></div>
 
-  <!-- PHASE 1 -->
-  <div id="phase-1" class="asst-phase">
-    <div class="asst-card">
-      <div class="asst-card-head"><div class="asst-card-icon">🔍</div><div><div class="asst-card-title">هل يمكن الاعتراض على مخالفتك؟</div><div class="asst-card-sub">تقييم مبدئي أجب على الأسئلة التالية</div></div></div>
-      <div style="padding:0 16px 12px;text-align:left"><button onclick="goToPhase(2)" style="display:inline-flex;align-items:center;gap:6px;background:var(--blue-lt);border:1.5px solid var(--blue-bd);color:var(--blue);font-family:inherit;font-size:12px;font-weight:700;padding:7px 14px;border-radius:20px;cursor:pointer;transition:all 0.2s" onmouseover="this.style.background='var(--blue)';this.style.color='#fff'" onmouseout="this.style.background='var(--blue-lt)';this.style.color='var(--blue)'">← تخطي إلى إعداد مسودة الاعتراض مباشرةً</button></div>
-      <div id="questions-container">
-
-        <div class="asst-question" id="q1">
-          <div class="asst-q-num">السؤال 1 من 5</div>
-          <div class="asst-q-text">هل المخالفة صادرة قبل <strong>1 نوفمبر 2024م</strong> (29 ربيع الآخر 1446هـ)؟</div>
-          <div class="asst-btn-row"><button class="asst-yn-btn asst-yes" onclick="answerQ(1,'yes')">نعم</button><button class="asst-yn-btn asst-no" onclick="answerQ(1,'no')">لا</button></div>
-        </div>
-
-        <div class="asst-question hidden" id="q2">
-          <div class="asst-q-num">السؤال 2 من 5</div>
-          <div class="asst-q-text">هل <strong>سبق لك الاعتراض</strong> على هذه المخالفة أمام الجهة الحكومية؟</div>
-          <div class="asst-btn-row"><button class="asst-yn-btn asst-no" onclick="answerQ(2,'yes')">نعم، سبق الاعتراض</button><button class="asst-yn-btn asst-yes" onclick="answerQ(2,'no')">لا، لم أعترض</button></div>
-        </div>
-        <div class="asst-question hidden" id="q3">
-          <div class="asst-q-num">السؤال 3 من 5</div>
-          <div class="asst-q-text">هل تم <strong>سداد المخالفة</strong> (دفع قيمتها)؟</div>
-          <div class="asst-btn-row"><button class="asst-yn-btn asst-no" onclick="answerQ(3,'yes')">نعم، تم السداد</button><button class="asst-yn-btn asst-yes" onclick="answerQ(3,'no')">لا، لم تُسدَّد</button></div>
-        </div>
-        <div class="asst-question hidden" id="q4">
-          <div class="asst-q-num">السؤال 4 من 5</div>
-          <div class="asst-q-text">هل المخالفة من <strong>مخالفات الإجراءات الاحترازية</strong>؟</div>
-          <div class="asst-btn-row"><button class="asst-yn-btn asst-no" onclick="answerQ(4,'yes')">نعم</button><button class="asst-yn-btn asst-yes" onclick="answerQ(4,'no')">لا</button></div>
-        </div>
-        <div class="asst-question hidden" id="q5">
-          <div class="asst-q-num">السؤال 5 من 5</div>
-          <div class="asst-q-text">هل المخالفة <strong>مرورية</strong>؟</div>
-          <div class="asst-btn-row"><button class="asst-yn-btn asst-no" onclick="answerQ(5,'yes')">نعم</button><button class="asst-yn-btn asst-yes" onclick="answerQ(5,'no')">لا</button></div>
-        </div>
-      </div>
-
-      <div class="hidden" id="result-fail">
-        <div class="asst-result-fail">
-          <div class="asst-result-icon">⚠️</div>
-          <div class="asst-result-title">التقييم المبدئي: غير مؤهل وفق المسار الاستثنائي</div>
-          <div class="asst-result-body" id="fail-reason"></div>
-          <div class="asst-result-note">هذه أداة توعوية أولية فقط. قد تحتاج إلى مراجعة محامٍ أو مختص.</div>
-          <button class="asst-reset-btn" onclick="resetAssistant()">🔄 البدء من جديد</button>
-        </div>
-      </div>
-      <div class="hidden" id="result-pass">
-        <div class="asst-result-pass">
-          <div class="asst-result-icon">✅</div>
-          <div class="asst-result-title">مبدئيًا قد تنطبق عليك شروط المسار الاستثنائي</div>
-          <div class="asst-result-body">بناءً على إجاباتك، يبدو أن مخالفتك قد تستوفي الشروط الأولية للاعتراض. انتقل لإعداد اعتراض مبدئي.</div>
-          <div class="asst-result-note">تذكير: هذا تقييم مبدئي ولا يُعد استشارة قانونية.</div>
-          <button class="asst-next-btn" onclick="goToPhase(2)">الانتقال لإعداد الاعتراض ←</button>
-        </div>
-      </div>
+  <!-- AWARENESS BANNER -->
+  <div style="background:linear-gradient(135deg,#fffbf0,#fef7e8);border:1.5px solid var(--amber-bd);border-radius:var(--radius);padding:18px 18px 14px;margin-bottom:18px;box-shadow:0 2px 12px rgba(183,119,13,0.10);">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+      <span style="font-size:20px;">💡</span>
+      <span style="font-size:14px;font-weight:700;color:var(--amber);">تنبيه هام قبل إعداد الاعتراض</span>
     </div>
+    <p style="font-size:13px;color:var(--text-mid);margin-bottom:12px;line-height:1.65;">لضمان استفادتك من الاستثناء، تأكد أن مخالفتك تستوفي <strong>جميع</strong> الشروط الواردة في الأمر الملكي الكريم:</p>
+    <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px;">
+      <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--text-mid);line-height:1.5;"><span style="color:var(--green);font-weight:700;flex-shrink:0;">✓</span><span>صادرة <strong>قبل 1 نوفمبر 2024م</strong> (29 ربيع الآخر 1446هـ)</span></div>
+      <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--text-mid);line-height:1.5;"><span style="color:var(--green);font-weight:700;flex-shrink:0;">✓</span><span><strong>لم يسبق</strong> لك الاعتراض عليها أمام الجهة الحكومية</span></div>
+      <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--text-mid);line-height:1.5;"><span style="color:var(--green);font-weight:700;flex-shrink:0;">✓</span><span><strong>لم يتم سدادها</strong></span></div>
+      <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--text-mid);line-height:1.5;"><span style="color:var(--green);font-weight:700;flex-shrink:0;">✓</span><span>ليست من <strong>المخالفات المرورية</strong></span></div>
+      <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--text-mid);line-height:1.5;"><span style="color:var(--green);font-weight:700;flex-shrink:0;">✓</span><span>ليست من <strong>مخالفات الإجراءات الاحترازية</strong></span></div>
+    </div>
+    <button onclick="document.getElementById('phase-1').scrollIntoView({behavior:'smooth',block:'start'})" style="width:100%;background:linear-gradient(135deg,var(--navy),var(--navy-mid));color:#fff;border:none;border-radius:var(--radius-sm);padding:14px 20px;font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;transition:all 0.2s;letter-spacing:0.2px;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">ابدأ تجهيز الاعتراض ←</button>
   </div>
 
-  <!-- PHASE 2 -->
-  <div id="phase-2" class="asst-phase hidden">
+  <!-- PHASE 1: إعداد الاعتراض -->
+  <div id="phase-1" class="asst-phase">
 
     <div class="asst-phase2-layout">
       <!-- FORM -->
@@ -2147,9 +2106,12 @@ footer {
               </div>
             </div>
 
-                        <div style="display:flex;gap:10px;margin-top:8px">
-              <button class="asst-back-btn" onclick="goToPhase(1)">→ السابق</button>
-              <button class="asst-next-btn" style="flex:1" onclick="goToPhase(3)">الانتقال لآلية التقديم ←</button>
+                        <div style="margin-top:16px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);padding:11px 14px;display:flex;align-items:flex-start;gap:8px;">
+              <span style="color:var(--muted);font-size:14px;flex-shrink:0;">ℹ️</span>
+              <span style="font-size:12px;color:var(--muted);line-height:1.6;">هذه أداة توعوية أولية، وقد تحتاج بعض الحالات إلى مراجعة محامٍ أو مختص.</span>
+            </div>
+            <div style="margin-top:12px">
+              <button class="asst-next-btn" style="width:100%" onclick="goToPhase(2)">الانتقال لآلية التقديم ←</button>
             </div>
           </div>
         </div>
@@ -2169,8 +2131,8 @@ footer {
     </div>
   </div>
 
-  <!-- PHASE 3 -->
-  <div id="phase-3" class="asst-phase hidden">
+  <!-- PHASE 2: آلية التقديم -->
+  <div id="phase-2" class="asst-phase hidden">
     <div class="asst-card" id="submission-card">
       <div class="asst-card-head"><div class="asst-card-icon">🏛️</div><div><div class="asst-card-title">آلية التقديم المقترحة</div><div class="asst-card-sub" id="sub-agency-name">حسب الجهة المختارة</div></div></div>
       <div class="sc-body" id="submission-content"></div>
@@ -2180,7 +2142,7 @@ footer {
       <div class="asst-warn-card asst-warn-blue"><div class="asst-warn-icon">⚖️</div><div class="asst-warn-text">عند رفض الجهة للاعتراض، قد يكون لك بحسب الحالة حق الاعتراض أمام المحكمة الإدارية خلال 60 يومًا من تاريخ الرفض.</div></div>
     </div>
     <div style="text-align:center;margin-top:16px;display:flex;gap:10px;justify-content:center">
-      <button class="asst-back-btn" onclick="goToPhase(2)">→ السابق</button>
+      <button class="asst-back-btn" onclick="goToPhase(1)">→ السابق</button>
       <button class="asst-reset-btn" onclick="resetAssistant()">🔄 البدء من جديد</button>
     </div>
   </div>
@@ -2665,8 +2627,6 @@ footer {
 </footer>
 
 <script>
-var currentQ = 1;
-var totalQ   = 5;
 var activeReasons = [];
 
 var reasonTexts = {
@@ -2791,55 +2751,24 @@ function agencyChanged() {
   if (row) { if (sel === 'other') row.classList.remove('hidden'); else row.classList.add('hidden'); }
 }
 
-function answerQ(num, answer) {
-  var stops = {
-    1: { ans: 'no',  msg: 'الاستثناء الوارد في الأمر الملكي يخص المخالفات الصادرة قبل 1 نوفمبر 2024م فقط. المخالفات الأحدث تخضع للمسار المعتاد.' },
-    2: { ans: 'yes', msg: 'سبق الاعتراض على هذه المخالفة يمنع الاستفادة من الاستثناء الذي يشترط عدم سبق الاعتراض. ننصح بمراجعة محامٍ.' },
-    3: { ans: 'yes', msg: 'المخالفات المسددة مستثناة صراحةً من نطاق الأمر الملكي.' },
-    4: { ans: 'yes', msg: 'مخالفات الإجراءات الاحترازية مستثناة صراحةً من نطاق الأمر الملكي.' },
-    5: { ans: 'yes', msg: 'المخالفات المرورية مستثناة صراحةً من نطاق الأمر الملكي.' }
-  };
-  if (stops[num] && stops[num].ans === answer) { showFail(stops[num].msg); return; }
-  if (num < totalQ) {
-    document.getElementById('q' + num).classList.add('hidden');
-    document.getElementById('q' + (num+1)).classList.remove('hidden');
-    currentQ = num + 1;
-    setProgress(Math.round((currentQ / totalQ) * 33));
-  } else {
-    document.getElementById('q' + num).classList.add('hidden');
-    showPass();
-  }
-}
-
-function showFail(msg) {
-  for (var i = 1; i <= totalQ; i++) { var q = document.getElementById('q'+i); if(q) q.classList.add('hidden'); }
-  document.getElementById('fail-reason').textContent = msg;
-  document.getElementById('result-fail').classList.remove('hidden');
-  setProgress(100);
-}
-function showPass() {
-  document.getElementById('result-pass').classList.remove('hidden');
-  setProgress(33);
-}
-
 function goToPhase(n) {
-  for (var i = 1; i <= 3; i++) {
+  for (var i = 1; i <= 2; i++) {
     document.getElementById('phase-'+i).classList.add('hidden');
     var s = document.getElementById('stp-'+i);
-    s.classList.remove('asst-step-active','asst-step-done');
+    if (s) s.classList.remove('asst-step-active','asst-step-done');
   }
   document.getElementById('phase-'+n).classList.remove('hidden');
   document.getElementById('stp-'+n).classList.add('asst-step-active');
   for (var j = 1; j < n; j++) {
-    document.getElementById('stp-'+j).classList.remove('asst-step-active');
-    document.getElementById('stp-'+j).classList.add('asst-step-done');
+    var sj = document.getElementById('stp-'+j);
+    if (sj) { sj.classList.remove('asst-step-active'); sj.classList.add('asst-step-done'); }
   }
   var lines = document.querySelectorAll('.asst-step-line');
   for (var k = 0; k < lines.length; k++) { if(k < n-1) lines[k].classList.add('asst-step-line-done'); else lines[k].classList.remove('asst-step-line-done'); }
-  var pmap = {1:12, 2:50, 3:100};
-  setProgress(pmap[n] || 12);
-  if (n === 2) { livePreview(); }
-  if (n === 3) { buildSubmission(); }
+  var pmap = {1:50, 2:100};
+  setProgress(pmap[n] || 50);
+  if (n === 1) { livePreview(); }
+  if (n === 2) { buildSubmission(); }
   document.getElementById('assistant-section').scrollIntoView({behavior:'smooth',block:'start'});
 }
 
@@ -2978,10 +2907,7 @@ function toggleAccordion() {
 }
 
 function resetAssistant() {
-  currentQ = 1; activeReasons = [];
-  for (var i = 1; i <= totalQ; i++) { var q = document.getElementById('q'+i); if(q) q.classList.toggle('hidden', i !== 1); }
-  document.getElementById('result-fail').classList.add('hidden');
-  document.getElementById('result-pass').classList.add('hidden');
+  activeReasons = [];
   var box = document.getElementById('letter-text');
   if (box) box.textContent = 'ابدأ بتعبئة أي حقل من النموذج وستظهر المسودة هنا تلقائيًا…';
   ['f-name','f-entity','f-id','f-cr','f-lic','f-vnum','f-vdate','f-vamt','f-city','f-desc','f-reasons','f-phone','f-today','f-agency-other'].forEach(function(id){
