@@ -32,6 +32,22 @@
 .asst-step-circle { font-family: 'IBM Plex Sans Arabic', 'Scheherazade New', sans-serif !important; }
 
 /* ═══════════════════════════════════════
+   HERO SPACING KILLER
+═══════════════════════════════════════ */
+#countdown-banner { padding: 8px 16px 8px !important; }
+.cd-label { margin-bottom: 4px !important; }
+.glass-countdown { padding: 6px 20px !important; }
+.glass-countdown .cd-sep-glass { margin-bottom: 0 !important; }
+.cd-sub { margin-top: 4px !important; }
+.hero { padding: 10px 22px 15px !important; gap: 6px !important; }
+.hero-social-top { margin-bottom: 0 !important; }
+.hero-logo { width: 75px !important; height: 75px !important; margin: 0 auto !important; }
+.hero-title { margin-bottom: 0 !important; line-height: 1.2 !important; }
+.hero-divider { margin: 4px auto !important; }
+.hero h1 { line-height: 1.3 !important; margin-bottom: 2px !important; }
+.hero-sub { margin-top: 0 !important; line-height: 1.5 !important; }
+
+/* ═══════════════════════════════════════
    DESIGN TOKENS
 ═══════════════════════════════════════ */
 :root {
@@ -88,10 +104,14 @@ a { color: inherit; text-decoration: none; }
     linear-gradient(160deg, var(--navy-deep) 0%, var(--navy) 55%, #1a3355 100%);
   background-size: cover, cover;
   background-position: center top, center top;
-  padding: 36px 22px 40px;
+  padding: 24px 22px 28px;
   text-align: center;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 .hero::before {
   content: '';
@@ -107,7 +127,7 @@ a { color: inherit; text-decoration: none; }
   justify-content: center;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 24px;
+  margin-bottom: 0;
   position: relative;
   padding: 0 12px;
 }
@@ -129,7 +149,7 @@ a { color: inherit; text-decoration: none; }
 .hero-logo {
   width: 97px;
   height: 97px;
-  margin: 0 auto 8px;
+  margin: 0 auto 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -144,7 +164,7 @@ a { color: inherit; text-decoration: none; }
   font-size: 22px;
   font-weight: 700;
   color: #FFFFFF;
-  margin-bottom: 4px;
+  margin-bottom: 0;
   letter-spacing: -0.3px;
   position: relative;
 }
@@ -152,14 +172,14 @@ a { color: inherit; text-decoration: none; }
   font-size: 12.5px;
   color: rgba(255,255,255,0.55);
   font-weight: 400;
-  margin-bottom: 26px;
+  margin-bottom: 0;
   letter-spacing: 0.3px;
 }
 .hero-divider {
   width: 44px;
   height: 2px;
   background: linear-gradient(90deg, transparent, rgba(110,224,138,0.7), transparent);
-  margin: 0 auto 26px;
+  margin: 0 auto 0;
   border-radius: 2px;
 }
 .decree-badge {
@@ -180,7 +200,7 @@ a { color: inherit; text-decoration: none; }
   font-size: clamp(19px, 5.5vw, 26px);
   font-weight: 700;
   line-height: 1.45;
-  margin-bottom: 12px;
+  margin-bottom: 0;
   position: relative;
 }
 .hero h1 em { font-style: normal; color: #6EE08A; }
@@ -1743,22 +1763,22 @@ footer {
 </style>
 
 <style>
-/* ═══════════════ COUNTDOWN BANNER ═══════════════ */
+/* ═══════════════ GLASS COUNTDOWN ═══════════════ */
 #countdown-banner {
   background:
     url("data:image/svg+xml,<svg viewBox='0 0 680 120' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='cb' x='0' y='0' width='28' height='28' patternUnits='userSpaceOnUse'><line x1='0' y1='0' x2='28' y2='0' stroke='%23c9a84c' stroke-width='0.4' opacity='0.13'/><line x1='0' y1='0' x2='0' y2='28' stroke='%23c9a84c' stroke-width='0.4' opacity='0.13'/></pattern></defs><rect width='680' height='120' fill='url(%23cb)'/><g transform='translate(680,0)' stroke='%23c9a84c' fill='none'><circle cx='0' cy='0' r='90' stroke-width='0.55' opacity='0.18'/><circle cx='0' cy='0' r='160' stroke-width='0.38' opacity='0.1'/><line x1='0' y1='0' x2='-680' y2='0' stroke-width='0.3' opacity='0.1'/><line x1='0' y1='0' x2='-500' y2='120' stroke-width='0.22' opacity='0.07'/></g><circle cx='680' cy='0' r='2.5' fill='%23c9a84c' opacity='0.3'/><rect x='0' y='118' width='680' height='2' fill='%23c9a84c' opacity='0.35'/></svg>"),
     linear-gradient(160deg, #071018 0%, #0B1A2B 60%, #142238 100%);
   background-size: cover, cover;
-  padding: 18px 16px 16px;
+  padding: 14px 16px 12px;
   text-align: center;
   position: relative;
 }
 .cd-label {
-  font-size: 11.5px;
+  font-size: 11px;
   font-weight: 600;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.50);
   letter-spacing: 0.6px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1783,75 +1803,92 @@ footer {
   55%  { transform: scale(1.28); opacity: 0.75; }
   100% { transform: scale(1);    opacity: 1;    }
 }
-.cd-units {
+/* Glass Bar */
+.glass-countdown {
   display: flex;
   justify-content: center;
-  gap: 8px;
-  margin-bottom: 10px;
-  flex-wrap: nowrap;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(212,175,55,0.30);
+  box-shadow: 0 4px 15px rgba(212,175,55,0.08);
+  border-radius: 12px;
+  padding: 10px 22px;
+  width: fit-content;
+  margin: 0 auto;
 }
-.cd-unit {
+.glass-countdown .time-box {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 58px;
+  color: #D4AF37;
+  min-width: 40px;
 }
-.cd-num {
-  font-size: clamp(26px, 7vw, 42px);
+.glass-countdown .time-box span {
+  font-size: 1.4rem;
   font-weight: 700;
-  color: #C9A84C;
-  line-height: 1;
   font-variant-numeric: tabular-nums;
   font-feature-settings: "tnum";
-  letter-spacing: -1px;
-  background: rgba(201,168,76,0.08);
-  border: 1px solid rgba(201,168,76,0.22);
-  border-radius: 10px;
-  padding: 8px 10px 6px;
-  min-width: 58px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.cd-sep {
-  font-size: clamp(22px, 5vw, 34px);
-  font-weight: 700;
-  color: rgba(201,168,76,0.45);
-  align-self: flex-start;
-  padding-top: 10px;
   line-height: 1;
+}
+.glass-countdown .time-box small {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.5);
+  margin-top: 3px;
+}
+.glass-countdown .cd-sep-glass {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: rgba(212,175,55,0.5);
+  margin-bottom: 16px;
   user-select: none;
 }
-.cd-unit-label {
-  font-size: 10px;
-  font-weight: 600;
-  color: rgba(255,255,255,0.4);
-  margin-top: 5px;
-  letter-spacing: 0.5px;
-}
 .cd-sub {
-  font-size: 10.5px;
-  color: rgba(255,255,255,0.3);
-  margin-top: 2px;
+  font-size: 10px;
+  color: rgba(255,255,255,0.28);
+  margin-top: 8px;
   line-height: 1.5;
 }
-/* Expired state */
 .cd-expired {
-  font-size: clamp(15px, 4vw, 20px);
+  font-size: clamp(14px, 4vw, 18px);
   font-weight: 700;
   color: rgba(192,57,43,0.9);
   background: rgba(192,57,43,0.1);
   border: 1px solid rgba(192,57,43,0.25);
   border-radius: 10px;
-  padding: 12px 24px;
+  padding: 10px 20px;
   display: inline-block;
-  margin: 4px 0 8px;
 }
+
+/* ═══════════════ STICKY COUNTDOWN BAR ═══════════════ */
+.sticky-countdown {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(10,20,40,0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(212,175,55,0.35);
+  color: rgba(255,255,255,0.85);
+  text-align: center;
+  padding: 10px 16px;
+  font-size: 13px;
+  z-index: 99999;
+  transform: translateY(-100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sticky-countdown.show { transform: translateY(0); }
+.sticky-countdown .sc-num { color: #D4AF37; font-weight: 700; }
 @media (max-width: 380px) {
-  .cd-unit { min-width: 48px; }
-  .cd-num  { min-width: 48px; font-size: 24px; padding: 6px 8px 5px; }
-  .cd-sep  { font-size: 20px; }
-  .cd-units { gap: 5px; }
+  .glass-countdown { gap: 8px; padding: 8px 14px; }
+  .glass-countdown .time-box span { font-size: 1.15rem; }
+  .glass-countdown .cd-sep-glass { font-size: 1.15rem; }
+  .sticky-countdown { font-size: 11.5px; }
 }
 </style>
 <!-- Google Analytics -->
@@ -1864,17 +1901,22 @@ footer {
 </script>
 </head>
 <body>
+<!-- Sticky Countdown Bar -->
+<div class="sticky-countdown" id="stickyCountdown">
+  ⏳ متبقي <span class="sc-num" id="sticky-days">--</span> يوم • <span class="sc-num" id="sticky-hours">--</span> ساعة • <span class="sc-num" id="sticky-mins">--</span> دقيقة • <span class="sc-num" id="sticky-secs">--</span> ثانية لانتهاء المهلة الاستثنائية
+</div>
+
 <div id="countdown-banner" role="timer" aria-live="polite" aria-label="العداد التنازلي للمهلة الاستثنائية">
   <div class="cd-label"><span class="cd-icon-pulse">⏳</span> الوقت المتبقي لانتهاء المهلة الاستثنائية للاعتراض</div>
   <div id="cd-display">
-    <div class="cd-units">
-      <div class="cd-unit"><div class="cd-num" id="cd-days">--</div><div class="cd-unit-label">يوم</div></div>
-      <div class="cd-sep">:</div>
-      <div class="cd-unit"><div class="cd-num" id="cd-hours">--</div><div class="cd-unit-label">ساعة</div></div>
-      <div class="cd-sep">:</div>
-      <div class="cd-unit"><div class="cd-num" id="cd-mins">--</div><div class="cd-unit-label">دقيقة</div></div>
-      <div class="cd-sep">:</div>
-      <div class="cd-unit"><div class="cd-num" id="cd-secs">--</div><div class="cd-unit-label">ثانية</div></div>
+    <div class="glass-countdown">
+      <div class="time-box"><span id="cd-days">--</span><small>يوم</small></div>
+      <div class="cd-sep-glass">:</div>
+      <div class="time-box"><span id="cd-hours">--</span><small>ساعة</small></div>
+      <div class="cd-sep-glass">:</div>
+      <div class="time-box"><span id="cd-mins">--</span><small>دقيقة</small></div>
+      <div class="cd-sep-glass">:</div>
+      <div class="time-box"><span id="cd-secs">--</span><small>ثانية</small></div>
     </div>
   </div>
   <div class="cd-sub">حسب تقويم أم القرى</div>
@@ -3168,10 +3210,28 @@ document.addEventListener('DOMContentLoaded', function(){
     if (hEl) hEl.textContent = pad(hours);
     if (mEl) mEl.textContent = pad(mins);
     if (sEl) sEl.textContent = pad(secs);
+    // Sticky bar
+    var sDays = document.getElementById('sticky-days');
+    var sHours = document.getElementById('sticky-hours');
+    var sMins = document.getElementById('sticky-mins');
+    var sSecs = document.getElementById('sticky-secs');
+    if (sDays) sDays.textContent = pad(days);
+    if (sHours) sHours.textContent = pad(hours);
+    if (sMins) sMins.textContent = pad(mins);
+    if (sSecs) sSecs.textContent = pad(secs);
   }
 
   tick();
   setInterval(tick, 1000);
+
+  // Sticky bar scroll behavior (Bulletproof)
+  window.addEventListener('scroll', function() {
+    var bar = document.getElementById('stickyCountdown');
+    if (!bar) return;
+    var scrollPosition = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    if (scrollPosition > 250) bar.classList.add('show');
+    else bar.classList.remove('show');
+  });
 })();
 </script>
 </body>
