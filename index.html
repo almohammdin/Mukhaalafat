@@ -1299,6 +1299,33 @@ footer {
 .pre-tool-list li::before { content: '✓'; color: #6EE08A; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
 .pre-tool-notice { display: flex; align-items: flex-start; gap: 8px; background: rgba(183,119,13,0.18); border: 1px solid rgba(240,204,122,0.35); border-radius: var(--radius-sm); padding: 10px 13px; font-size: 12px; color: #F0CC7A; line-height: 1.55; margin-bottom: 10px; }
 .pre-tool-trust  { display: flex; align-items: flex-start; gap: 8px; background: rgba(26,74,127,0.35); border: 1px solid rgba(162,189,229,0.3); border-radius: var(--radius-sm); padding: 10px 13px; font-size: 12px; color: #A2BDE5; line-height: 1.55; }
+.asst-highlight-box {
+  border: 1.5px solid rgba(201,168,76,0.55);
+  background: rgba(201,168,76,0.07);
+  border-radius: var(--radius-sm);
+  padding: 14px 14px 10px;
+  margin-bottom: 6px;
+}
+.asst-highlight-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11.5px; font-weight: 700; color: #9A7B1F;
+  background: rgba(201,168,76,0.18); border-radius: 20px;
+  padding: 3px 10px; margin-bottom: 10px;
+}
+.asst-highlight-notice {
+  display: flex; align-items: flex-start; gap: 8px;
+  background: rgba(183,119,13,0.10); border: 1px solid rgba(201,168,76,0.4);
+  border-radius: var(--radius-sm); padding: 9px 12px;
+  font-size: 12px; color: #8A6A15; line-height: 1.55; margin-top: 8px;
+}
+.dp-field-attn {
+  border-color: rgba(201,168,76,0.7) !important;
+  animation: dpFieldGlow 2.4s ease-in-out infinite;
+}
+@keyframes dpFieldGlow {
+  0%, 100% { box-shadow: 0 0 0 rgba(201,168,76,0); }
+  50%      { box-shadow: 0 0 0 4px rgba(201,168,76,0.18); }
+}
 
 .asst-back-btn {
   background: var(--bg);
@@ -1946,8 +1973,8 @@ footer {
   </div>
   <div class="hero-title">مستشار الحوكمة وتطوير الأعمال</div>
   <div class="hero-divider"></div>
-  <h1>الاعتراض على المخالفات<br>الإدارية<br><em>نموذج اعتراض جاهز للتقديم</em></h1>
-  <p class="hero-sub">أدخل تاريخ مخالفتك ومهلة الاعتراض الواردة في الإشعار الرسمي، وستُنشئ الأداة نص اعتراضك تلقائيًا وتعرّفك على آلية التقديم المناسبة لجهتك.</p>
+  <h1>الاعتراض على المخالفات<br><em>نموذج اعتراض جاهز للتقديم</em></h1>
+  <p class="hero-sub">تختص هذه الأداة بمخالفات الجهات الحكومية على المنشآت التجارية (المؤسسات والشركات)، مثل مخالفات وزارة الشؤون البلدية، ووزارة الموارد البشرية، ووزارة التجارة، والهيئة العامة للنقل، وغيرها.</p>
 </header>
 
 <!-- ══ PRE-TOOL INTRO ══ -->
@@ -1958,8 +1985,8 @@ footer {
       <span class="pre-tool-title">قبل أن تبدأ</span>
     </div>
     <ul class="pre-tool-list">
-      <li>تختص هذه الأداة بمخالفات الجهات الحكومية على <strong>المنشآت التجارية</strong> (المؤسسات والشركات)، مثل مخالفات وزارة الشؤون البلدية، ووزارة الموارد البشرية، ووزارة التجارة، والهيئة العامة للنقل، وغيرها</li>
-      <li>ولا تشمل المخالفات المرورية الشخصية</li>
+      <li>أدخل تاريخ مخالفتك ومهلة الاعتراض الواردة في الإشعار الرسمي، وستُنشئ الأداة نص اعتراضك تلقائيًا وتعرّفك على آلية التقديم المناسبة لجهتك</li>
+      <li>ولا تشمل المخالفات المرورية</li>
       <li>تمكّنك من إعداد نص اعتراض احترافي بشكل تلقائي، مع توضيح آلية التقديم على الجهة المختصة</li>
       <li>وكل بياناتك تبقى على جهازك فقط ولا تُرفع لأي جهة</li>
     </ul>
@@ -1987,6 +2014,44 @@ footer {
         <div class="asst-card">
           <div class="asst-card-head"><div class="asst-card-icon">📝</div><div><div class="asst-card-title">بيانات الاعتراض</div><div class="asst-card-sub">جميع الحقول اختيارية والخطاب يتحدث تلقائيًا</div></div></div>
           <div class="asst-form">
+
+            <!-- ⓪ تاريخ المخالفة ومهلة الاعتراض — أول خطوة، لأنها تُحدّث العداد أعلى الصفحة -->
+            <div class="asst-highlight-box">
+              <span class="asst-highlight-tag">⏳ ابدأ من هنا — يُحدّث العداد أعلى الصفحة</span>
+              <div class="asst-form-row">
+                <label class="asst-label">تاريخ المخالفة</label>
+                <div class="dp-root" id="dp-vdate">
+                  <div class="dp-row">
+                    <button type="button" class="dp-cb dp-active" onclick="dpSetCal('vdate','hijri',this)">هجري</button>
+                    <button type="button" class="dp-cb" onclick="dpSetCal('vdate','gregorian',this)">ميلادي</button>
+                    <div class="dp-field dp-field-attn" onclick="dpToggle('vdate')">
+                      <span class="dp-field-val" id="dp-vdate-val">اختر التاريخ</span>
+                      <span class="dp-field-icon">📅</span>
+                    </div>
+                  </div>
+                  <div class="dp-panel" id="dp-vdate-panel">
+                    <div class="dp-nav">
+                      <button type="button" class="dp-nav-btn" onclick="dpNavYear('vdate',-1)">«</button>
+                      <button type="button" class="dp-nav-btn" onclick="dpNavMonth('vdate',-1)">‹</button>
+                      <div class="dp-nav-label" id="dp-vdate-label">—</div>
+                      <button type="button" class="dp-nav-btn" onclick="dpNavMonth('vdate',1)">›</button>
+                      <button type="button" class="dp-nav-btn" onclick="dpNavYear('vdate',1)">»</button>
+                    </div>
+                    <div class="dp-dn"><span>أح</span><span>إث</span><span>ثل</span><span>أر</span><span>خم</span><span>جم</span><span>سب</span></div>
+                    <div class="dp-days" id="dp-vdate-days"></div>
+                  </div>
+                  <input type="hidden" id="f-vdate">
+                </div>
+              </div>
+              <div class="asst-form-row" style="margin-top:10px">
+                <label class="asst-label">مهلة الاعتراض النظامية (بالأيام)</label>
+                <input class="asst-input" id="f-deadline-days" type="number" min="1" step="1" placeholder="مثال: 60" value="60">
+                <div class="asst-highlight-notice">
+                  <span>⚠️</span>
+                  <span>هذه المدة <strong>تختلف باختلاف الجهة</strong> المصدرة للمخالفة، تحقق منها في إشعار المخالفة الرسمي، ثم أدخلها هنا ليُحسب العداد تلقائيًا بدءًا من تاريخ المخالفة.</span>
+                </div>
+              </div>
+            </div>
 
             <!-- ① الجهة مصدرة المخالفة -->
             <div class="asst-form-row">
@@ -2016,36 +2081,6 @@ footer {
                 <label class="asst-label">قيمة المخالفة</label>
                 <input class="asst-input" id="f-vamt" type="text" placeholder="اختياري">
               </div>
-            </div>
-            <div class="asst-form-row">
-              <label class="asst-label">تاريخ المخالفة</label>
-              <div class="dp-root" id="dp-vdate">
-                <div class="dp-row">
-                  <button type="button" class="dp-cb dp-active" onclick="dpSetCal('vdate','hijri',this)">هجري</button>
-                  <button type="button" class="dp-cb" onclick="dpSetCal('vdate','gregorian',this)">ميلادي</button>
-                  <div class="dp-field" onclick="dpToggle('vdate')">
-                    <span class="dp-field-val" id="dp-vdate-val">اختر التاريخ</span>
-                    <span class="dp-field-icon">📅</span>
-                  </div>
-                </div>
-                <div class="dp-panel" id="dp-vdate-panel">
-                  <div class="dp-nav">
-                    <button type="button" class="dp-nav-btn" onclick="dpNavYear('vdate',-1)">«</button>
-                    <button type="button" class="dp-nav-btn" onclick="dpNavMonth('vdate',-1)">‹</button>
-                    <div class="dp-nav-label" id="dp-vdate-label">—</div>
-                    <button type="button" class="dp-nav-btn" onclick="dpNavMonth('vdate',1)">›</button>
-                    <button type="button" class="dp-nav-btn" onclick="dpNavYear('vdate',1)">»</button>
-                  </div>
-                  <div class="dp-dn"><span>أح</span><span>إث</span><span>ثل</span><span>أر</span><span>خم</span><span>جم</span><span>سب</span></div>
-                  <div class="dp-days" id="dp-vdate-days"></div>
-                </div>
-                <input type="hidden" id="f-vdate">
-              </div>
-            </div>
-            <div class="asst-form-row">
-              <label class="asst-label">مهلة الاعتراض النظامية (بالأيام)</label>
-              <input class="asst-input" id="f-deadline-days" type="number" min="1" step="1" placeholder="مثال: 60" value="60">
-              <div style="margin-top:6px;font-size:12px;color:var(--muted);line-height:1.6">هذه المدة تختلف باختلاف الجهة المصدرة للمخالفة، تحقق منها في إشعار المخالفة الرسمي، ثم أدخلها هنا ليُحسب العداد تلقائيًا بدءًا من تاريخ المخالفة.</div>
             </div>
             <div class="asst-form-row">
               <label class="asst-label">المدينة</label>
@@ -2181,7 +2216,6 @@ footer {
       <div class="sc-body" id="submission-content"></div>
     </div>
     <div class="asst-warnings">
-      <div class="asst-warn-card asst-warn-amber"><div class="asst-warn-icon">⚠️</div><div class="asst-warn-text">هذه الأداة تقدم تقييمًا مبدئيًا وصياغة أولية فقط، ولا تُعد استشارة قانونية. التحقق النهائي مسؤولية المستخدم أو من يستشيره.</div></div>
       <div class="asst-warn-card asst-warn-blue"><div class="asst-warn-icon">⚖️</div><div class="asst-warn-text">عند رفض الجهة للاعتراض، قد يكون لك بحسب الحالة حق الاعتراض أمام المحكمة الإدارية خلال 60 يومًا من تاريخ الرفض.</div></div>
     </div>
     <div style="text-align:center;margin-top:16px;display:flex;gap:10px;justify-content:center">
@@ -2195,7 +2229,7 @@ footer {
 
 <div class="divider"></div>
 <section class="section">
-  <div class="section-label">ملخص سريع للإجراءات</div>
+  <div class="section-label">تنويه</div>
   <div class="quick-bullets">
     <div class="qb-item"><span class="qb-icon">⏳</span><span>المهلة القانونية: تختلف حسب الجهة المصدرة للمخالفة، وغالبًا ما تكون مذكورة صراحة في إشعار المخالفة، تحقق منها وأدخلها في الأداة لحساب العداد تلقائيًا</span></div>
     <div class="qb-item"><span class="qb-icon">🏛️</span><span>مسار التظلم: يبدأ التقديم <strong>أمام الجهة الإدارية مصدرة المخالفة</strong> أولًا، ثم المحكمة الإدارية المختصة في حال الرفض</span></div>
@@ -2215,7 +2249,7 @@ footer {
   <div class="lawyer-card">
     <div class="lawyer-card-inner">
 
-      <div class="lawyer-badge">💬 تواصل مباشر مع نايف المحمدي</div>
+      <div class="lawyer-badge">💬 تواصل مباشر</div>
 
       <div class="lawyer-tagline">
         هل تحتاج مساعدة في إعداد اعتراضك أو متابعته، أو استشارة في حوكمة منشأتك؟<br>
@@ -2238,7 +2272,7 @@ footer {
   <div class="section-label">الشرح التفصيلي</div>
   <div class="accordion-wrap">
     <button class="accordion-toggle" id="acc-toggle" onclick="toggleAccordion()">
-      <span>📖 عرض الشرح التفصيلي والمقارنات والخط الزمني</span>
+      <span>📖 عرض شرح مبسط لآلية عمل الاعتراض</span>
       <span class="accordion-arrow" id="acc-arrow">▼</span>
     </button>
     <div class="accordion-body" id="acc-body">
