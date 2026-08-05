@@ -7,23 +7,23 @@
   <meta name="description" content="أداة استرشادية تساعد المنشآت على ترتيب اعتراضها على المخالفات، حساب المهلة، إعداد المسودة ومعرفة طريقة التقديم.">
   <meta name="theme-color" content="#0B1A2B">
   <link rel="canonical" href="https://almohammdin.github.io/Mukhaalafat/">
-  <link rel="icon" type="image/svg+xml" href="assets/mark.svg?v=4.0.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=4.0.0">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=4.0.0">
-  <link rel="manifest" href="site.webmanifest?v=4.0.0">
+  <link rel="icon" type="image/svg+xml" href="assets/mark.svg?v=4.1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=4.1.0">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=4.1.0">
+  <link rel="manifest" href="site.webmanifest?v=4.1.0">
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://almohammdin.github.io/Mukhaalafat/">
   <meta property="og:title" content="مخالفات | مساعد إعداد الاعتراض">
   <meta property="og:description" content="رتب اعتراضك واعرف المهلة وطريقة التقديم">
-  <meta property="og:image" content="https://almohammdin.github.io/Mukhaalafat/assets/mukhaalafat-og-v4.png?v=4.0.0">
+  <meta property="og:image" content="https://almohammdin.github.io/Mukhaalafat/assets/mukhaalafat-og-v4.png?v=4.1.0">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="مخالفات، مساعد إعداد الاعتراض">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="مخالفات | مساعد إعداد الاعتراض">
   <meta name="twitter:description" content="رتب اعتراضك واعرف المهلة وطريقة التقديم">
-  <meta name="twitter:image" content="https://almohammdin.github.io/Mukhaalafat/assets/mukhaalafat-og-v4.png?v=4.0.0">
+  <meta name="twitter:image" content="https://almohammdin.github.io/Mukhaalafat/assets/mukhaalafat-og-v4.png?v=4.1.0">
 
   <style>
     @font-face{font-family:"IBM Plex Sans Arabic";src:url("fonts/ibm-plex-sans-arabic-400.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
@@ -95,6 +95,7 @@
     .req{color:var(--red)}
     .field-help{font-size:14px;color:var(--muted);margin:6px 2px 0;line-height:1.65}
     .input{width:100%;border:1.5px solid #D6DDE4;border-radius:12px;background:#fff;color:var(--text);padding:11px 13px;outline:0;transition:.2s;min-height:50px}
+    .latin-date{direction:ltr;text-align:left;font-variant-numeric:tabular-nums}
     .input:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(201,168,76,.14)}
     textarea.input{min-height:128px;resize:vertical;line-height:1.8}
     .money-wrap{position:relative}
@@ -139,6 +140,37 @@
     .special-note{margin-top:12px;border-right:4px solid var(--gold);background:var(--gold-soft);padding:12px 14px;border-radius:10px;font-size:14px;color:#5C4A20}
     .sources{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
     .sources a{font-size:13px;text-decoration:none;color:var(--navy);border:1px solid #D7C990;background:#fff;padding:6px 10px;border-radius:999px}
+    .legacy-builder{display:none!important}
+    .builder-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);gap:22px;margin-top:28px;align-items:start}
+    .builder-form,.preview-card{background:#fff;border:1px solid rgba(11,26,43,.08);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+    .builder-head{padding:24px 26px 18px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff,#FBFCFD)}
+    .builder-head h2{font-size:27px;line-height:1.35;color:var(--navy);margin:0 0 5px}
+    .builder-head p{font-size:15px;color:var(--muted);margin:0}
+    .builder-body{padding:24px 26px;display:grid;gap:20px}
+    .preview-column{position:sticky;top:96px}
+    .preview-head{padding:18px 20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:12px;background:#FAFBFC}
+    .preview-head strong{font-size:20px;color:var(--navy)}
+    .preview-head span{font-size:13px;color:var(--muted)}
+    .preview-body{padding:18px}
+    .preview-editor{width:100%;min-height:470px;border:0;resize:vertical;outline:0;background:#fff;color:var(--text);font-size:17px;line-height:2;direction:rtl;text-align:right}
+    .optional-section{border:1px solid var(--line);border-radius:14px;background:#FAFBFC;overflow:hidden}
+    .optional-section summary{cursor:pointer;list-style:none;padding:14px 16px;font-size:15px;font-weight:700;color:var(--navy);display:flex;align-items:center;justify-content:space-between}
+    .optional-section summary::-webkit-details-marker{display:none}
+    .optional-section summary:after{content:"+";font-size:22px;color:var(--gold)}
+    .optional-section[open] summary:after{content:"−"}
+    .optional-content{padding:2px 16px 17px}
+    .preview-route{margin:0 18px 18px;padding:15px;border:1px solid #D7C990;background:var(--gold-soft);border-radius:14px}
+    .preview-route strong{display:block;color:var(--navy);font-size:16px}
+    .path-flow{display:grid;grid-template-columns:1fr 44px 1fr 44px 1.15fr 44px 1fr;align-items:stretch;gap:0;margin-top:16px;direction:rtl}
+    .path-step{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px;text-align:center;display:flex;flex-direction:column;justify-content:center;min-height:118px}
+    .path-step b{display:grid;place-items:center;width:30px;height:30px;margin:0 auto 7px;border-radius:50%;background:var(--navy);color:#fff;font-size:14px}
+    .path-step strong{font-size:15px;color:var(--navy)}
+    .path-step span{font-size:12px;color:var(--muted);line-height:1.55;margin-top:4px}
+    .path-arrow{display:grid;place-items:center;color:var(--gold);font-size:25px;font-weight:800}
+    .path-outcomes{display:grid;gap:7px}
+    .path-outcome{border-radius:10px;padding:8px;font-size:12px;font-weight:600}
+    .path-outcome.accept{background:var(--green-soft);color:var(--green)}
+    .path-outcome.review{background:var(--gold-soft);color:#705719}
     .export-row{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:18px}
     .export-btn{padding:11px 10px;background:#fff;color:var(--navy);border:1px solid var(--line);font-size:14px}
     .export-btn:hover{border-color:var(--gold);background:#FFFCF5}
@@ -161,6 +193,7 @@
       .intro-strip{grid-template-columns:1fr;margin-top:-42px}.steps{grid-template-columns:repeat(4,auto);overflow:hidden}.step-chip span{display:none}
       .step-chip{justify-content:center}.form-grid,.choice-grid,.result-grid{grid-template-columns:1fr}.export-row{grid-template-columns:repeat(2,1fr)}
       .footer-card{align-items:flex-start;flex-direction:column}.footer-main img{width:96px}.progress-wrap{top:76px}
+      .builder-grid{grid-template-columns:1fr}.preview-column{position:static}.path-flow{grid-template-columns:1fr;gap:8px}.path-arrow{transform:rotate(90deg);height:28px}
     }
     @media (max-width:520px){
       .shell{width:min(100% - 22px,1040px)}.site-header .shell{width:calc(100% - 22px)}.header-row{min-height:68px}.header-logo{width:195px}
@@ -185,7 +218,7 @@
   <a class="skip-link" href="#tool">انتقل إلى الأداة</a>
   <header class="site-header">
     <div class="shell header-row">
-      <a href="#top" aria-label="مخالفات، أعلى الصفحة"><img class="header-logo" src="assets/logo.svg?v=4.0.0" alt="مخالفات، مساعد إعداد الاعتراض"></a>
+      <a href="#top" aria-label="مخالفات، أعلى الصفحة"><img class="header-logo" src="assets/logo.svg?v=4.1.0" alt="مخالفات، مساعد إعداد الاعتراض"></a>
       <a class="header-link" href="#tool">ابدأ إعداد الاعتراض</a>
     </div>
   </header>
@@ -193,11 +226,11 @@
   <main id="top">
     <section class="hero">
       <div class="shell">
-        <img class="hero-mark" src="assets/mark.svg?v=4.0.0" alt="">
+        <img class="hero-mark" src="assets/mark.svg?v=4.1.0" alt="">
         <div class="eyebrow">أداة استرشادية للمنشآت</div>
         <h1>رتب اعتراضك واعرف المهلة وطريقة التقديم</h1>
         <p>أدخل بيانات المخالفة، ثم تساعدك الأداة على ترتيب الوقائع والأسباب وإعداد مسودة اعتراض قابلة للمراجعة.</p>
-        <div class="hero-note">لا تشمل المخالفات المرورية</div><br>
+        <div class="hero-note">مخصصة لمخالفات الجهات الحكومية على المنشآت</div><br>
         <button class="primary-btn" type="button" onclick="startTool()">ابدأ الآن</button>
       </div>
     </section>
@@ -205,11 +238,12 @@
     <section class="tool-wrap" id="tool">
       <div class="shell">
         <div class="intro-strip" aria-label="مزايا الأداة">
-          <div class="intro-item"><div class="intro-icon">1</div><div><strong>احسب المهلة</strong><span>أدخل التاريخ والمدة المكتوبة في إشعار الجهة.</span></div></div>
+          <div class="intro-item"><div class="intro-icon">1</div><div><strong>احسب المهلة</strong><span>أدخل تاريخ معرفتك بالمخالفة، وأضف مدة الاعتراض عند توفرها.</span></div></div>
           <div class="intro-item"><div class="intro-icon">2</div><div><strong>رتب الاعتراض</strong><span>اجمع الوقائع والأسباب والمستندات في مسودة واحدة.</span></div></div>
           <div class="intro-item"><div class="intro-icon">3</div><div><strong>اعرف طريقة التقديم</strong><span>انتقل إلى خدمة الاعتراض المناسبة للجهة.</span></div></div>
         </div>
 
+        <div class="legacy-builder" aria-hidden="true">
         <div class="progress-wrap" id="progressWrap">
           <div class="progress-card">
             <div class="steps">
@@ -224,7 +258,7 @@
 
         <form id="objectionForm" novalidate>
           <section class="panel active" data-panel="1">
-            <div class="panel-head"><small>الخطوة 1 من 4</small><h2>بيانات المخالفة والمهلة</h2><p>ابدأ من إشعار المخالفة نفسه، وانقل البيانات كما هي مكتوبة.</p></div>
+            <div class="panel-head"><small>الخطوة 1 من 4</small><h2>بيانات المخالفة والمهلة</h2><p>انقل بيانات المخالفة من الإشعار أو من حسابك في منصة الجهة.</p></div>
             <div class="panel-body">
               <div class="form-grid">
                 <div class="field full">
@@ -252,18 +286,18 @@
                   <input class="input" id="violationType" type="text" placeholder="مثال: اشتراطات النشاط">
                 </div>
                 <div class="field">
-                  <label for="noticeDate">تاريخ تبليغك بالمخالفة <span class="req">*</span></label>
-                  <input class="input" id="noticeDate" type="date" required>
-                  <div class="field-help" id="noticeDateAlt">يظهر التاريخ الهجري بعد الاختيار.</div>
+                  <label for="noticeDate">تاريخ معرفتك بالمخالفة <span class="req">*</span></label>
+                  <input class="input latin-date" id="noticeDate" type="date" lang="en" dir="ltr" required>
+                  <div class="field-help" id="noticeDateAlt">تاريخ وصول الإشعار أو اليوم الذي ظهرت فيه المخالفة.</div>
                 </div>
                 <div class="field">
-                  <label for="deadlineDays">مدة الاعتراض المكتوبة في الإشعار <span class="req">*</span></label>
-                  <input class="input" id="deadlineDays" type="number" inputmode="numeric" min="1" max="3650" placeholder="عدد الأيام" required>
-                  <div class="field-help">لا تفترض أن المهلة 60 يوما، انقل المدة من إشعار الجهة.</div>
+                  <label for="deadlineDays">مدة الاعتراض بالأيام</label>
+                  <input class="input" id="deadlineDays" type="number" inputmode="numeric" min="1" max="3650" placeholder="مثال: 30">
+                  <div class="field-help">أضف المدة عند وجودها في الإشعار أو منصة الجهة، ويمكنك المتابعة بدونها.</div>
                 </div>
                 <div class="field">
                   <label for="violationDate">تاريخ وقوع المخالفة</label>
-                  <input class="input" id="violationDate" type="date">
+                  <input class="input latin-date" id="violationDate" type="date" lang="en" dir="ltr">
                   <div class="field-help" id="violationDateAlt">اختياري إذا كان مختلفا عن تاريخ التبليغ.</div>
                 </div>
                 <div class="field">
@@ -284,7 +318,7 @@
           </section>
 
           <section class="panel" data-panel="2">
-            <div class="panel-head"><small>الخطوة 2 من 4</small><h2>الوقائع وأسباب الاعتراض</h2><p>اكتب ما حدث بلغة مباشرة، واختر فقط الأسباب التي تنطبق على حالتك.</p></div>
+            <div class="panel-head"><small>الخطوة 2 من 4</small><h2>الوقائع وأسباب الاعتراض</h2><p>اختر ما ينطبق على حالتك، وستجهز الأداة أسباب الاعتراض تلقائيا.</p></div>
             <div class="panel-body">
               <div class="form-grid">
                 <div class="field full">
@@ -304,8 +338,8 @@
                   <div class="tip">اختر السبب الذي يطابق ما حدث فعلا، وأرفق ما يدعمه.</div>
                 </div>
                 <div class="field full">
-                  <label for="reasonDetails">اشرح أسباب اعتراضك <span class="req">*</span></label>
-                  <textarea class="input" id="reasonDetails" placeholder="مثال: كان الترخيص ساريا بتاريخ المخالفة، وأرفق نسخة منه" required></textarea>
+                  <label for="reasonDetails">تفاصيل إضافية تدعم اعتراضك</label>
+                  <textarea class="input" id="reasonDetails" placeholder="اختياري، مثال: كانت بطاقة التشغيل سارية وقت الزيارة"></textarea>
                 </div>
                 <div class="field full">
                   <label for="evidence">المستندات التي ستدعم اعتراضك</label>
@@ -387,6 +421,151 @@
             <div class="panel-actions"><button class="ghost-btn" type="button" onclick="goStep(3)">السابق</button><button class="ghost-btn" type="button" onclick="resetTool()">ابدأ من جديد</button></div>
           </section>
         </form>
+        </div>
+
+        <div class="builder-grid" id="simpleBuilder">
+          <form class="builder-form" id="simpleForm">
+            <div class="builder-head">
+              <h2>جهز نص اعتراضك</h2>
+              <p>اختر الأسباب التي تنطبق على حالتك، وسيظهر النص جاهزا في الجهة الأخرى.</p>
+            </div>
+            <div class="builder-body">
+              <div class="form-grid">
+                <div class="field full">
+                  <label for="simpleAgency">جهة المخالفة</label>
+                  <select class="input" id="simpleAgency">
+                    <option value="">اختر الجهة</option>
+                    <option value="balady">وزارة البلديات والإسكان</option>
+                    <option value="hrsd">وزارة الموارد البشرية والتنمية الاجتماعية</option>
+                    <option value="commerce">وزارة التجارة</option>
+                    <option value="sfda">الهيئة العامة للغذاء والدواء</option>
+                    <option value="tga">الهيئة العامة للنقل</option>
+                    <option value="other">جهة أخرى</option>
+                  </select>
+                </div>
+                <div class="field full" id="simpleOtherAgencyWrap" hidden>
+                  <label for="simpleOtherAgency">اسم الجهة</label>
+                  <input class="input" id="simpleOtherAgency" type="text" placeholder="اكتب اسم الجهة">
+                </div>
+                <div class="field">
+                  <label for="simpleViolationNumber">رقم المخالفة</label>
+                  <input class="input" id="simpleViolationNumber" type="text" inputmode="numeric" placeholder="اختياري">
+                </div>
+                <div class="field">
+                  <label for="simpleViolationType">نوع المخالفة</label>
+                  <input class="input" id="simpleViolationType" type="text" placeholder="اختياري">
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="simpleViolationDescription">ماذا كتبت الجهة عن المخالفة؟</label>
+                <textarea class="input" id="simpleViolationDescription" placeholder="اختياري، انسخ وصف المخالفة أو اكتبه باختصار"></textarea>
+              </div>
+
+              <div class="field">
+                <div class="field-title">اختر أسباب اعتراضك</div>
+                <div class="choice-grid">
+                  <label class="choice"><input type="checkbox" name="simpleReason" value="noNotice"><span><strong>ظهرت المخالفة دون إشعار</strong><span>اكتشفتها في منصة الجهة أو عند الاستعلام.</span></span></label>
+                  <label class="choice"><input type="checkbox" name="simpleReason" value="data"><span><strong>خطأ في البيانات</strong><span>مثل الفرع أو المركبة أو الشخص أو تاريخ الواقعة.</span></span></label>
+                  <label class="choice"><input type="checkbox" name="simpleReason" value="license"><span><strong>لدي ترخيص أو مستند ساري</strong><span>كان ساريا وقت تسجيل المخالفة.</span></span></label>
+                  <label class="choice"><input type="checkbox" name="simpleReason" value="description"><span><strong>وصف المخالفة مختلف عما حدث</strong><span>الواقعة أو النشاط يختلف عن الوصف المسجل.</span></span></label>
+                  <label class="choice"><input type="checkbox" name="simpleReason" value="duplicate"><span><strong>المخالفة مكررة</strong><span>سجلت أكثر من مرة على الواقعة نفسها.</span></span></label>
+                  <label class="choice"><input type="checkbox" name="simpleReason" value="circumstance"><span><strong>ظرف خارج عن السيطرة</strong><span>يوجد ظرف يمكن إثباته أثر في الالتزام.</span></span></label>
+                  <label class="choice"><input type="checkbox" name="simpleReason" value="corrected"><span><strong>عالجت الملاحظة</strong><span>تم التصحيح ويوجد مستند يثبت ذلك.</span></span></label>
+                </div>
+                <div class="tip">كل اختيار يضيف سببا مكتوبا إلى نص الاعتراض مباشرة.</div>
+              </div>
+
+              <div class="field">
+                <label for="simpleReasonDetails">تفاصيل خاصة بحالتك</label>
+                <textarea class="input" id="simpleReasonDetails" placeholder="اختياري، أضف معلومة أو تاريخا يدعم اعتراضك"></textarea>
+              </div>
+
+              <div class="field">
+                <label for="simpleEvidence">المستندات التي سترفقها</label>
+                <textarea class="input" id="simpleEvidence" placeholder="اختياري، مثال: صورة الترخيص وإشعار المخالفة"></textarea>
+              </div>
+
+              <div class="field">
+                <label for="simpleRequestType">طلبك من الجهة</label>
+                <select class="input" id="simpleRequestType">
+                  <option value="cancel">إلغاء المخالفة</option>
+                  <option value="reduce">تخفيض المخالفة أو إعادة تقديرها</option>
+                  <option value="correct">تصحيح القرار أو بيانات المخالفة</option>
+                  <option value="review">إعادة النظر في المخالفة</option>
+                </select>
+              </div>
+
+              <details class="optional-section">
+                <summary>المهلة وبيانات إضافية</summary>
+                <div class="optional-content">
+                  <div class="form-grid">
+                    <div class="field">
+                      <label for="simpleNoticeDate">تاريخ معرفتك بالمخالفة</label>
+                      <input class="input latin-date" id="simpleNoticeDate" type="date" lang="en" dir="ltr">
+                      <div class="field-help" id="simpleNoticeDateAlt">تاريخ وصول الإشعار أو اليوم الذي ظهرت فيه المخالفة.</div>
+                    </div>
+                    <div class="field">
+                      <label for="simpleDeadlineDays">مدة الاعتراض بالأيام</label>
+                      <input class="input" id="simpleDeadlineDays" type="number" inputmode="numeric" min="1" max="3650" placeholder="مثال: 30">
+                      <div class="field-help">أضف المدة عند توفرها في الإشعار أو منصة الجهة.</div>
+                    </div>
+                    <div class="field">
+                      <label for="simpleAmount">قيمة المخالفة</label>
+                      <div class="money-wrap"><input class="input" id="simpleAmount" type="text" inputmode="decimal" placeholder="اختياري"><span class="sar" aria-label="ريال سعودي">⃁</span></div>
+                    </div>
+                    <div class="field">
+                      <label for="simpleCity">المدينة أو الفرع</label>
+                      <input class="input" id="simpleCity" type="text" placeholder="اختياري">
+                    </div>
+                  </div>
+                  <div class="deadline-card" id="simpleDeadlineCard" aria-live="polite">
+                    <div class="deadline-copy"><strong id="simpleDeadlineTitle"></strong><span id="simpleDeadlineDates"></span></div>
+                    <div class="deadline-number" id="simpleDeadlineRemaining"></div>
+                  </div>
+                </div>
+              </details>
+            </div>
+          </form>
+
+          <aside class="preview-column">
+            <section class="preview-card">
+              <div class="preview-head"><strong>نص الاعتراض</strong><span>يتحدث تلقائيا مع كل اختيار</span></div>
+              <div class="preview-body"><textarea class="preview-editor" id="simpleLetterEditor" aria-label="نص الاعتراض">اختر سبب اعتراضك، وسيظهر النص هنا جاهزا للنسخ.</textarea></div>
+              <div class="preview-route" id="simpleRouteCard" hidden>
+                <strong id="simpleRouteAgency"></strong>
+                <p class="route-note" id="simpleRouteNote"></p>
+                <a class="route-link" id="simpleRouteLink" target="_blank" rel="noopener">فتح خدمة الاعتراض</a>
+              </div>
+              <div class="export-row" style="padding:0 18px 18px;margin-top:0">
+                <button class="export-btn" type="button" onclick="copySimpleLetter()">نسخ النص</button>
+                <button class="export-btn" type="button" onclick="printSimpleLetter()">طباعة أو PDF</button>
+                <button class="export-btn" type="button" onclick="downloadSimpleWord()">تحميل Word</button>
+                <button class="export-btn" type="button" onclick="downloadSimpleImage()">تحميل صورة</button>
+              </div>
+            </section>
+          </aside>
+        </div>
+
+        <section class="general-path" aria-labelledby="generalPathTitle">
+          <h3 id="generalPathTitle">المسار العام للاعتراض</h3>
+          <p>هذا هو المسار المعتاد للمخالفات الإدارية، ويطبق فيما لم يرد مسار خاص.</p>
+          <div class="path-flow" aria-label="مراحل الاعتراض العامة">
+            <div class="path-step"><b>1</b><strong>ظهور المخالفة</strong><span>في إشعار الجهة أو منصتها</span></div>
+            <div class="path-arrow">←</div>
+            <div class="path-step"><b>2</b><strong>الاعتراض أمام الجهة</strong><span>خلال المهلة المقررة للمخالفة</span></div>
+            <div class="path-arrow">←</div>
+            <div class="path-step"><b>3</b><strong>نتيجة الاعتراض</strong><div class="path-outcomes"><div class="path-outcome accept">قبول الاعتراض وتنتهي المخالفة</div><div class="path-outcome review">رفض الاعتراض أو انتهاء مدة البت</div></div></div>
+            <div class="path-arrow">←</div>
+            <div class="path-step"><b>4</b><strong>المحكمة الإدارية</strong><span>خلال 60 يوما في المسار العام</span></div>
+          </div>
+          <div class="special-note">بعض المخالفات لها أحكام وطريقة اعتراض مختلفة، مثل المخالفات الزكوية والضريبية وبعض قرارات التأمينات. لذلك راجع المهلة وطريقة الاعتراض المكتوبة في إشعار الجهة.</div>
+          <div class="sources">
+            <a href="https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/f2f7b465-b576-4f47-a8e7-a9a700f27202/1" target="_blank" rel="noopener">نظام المرافعات أمام ديوان المظالم</a>
+            <a href="https://gstc.gov.sa/ar/Help/FAQs/Pages/default.aspx" target="_blank" rel="noopener">المنازعات الزكوية والضريبية</a>
+            <a href="https://www.gosi.gov.sa/GOSIOnline/FAQ_Employer" target="_blank" rel="noopener">اعتراضات التأمينات</a>
+          </div>
+        </section>
       </div>
     </section>
   </main>
@@ -395,7 +574,7 @@
     <div class="shell footer-card">
       <div class="footer-main">
         <img src="https://almohammdin.github.io/tawassu_branch/naif-logo-v2.png" alt="نايف المحمدي">
-        <div class="footer-copy"><strong>تطوير وإشراف نايف المحمدي</strong><span>مخالفات | مساعد إعداد الاعتراض</span><span>الإصدار 4.0.0</span><span>أداة استرشادية، وتحتاج الحالات المعقدة إلى مراجعة مختص</span></div>
+        <div class="footer-copy"><strong>تطوير وإشراف نايف المحمدي</strong><span>مخالفات | مساعد إعداد الاعتراض</span><span>الإصدار 4.1.0</span><span>أداة استرشادية، وتحتاج الحالات المعقدة إلى مراجعة مختص</span></div>
       </div>
       <div class="footer-social">
         <strong>Almohammdin</strong>
@@ -411,7 +590,7 @@
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script>
-    const VERSION="4.0.0";
+    const VERSION="4.1.0";
     const agencyData={
       balady:{name:"وزارة البلديات والإسكان",url:"https://balady.gov.sa/ar/services/%D8%AE%D8%AF%D9%85%D8%A9-%D8%A7%D9%84%D8%A7%D8%B9%D8%AA%D8%B1%D8%A7%D8%B6",note:"قدّم الاعتراض من خدمة الاعتراض في منصة بلدي، واختر المخالفة وأرفق ما يدعم اعتراضك."},
       hrsd:{name:"وزارة الموارد البشرية والتنمية الاجتماعية",url:"https://www.hrsd.gov.sa/ministry-services/services/%D8%A7%D9%84%D8%A7%D8%B9%D8%AA%D8%B1%D8%A7%D8%B6%D8%A7%D8%AA-%D9%88%D8%A7%D9%84%D8%AA%D8%B3%D9%88%D9%8A%D8%A7%D8%AA-%D8%B9%D9%84%D9%89-%D9%85%D8%AE%D8%A7%D9%84%D9%81%D8%A7%D8%AA-%D8%A7%D9%84%D8%B9%D9%85%D9%84",note:"استخدم خدمة الاعتراضات والتسويات على مخالفات العمل وأرفق المستندات المرتبطة بالحالة."},
@@ -432,7 +611,8 @@
     let currentStep=1;
 
     const $=id=>document.getElementById(id);
-    const val=id=>($(id)?.value||"").trim();
+    const toLatinDigits=value=>String(value).replace(/[٠-٩]/g,d=>"0123456789"["٠١٢٣٤٥٦٧٨٩".indexOf(d)]).replace(/[۰-۹]/g,d=>"0123456789"["۰۱۲۳۴۵۶۷۸۹".indexOf(d)]);
+    const val=id=>toLatinDigits($(id)?.value||"").trim();
     const escapeHtml=s=>String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
 
     function startTool(){$("tool").scrollIntoView({behavior:"smooth",block:"start"});setTimeout(()=>$("agency").focus(),500)}
@@ -449,6 +629,7 @@
       const required=[...panel.querySelectorAll("[required]")];
       if(step===1&&val("agency")==="other"&&!val("otherAgency")){showToast("اكتب اسم الجهة");$("otherAgency").focus();return false}
       for(const field of required){if(!field.value.trim()){showToast("أكمل الحقول المطلوبة");field.focus();return false}}
+      if(step===2&&!document.querySelector('input[name="reason"]:checked')){showToast("اختر سبب اعتراضك");return false}
       return true;
     }
     function nextStep(step){if(validateStep(step))goStep(step+1)}
@@ -480,7 +661,7 @@
       $("deadlineTitle").textContent=title;$("deadlineDates").textContent=`${gregorian(info.end)} م | ${hijri(info.end)}`;
       $("deadlineRemaining").textContent=label;
     }
-    function updateAltDate(inputId,targetId){const d=toDate(val(inputId));$(targetId).textContent=d?hijri(d):inputId==="noticeDate"?"يظهر التاريخ الهجري بعد الاختيار.":"اختياري إذا كان مختلفا عن تاريخ التبليغ."}
+    function updateAltDate(inputId,targetId){const d=toDate(val(inputId));$(targetId).textContent=d?hijri(d):inputId==="noticeDate"?"تاريخ وصول الإشعار أو اليوم الذي ظهرت فيه المخالفة.":"اختياري إذا كان مختلفا عن تاريخ معرفتك بالمخالفة."}
 
     function buildLetter(){
       const agency=selectedAgency();const info=deadlineInfo();
@@ -488,7 +669,7 @@
       const amount=val("amount")?`، وقيمتها ${val("amount")} ⃁`:"";
       const city=val("city")?`، والمرتبطة بـ ${val("city")}`:"";
       const vdate=toDate(val("violationDate"));const notice=toDate(val("noticeDate"));
-      const dates=[];if(vdate)dates.push(`بتاريخ ${gregorian(vdate)} م الموافق ${hijri(vdate)}`);if(notice)dates.push(`وقد تم التبليغ بها بتاريخ ${gregorian(notice)} م الموافق ${hijri(notice)}`);
+      const dates=[];if(vdate)dates.push(`بتاريخ ${gregorian(vdate)} م الموافق ${hijri(vdate)}`);if(notice)dates.push(`وقد علمت بها بتاريخ ${gregorian(notice)} م الموافق ${hijri(notice)}`);
       const timely=info&&info.remaining>=0?"وأتقدم بهذا الاعتراض خلال المهلة المحسوبة وفقا للبيانات المدخلة.":"وأتقدم بهذا الاعتراض طالبا من الجهة مراجعة المخالفة والبيانات والمستندات المرفقة.";
       const identity=[
         val("entityName")?`المنشأة: ${val("entityName")}`:"",
@@ -512,7 +693,7 @@
         "",
         "أسباب الاعتراض:",
         reasons.length?reasons.map((r,i)=>`${i+1}. ${r}`).join("\n"):"",
-        val("reasonDetails"),
+        val("reasonDetails")?`تفاصيل إضافية:\n${val("reasonDetails")}`:"",
         "",
         val("evidence")?`المستندات المؤيدة:\n${val("evidence")}\n`:"",
         `الطلب:\nأطلب ${requestText[val("requestType")]||"إعادة النظر في المخالفة"} بعد مراجعة الوقائع والمستندات المرفقة.`,
@@ -525,8 +706,8 @@
     function readiness(){
       const items=[
         [Boolean(val("agency")&&val("violationNumber")),"بيانات المخالفة"],
-        [Boolean(val("noticeDate")&&val("deadlineDays")),"بيانات المهلة"],
-        [Boolean(val("violationDescription")&&val("reasonDetails")),"الوقائع وأسباب الاعتراض"],
+        [Boolean(val("noticeDate")),"تاريخ معرفة المخالفة"],
+        [Boolean(val("violationDescription")&&document.querySelector('input[name="reason"]:checked')),"الوقائع وأسباب الاعتراض"],
         [Boolean(val("evidence")),"المستندات المؤيدة"],
         [Boolean(val("applicantName")&&val("entityName")),"بيانات مقدم الاعتراض"]
       ];
@@ -538,7 +719,7 @@
       if(info){
         $("resultDeadlineTitle").textContent=info.remaining>=0?"المهلة المحسوبة":"المهلة المحسوبة منتهية";
         $("resultDeadlineText").textContent=`${info.remaining>=0?`متبقي ${info.remaining} يوم. `:`انتهت منذ ${Math.abs(info.remaining)} يوم. `}آخر يوم متوقع: ${gregorian(info.end)} م | ${hijri(info.end)}`;
-      }else{$("resultDeadlineTitle").textContent="المهلة غير مكتملة";$("resultDeadlineText").textContent="راجع تاريخ التبليغ والمدة المكتوبة في إشعار الجهة."}
+      }else{$("resultDeadlineTitle").textContent="المهلة تحتاج مراجعة";$("resultDeadlineText").textContent="راجع إشعار المخالفة أو منصة الجهة لمعرفة مدة الاعتراض، وقدم اعتراضك في أقرب وقت."}
       const ready=readiness();$("readinessScore").textContent=`${ready.score}%`;
       $("readinessList").innerHTML=ready.items.map(([ok,label])=>`<li class="${ok?"ok":""}">${ok?"✓":"○"} ${label}</li>`).join("");
       $("routeAgency").textContent=agency.name;$("routeNote").textContent=agency.note;$("routeLink").href=agency.url;
@@ -566,7 +747,7 @@
       ctx.fillStyle="#fff";ctx.font="700 86px 'IBM Plex Sans Arabic'";ctx.fillText("مخالفات",840,155);ctx.fillStyle="#D9BD65";ctx.font="600 34px 'IBM Plex Sans Arabic'";ctx.fillText("ملخص الاعتراض",840,215);ctx.fillStyle="#D7E0E9";ctx.font="400 26px 'IBM Plex Sans Arabic'";ctx.fillText(todayLine(),840,274);
       const agency=selectedAgency(),info=deadlineInfo(),ready=readiness();
       ctx.fillStyle="#fff";roundRect(ctx,70,430,1060,235,26);ctx.fill();ctx.fillStyle="#0B1A2B";ctx.font="600 30px 'IBM Plex Sans Arabic'";ctx.fillText("بيانات المخالفة",1070,490);ctx.font="500 27px 'IBM Plex Sans Arabic'";ctx.fillText(`الجهة: ${agency.name}`,1070,545);ctx.fillText(`رقم المخالفة: ${val("violationNumber")}`,1070,592);ctx.font="500 27px 'Saudi Riyal Symbol','IBM Plex Sans Arabic'";ctx.fillText(`قيمة المخالفة: ${val("amount")?val("amount")+" ⃁":"غير مضافة"}`,1070,639);
-      ctx.fillStyle="#fff";roundRect(ctx,70,700,1060,260,26);ctx.fill();ctx.fillStyle="#0B1A2B";ctx.font="600 30px 'IBM Plex Sans Arabic'";ctx.fillText("المهلة واكتمال الاعتراض",1070,760);ctx.font="700 49px 'IBM Plex Sans Arabic'";ctx.fillStyle=info&&info.remaining<0?"#B64C3F":"#1F7A4D";ctx.fillText(info?(info.remaining>=0?`متبقي ${info.remaining} يوم`:`منتهية منذ ${Math.abs(info.remaining)} يوم`):"المهلة غير مكتملة",1070,830);ctx.fillStyle="#5E6A78";ctx.font="500 25px 'IBM Plex Sans Arabic'";if(info)ctx.fillText(`${gregorian(info.end)} م | ${hijri(info.end)}`,1070,882);ctx.fillStyle="#0B1A2B";ctx.font="700 40px 'IBM Plex Sans Arabic'";ctx.fillText(`اكتمال الاعتراض ${ready.score}%`,1070,930);
+      ctx.fillStyle="#fff";roundRect(ctx,70,700,1060,260,26);ctx.fill();ctx.fillStyle="#0B1A2B";ctx.font="600 30px 'IBM Plex Sans Arabic'";ctx.fillText("المهلة واكتمال الاعتراض",1070,760);ctx.font="700 49px 'IBM Plex Sans Arabic'";ctx.fillStyle=info&&info.remaining<0?"#B64C3F":"#1F7A4D";ctx.fillText(info?(info.remaining>=0?`متبقي ${info.remaining} يوم`:`منتهية منذ ${Math.abs(info.remaining)} يوم`):"راجع مدة الاعتراض",1070,830);ctx.fillStyle="#5E6A78";ctx.font="500 25px 'IBM Plex Sans Arabic'";if(info)ctx.fillText(`${gregorian(info.end)} م | ${hijri(info.end)}`,1070,882);ctx.fillStyle="#0B1A2B";ctx.font="700 40px 'IBM Plex Sans Arabic'";ctx.fillText(`اكتمال الاعتراض ${ready.score}%`,1070,930);
       ctx.fillStyle="#fff";roundRect(ctx,70,995,1060,330,26);ctx.fill();ctx.fillStyle="#0B1A2B";ctx.font="600 30px 'IBM Plex Sans Arabic'";ctx.fillText("الخطوة التالية",1070,1055);ctx.fillStyle="#334150";ctx.font="500 27px 'IBM Plex Sans Arabic'";let y=wrapCanvas(ctx,agency.note,1070,1112,930,45,4);ctx.fillStyle="#8B691B";ctx.font="500 23px 'IBM Plex Sans Arabic'";wrapCanvas(ctx,"راجع المهلة وطريقة الاعتراض المكتوبة في إشعار الجهة قبل التقديم.",1070,y+18,930,38,3);
       ctx.fillStyle="#0B1A2B";ctx.fillRect(0,1380,1200,120);ctx.fillStyle="#D9BD65";ctx.font="600 28px 'IBM Plex Sans Arabic'";ctx.fillText("Almohammdin",1080,1434);ctx.fillStyle="#CFD9E2";ctx.font="400 22px 'IBM Plex Sans Arabic'";ctx.fillText(`مخالفات | الإصدار ${VERSION}`,1080,1473);
       canvas.toBlob(blob=>{downloadBlob(blob,`ملخص-اعتراض-${val("violationNumber")||"مخالفة"}.png`);showToast("تم تجهيز صورة الملخص")},"image/png",1);
@@ -581,6 +762,90 @@
     $("noticeDate").addEventListener("change",()=>{updateAltDate("noticeDate","noticeDateAlt");updateDeadline()});
     $("violationDate").addEventListener("change",()=>updateAltDate("violationDate","violationDateAlt"));
     $("deadlineDays").addEventListener("input",updateDeadline);
+    document.querySelectorAll('input[inputmode="numeric"],input[inputmode="decimal"],input[inputmode="tel"]').forEach(input=>input.addEventListener("input",()=>{input.value=toLatinDigits(input.value)}));
+
+    const simpleReasonText={
+      noNotice:"ظهرت المخالفة في منصة الجهة أو عند الاستعلام قبل وصول إشعار بها، وأطلب اعتماد تاريخ معرفتي الفعلية بها عند مراجعة المهلة.",
+      data:"توجد بيانات مرتبطة بالمخالفة تحتاج إلى تصحيح، وأطلب مراجعتها ومطابقتها مع بيانات المنشأة والواقعة.",
+      license:"كان الترخيص أو المستند المطلوب ساريا وقت تسجيل المخالفة، والمستند المؤيد مرفق مع الاعتراض.",
+      description:"وصف المخالفة المسجل يختلف عن الواقعة كما حدثت فعلا، وأطلب مراجعة الوصف والبيانات المرتبطة به.",
+      duplicate:"سجلت المخالفة أكثر من مرة على الواقعة نفسها، وأطلب التحقق من التكرار وإلغاء القيد المكرر.",
+      circumstance:"أثر ظرف خارج عن السيطرة في الالتزام وقت الواقعة، ويوجد ما يدعم ذلك ضمن المستندات.",
+      corrected:"تمت معالجة الملاحظة محل المخالفة، وأرفقت ما يثبت التصحيح والإجراء المتخذ."
+    };
+    const simpleRequestText={cancel:"إلغاء المخالفة",reduce:"تخفيض المخالفة أو إعادة تقديرها",correct:"تصحيح القرار أو بيانات المخالفة",review:"إعادة النظر في المخالفة"};
+    const simpleVal=id=>toLatinDigits($(id)?.value||"").trim();
+
+    function selectedSimpleAgency(){
+      const key=simpleVal("simpleAgency");
+      if(!key)return null;
+      const base=agencyData[key]||agencyData.other;
+      return {...base,name:key==="other"?(simpleVal("simpleOtherAgency")||"الجهة المختصة"):base.name};
+    }
+    function simpleDeadlineInfo(){
+      const start=toDate(simpleVal("simpleNoticeDate"));const days=Number(simpleVal("simpleDeadlineDays"));
+      if(!start||!days)return null;
+      const end=new Date(start);end.setDate(end.getDate()+days);end.setHours(23,59,59,999);
+      return {start,end,remaining:Math.ceil((end-new Date())/86400000)};
+    }
+    function updateSimpleDeadline(){
+      const info=simpleDeadlineInfo(),card=$("simpleDeadlineCard");
+      if(!info){card.className="deadline-card";return}
+      card.className="deadline-card show";
+      let title="آخر يوم متوقع للتقديم",label=`متبقي ${info.remaining} يوم`;
+      if(info.remaining<0){card.classList.add("expired");title="المهلة المحسوبة منتهية";label=`منذ ${Math.abs(info.remaining)} يوم`}
+      else if(info.remaining<=7){card.classList.add("warning");label=info.remaining===0?"اليوم آخر يوم":`متبقي ${info.remaining} يوم`}
+      $("simpleDeadlineTitle").textContent=title;$("simpleDeadlineDates").textContent=`${gregorian(info.end)} م | ${hijri(info.end)}`;$("simpleDeadlineRemaining").textContent=label;
+    }
+    function buildSimpleLetter(){
+      const reasons=[...document.querySelectorAll('input[name="simpleReason"]:checked')].map(x=>simpleReasonText[x.value]).filter(Boolean);
+      if(!reasons.length)return "اختر سبب اعتراضك، وسيظهر النص هنا جاهزا للنسخ.";
+      const number=simpleVal("simpleViolationNumber")?` رقم (${simpleVal("simpleViolationNumber")})`:"";
+      const type=simpleVal("simpleViolationType")?` بشأن ${simpleVal("simpleViolationType")}`:"";
+      const amount=simpleVal("simpleAmount")?`، وقيمتها ${simpleVal("simpleAmount")} ⃁`:"";
+      const city=simpleVal("simpleCity")?`، والمرتبطة بـ ${simpleVal("simpleCity")}`:"";
+      const description=simpleVal("simpleViolationDescription")?`\n\nوصف المخالفة:\n${simpleVal("simpleViolationDescription")}`:"";
+      const details=simpleVal("simpleReasonDetails")?`\n\nتفاصيل إضافية:\n${simpleVal("simpleReasonDetails")}`:"";
+      const evidence=simpleVal("simpleEvidence")?`\n\nالمستندات المرفقة:\n${simpleVal("simpleEvidence")}`:"";
+      const info=simpleDeadlineInfo();
+      const timing=info&&info.remaining>=0?"\n\nيقدم هذا الاعتراض خلال المهلة المحسوبة وفقا للبيانات المدخلة.":"";
+      return `أتقدم باعتراضي على المخالفة${number}${type}${amount}${city}.${description}\n\nأسباب الاعتراض:\n${reasons.map((reason,index)=>`${index+1}. ${reason}`).join("\n")}${details}${evidence}${timing}\n\nوبناء على ذلك أطلب ${simpleRequestText[simpleVal("simpleRequestType")]||"إعادة النظر في المخالفة"} بعد مراجعة البيانات والمستندات المرفقة.`;
+    }
+    function updateSimpleBuilder(){
+      $("simpleLetterEditor").value=buildSimpleLetter();
+      const agency=selectedSimpleAgency(),card=$("simpleRouteCard");
+      if(agency){card.hidden=false;$("simpleRouteAgency").textContent=agency.name;$("simpleRouteNote").textContent=agency.note;$("simpleRouteLink").href=agency.url}else card.hidden=true;
+      updateSimpleDeadline();
+    }
+    async function copySimpleLetter(){
+      const text=$("simpleLetterEditor").value;if(text.startsWith("اختر سبب")){showToast("اختر سبب اعتراضك");return}
+      try{await navigator.clipboard.writeText(text);showToast("تم نسخ نص الاعتراض")}catch{showToast("حدد النص وانسخه")}
+    }
+    function printSimpleLetter(){
+      $("printLetterBody").textContent=$("simpleLetterEditor").value;$("printLetterFoot").textContent=`أعد النص بواسطة أداة مخالفات | الإصدار ${VERSION} | ${todayLine()}`;
+      document.body.classList.add("printing");window.print();setTimeout(()=>document.body.classList.remove("printing"),800);
+    }
+    function downloadSimpleWord(){
+      const body=escapeHtml($("simpleLetterEditor").value).replace(/\n/g,"<br>");
+      const html=`<!doctype html><html dir="rtl"><head><meta charset="utf-8"><style>body{font-family:'IBM Plex Sans Arabic',Tahoma,sans-serif;direction:rtl;text-align:right;font-size:16pt;line-height:2;padding:35px;color:#111}h1{font-size:18pt;color:#0B1A2B}</style></head><body><h1>نص الاعتراض</h1>${body}</body></html>`;
+      downloadBlob(new Blob(["\ufeff",html],{type:"application/msword"}),`اعتراض-${simpleVal("simpleViolationNumber")||"مخالفة"}.doc`);showToast("تم تجهيز ملف Word");
+    }
+    async function downloadSimpleImage(){
+      await document.fonts.ready;
+      const canvas=document.createElement("canvas");canvas.width=1200;canvas.height=1500;const ctx=canvas.getContext("2d");ctx.direction="rtl";ctx.textAlign="right";
+      const grad=ctx.createLinearGradient(0,0,1200,390);grad.addColorStop(0,"#07131F");grad.addColorStop(1,"#12304D");ctx.fillStyle="#F4F6F8";ctx.fillRect(0,0,1200,1500);ctx.fillStyle=grad;ctx.fillRect(0,0,1200,390);
+      const mark=await loadImage("assets/mark.svg");ctx.drawImage(mark,900,72,190,190);ctx.fillStyle="#fff";ctx.font="700 82px 'IBM Plex Sans Arabic'";ctx.fillText("مخالفات",840,155);ctx.fillStyle="#D9BD65";ctx.font="600 34px 'IBM Plex Sans Arabic'";ctx.fillText("نص الاعتراض",840,215);ctx.fillStyle="#D7E0E9";ctx.font="400 26px 'IBM Plex Sans Arabic'";ctx.fillText(todayLine(),840,274);
+      ctx.fillStyle="#fff";roundRect(ctx,70,430,1060,780,26);ctx.fill();ctx.fillStyle="#0B1A2B";ctx.font="600 30px 'IBM Plex Sans Arabic'";ctx.fillText("الاعتراض",1070,495);ctx.fillStyle="#334150";ctx.font="500 27px 'IBM Plex Sans Arabic'";wrapCanvas(ctx,$("simpleLetterEditor").value.replace(/\n+/g," "),1070,555,930,47,12);
+      const agency=selectedSimpleAgency();if(agency){ctx.fillStyle="#fff";roundRect(ctx,70,1245,1060,105,20);ctx.fill();ctx.fillStyle="#0B1A2B";ctx.font="600 27px 'IBM Plex Sans Arabic'";ctx.fillText(`التقديم: ${agency.name}`,1070,1310)}
+      ctx.fillStyle="#0B1A2B";ctx.fillRect(0,1380,1200,120);ctx.fillStyle="#D9BD65";ctx.font="600 28px 'IBM Plex Sans Arabic'";ctx.fillText("Almohammdin",1080,1434);ctx.fillStyle="#CFD9E2";ctx.font="400 22px 'IBM Plex Sans Arabic'";ctx.fillText(`مخالفات | الإصدار ${VERSION}`,1080,1473);
+      canvas.toBlob(blob=>{downloadBlob(blob,`اعتراض-${simpleVal("simpleViolationNumber")||"مخالفة"}.png`);showToast("تم تجهيز الصورة")} ,"image/png",1);
+    }
+
+    $("simpleForm").addEventListener("input",updateSimpleBuilder);
+    $("simpleForm").addEventListener("change",updateSimpleBuilder);
+    $("simpleAgency").addEventListener("change",()=>{$("simpleOtherAgencyWrap").hidden=simpleVal("simpleAgency")!=="other";updateSimpleBuilder()});
+    $("simpleNoticeDate").addEventListener("change",()=>{const d=toDate(simpleVal("simpleNoticeDate"));$("simpleNoticeDateAlt").textContent=d?hijri(d):"تاريخ وصول الإشعار أو اليوم الذي ظهرت فيه المخالفة.";updateSimpleBuilder()});
+    updateSimpleBuilder();
     window.addEventListener("afterprint",()=>document.body.classList.remove("printing"));
   </script>
 </body>
