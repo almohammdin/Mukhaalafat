@@ -2,851 +2,268 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>مخالفات | مساعد إعداد الاعتراض</title>
-  <meta name="description" content="أداة استرشادية تساعد المنشآت على ترتيب اعتراضها على المخالفات، حساب المهلة، إعداد المسودة ومعرفة طريقة التقديم.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>مخالفات | جهز نص اعتراضك</title>
+  <meta name="description" content="أداة تساعدك على تجهيز نص اعتراض مختصر للمخالفات، ترتيب الإثباتات، مراجعة المهلة ومعرفة طريقة التقديم.">
   <meta name="theme-color" content="#0B1A2B">
   <link rel="canonical" href="https://almohammdin.github.io/Mukhaalafat/">
-  <link rel="icon" type="image/png" href="assets/mark-v2.png?v=4.1.2">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=4.1.2">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=4.1.2">
-  <link rel="manifest" href="site.webmanifest?v=4.1.2">
+  <link rel="icon" type="image/png" href="assets/mark-v2.png?v=5.0.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=5.0.0">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=5.0.0">
+  <link rel="manifest" href="site.webmanifest?v=5.0.0">
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://almohammdin.github.io/Mukhaalafat/">
-  <meta property="og:title" content="مخالفات | مساعد إعداد الاعتراض">
-  <meta property="og:description" content="رتب اعتراضك واعرف المهلة وطريقة التقديم">
-  <meta property="og:image" content="https://almohammdin.github.io/Mukhaalafat/assets/mukhaalafat-og-v5.png?v=4.1.2">
+  <meta property="og:title" content="مخالفات | جهز نص اعتراضك">
+  <meta property="og:description" content="اختر حالتك وجهز نص اعتراض مناسب للصق في منصة الجهة">
+  <meta property="og:image" content="https://almohammdin.github.io/Mukhaalafat/assets/mukhaalafat-og-v5.png?v=5.0.0">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="مخالفات، مساعد إعداد الاعتراض">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="مخالفات | مساعد إعداد الاعتراض">
-  <meta name="twitter:description" content="رتب اعتراضك واعرف المهلة وطريقة التقديم">
-  <meta name="twitter:image" content="https://almohammdin.github.io/Mukhaalafat/assets/mukhaalafat-og-v5.png?v=4.1.2">
+  <meta name="twitter:title" content="مخالفات | جهز نص اعتراضك">
+  <meta name="twitter:description" content="اختر حالتك وجهز نص اعتراض مناسب للصق في منصة الجهة">
+  <meta name="twitter:image" content="https://almohammdin.github.io/Mukhaalafat/assets/mukhaalafat-og-v5.png?v=5.0.0">
 
   <style>
-    @font-face{font-family:"IBM Plex Sans Arabic";src:url("fonts/ibm-plex-sans-arabic-400.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
-    @font-face{font-family:"IBM Plex Sans Arabic";src:url("fonts/ibm-plex-sans-arabic-500.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap}
-    @font-face{font-family:"IBM Plex Sans Arabic";src:url("fonts/ibm-plex-sans-arabic-600.woff2") format("woff2");font-weight:600;font-style:normal;font-display:swap}
-    @font-face{font-family:"IBM Plex Sans Arabic";src:url("fonts/ibm-plex-sans-arabic-700.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
-    @font-face{font-family:"Saudi Riyal Symbol";src:url("fonts/saudi-riyal-symbol.ttf") format("truetype");font-weight:400;font-style:normal;font-display:block;unicode-range:U+20C1}
-    :root{
-      --navy:#0B1A2B;--navy-2:#12304D;--navy-3:#07131F;--gold:#C9A84C;--gold-soft:#F8F1DE;
-      --red:#B64C3F;--red-soft:#FBEFEB;--green:#1F7A4D;--green-soft:#EAF6EF;--amber:#9A6A12;
-      --bg:#F4F6F8;--surface:#FFFFFF;--text:#16202C;--muted:#5E6A78;--line:#DDE3E9;
-      --shadow:0 14px 42px rgba(11,26,43,.09);--radius:22px;--radius-sm:14px;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;background:var(--bg);color:var(--text);font-family:"Saudi Riyal Symbol","IBM Plex Sans Arabic",Tahoma,sans-serif;font-size:18px;line-height:1.8;-webkit-font-smoothing:antialiased}
-    button,input,select,textarea{font:inherit}
-    button,a{touch-action:manipulation}
-    a{color:inherit}
-    img,svg{display:block;max-width:100%}
-    .skip-link{position:fixed;top:-80px;right:16px;z-index:1000;background:#fff;color:var(--navy);padding:10px 16px;border-radius:10px;font-weight:700}
-    .skip-link:focus{top:12px}
-    .shell{width:min(1040px,calc(100% - 32px));margin-inline:auto}
-    .site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(14px);border-bottom:1px solid rgba(11,26,43,.08)}
-    .header-row{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px}
-    .header-logo{width:260px;height:auto}
-    .header-link{font-size:15px;font-weight:600;color:var(--navy);text-decoration:none;border:1px solid var(--line);padding:8px 14px;border-radius:999px}
-    .hero{position:relative;overflow:hidden;background:linear-gradient(145deg,var(--navy-3),var(--navy-2));color:#fff;padding:72px 0 68px;text-align:center}
-    .hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.055) 1px,transparent 1px);background-size:42px 42px}
-    .hero:after{content:"";position:absolute;width:420px;height:420px;border:1px solid rgba(201,168,76,.16);border-radius:50%;left:-210px;top:-245px;box-shadow:0 0 0 72px rgba(201,168,76,.05),0 0 0 144px rgba(201,168,76,.03)}
-    .hero .shell{position:relative;z-index:1}
-    .hero-mark{width:116px;margin:0 auto 22px;filter:drop-shadow(0 18px 35px rgba(0,0,0,.22))}
-    .eyebrow{color:#E2C86E;font-size:16px;font-weight:600;margin-bottom:9px}
-    .hero h1{font-size:clamp(34px,5vw,54px);line-height:1.25;margin:0 0 16px;text-wrap:balance}
-    .hero p{max-width:760px;margin:0 auto 28px;color:#D7E0E9;font-size:20px;line-height:1.85;text-wrap:pretty}
-    .hero-note{display:inline-flex;align-items:center;gap:9px;padding:9px 16px;border:1px solid rgba(255,255,255,.16);border-radius:999px;color:#E7EDF3;font-size:15px;margin-bottom:26px;background:rgba(255,255,255,.055)}
-    .primary-btn,.secondary-btn,.ghost-btn,.export-btn{border:0;border-radius:13px;cursor:pointer;font-weight:700;transition:.2s ease;display:inline-flex;align-items:center;justify-content:center;gap:9px;text-decoration:none}
-    .primary-btn{background:var(--gold);color:var(--navy);padding:13px 25px;box-shadow:0 12px 28px rgba(201,168,76,.2)}
-    .primary-btn:hover{transform:translateY(-2px);filter:brightness(1.04)}
-    .secondary-btn{background:var(--navy);color:#fff;padding:12px 22px}
-    .ghost-btn{background:#fff;color:var(--navy);border:1px solid var(--line);padding:11px 18px}
-    .tool-wrap{padding:34px 0 72px}
-    .intro-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:-54px;position:relative;z-index:5}
-    .intro-item{background:#fff;border:1px solid rgba(11,26,43,.07);border-radius:18px;padding:18px;box-shadow:var(--shadow);display:flex;gap:12px;align-items:flex-start}
-    .intro-icon{width:40px;height:40px;border-radius:12px;background:var(--gold-soft);color:var(--amber);display:grid;place-items:center;flex:0 0 auto;font-weight:800}
-    .intro-item strong{display:block;font-size:17px;margin-bottom:2px;color:var(--navy)}
-    .intro-item span{display:block;font-size:14px;line-height:1.6;color:var(--muted)}
-    .progress-wrap{position:sticky;top:76px;z-index:40;margin:28px 0 20px;background:rgba(244,246,248,.94);backdrop-filter:blur(12px);padding:10px 0}
-    .progress-card{background:#fff;border:1px solid var(--line);border-radius:17px;padding:13px 16px;box-shadow:0 8px 24px rgba(11,26,43,.06)}
-    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px}
-    .step-chip{display:flex;align-items:center;gap:8px;color:#7B8793;font-size:14px;font-weight:600;min-width:0}
-    .step-chip b{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#E9EDF1;color:#6A7580;flex:0 0 auto}
-    .step-chip.active{color:var(--navy)}
-    .step-chip.active b{background:var(--navy);color:#fff}
-    .step-chip.done{color:var(--green)}
-    .step-chip.done b{background:var(--green-soft);color:var(--green)}
-    .progress-track{height:7px;background:#E7EBEF;border-radius:99px;overflow:hidden}
-    .progress-bar{height:100%;width:25%;background:linear-gradient(90deg,var(--gold),#E0C36A);border-radius:99px;transition:width .3s ease}
-    .panel{display:none;background:#fff;border:1px solid rgba(11,26,43,.08);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
-    .panel.active{display:block}
-    .panel-head{padding:26px 28px 20px;background:linear-gradient(180deg,#fff,#FBFCFD);border-bottom:1px solid var(--line)}
-    .panel-head small{color:var(--gold);font-weight:700;font-size:14px}
-    .panel-head h2{font-size:30px;line-height:1.35;color:var(--navy);margin:4px 0 6px;text-wrap:balance}
-    .panel-head p{color:var(--muted);margin:0;font-size:16px}
-    .panel-body{padding:28px}
-    .form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
-    .full{grid-column:1/-1}
-    .field label,.field-title{display:flex;align-items:center;gap:7px;font-size:15px;font-weight:700;color:var(--navy);margin-bottom:7px}
-    .req{color:var(--red)}
-    .field-help{font-size:14px;color:var(--muted);margin:6px 2px 0;line-height:1.65}
-    .input{width:100%;border:1.5px solid #D6DDE4;border-radius:12px;background:#fff;color:var(--text);padding:11px 13px;outline:0;transition:.2s;min-height:50px}
-    .latin-date{direction:ltr;text-align:left;font-variant-numeric:tabular-nums}
-    .input:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(201,168,76,.14)}
-    textarea.input{min-height:128px;resize:vertical;line-height:1.8}
-    .money-wrap{position:relative}
-    .money-wrap .input{padding-left:48px;direction:ltr;text-align:left}
-    .sar{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-weight:700;color:var(--navy)}
-    .deadline-card{display:none;margin-top:22px;border-radius:16px;padding:18px;border:1px solid #C9DBD1;background:var(--green-soft)}
-    .deadline-card.show{display:flex;justify-content:space-between;gap:20px;align-items:center}
-    .deadline-card.warning{background:#FFF7E8;border-color:#E8C981}
-    .deadline-card.expired{background:var(--red-soft);border-color:#E7B5AC}
-    .deadline-copy strong{font-size:20px;color:var(--navy);display:block}
-    .deadline-copy span{font-size:14px;color:var(--muted)}
-    .deadline-number{font-size:32px;font-weight:800;color:var(--green);white-space:nowrap}
-    .deadline-card.warning .deadline-number{color:var(--amber)}
-    .deadline-card.expired .deadline-number{color:var(--red)}
-    .choice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-    .choice{position:relative;display:flex;gap:12px;align-items:flex-start;padding:15px;border:1.5px solid var(--line);border-radius:14px;cursor:pointer;background:#fff;transition:.2s}
-    .choice:hover{border-color:#C9B165;background:#FFFCF5}
-    .choice input{margin-top:7px;accent-color:var(--navy);width:18px;height:18px;flex:0 0 auto}
-    .choice strong{display:block;color:var(--navy);font-size:16px}
-    .choice span{display:block;color:var(--muted);font-size:13px;line-height:1.55;margin-top:2px}
-    .tip{margin-top:16px;background:var(--gold-soft);border:1px solid #E8D397;border-radius:13px;padding:13px 15px;font-size:14px;color:#5D4A1C}
-    .panel-actions{display:flex;justify-content:space-between;gap:12px;padding:20px 28px;border-top:1px solid var(--line);background:#FBFCFD}
-    .result-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);gap:20px}
-    .result-card{border:1px solid var(--line);border-radius:18px;background:#fff;overflow:hidden}
-    .result-card-head{padding:16px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:10px;align-items:center;background:#FAFBFC}
-    .result-card-head strong{color:var(--navy);font-size:18px}
-    .result-card-body{padding:18px}
-    .letter-editor{width:100%;min-height:650px;border:0;resize:vertical;outline:0;color:#17212C;background:#fff;font-size:17px;line-height:2;direction:rtl;text-align:right;white-space:pre-wrap}
-    .status-card{padding:17px;border-radius:15px;background:var(--green-soft);border:1px solid #C7DDCF;margin-bottom:14px}
-    .status-card strong{display:block;color:var(--navy);font-size:19px}
-    .status-card span{font-size:14px;color:var(--muted)}
-    .readiness{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
-    .readiness b{font-size:28px;color:var(--navy)}
-    .check-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
-    .check-list li{font-size:14px;color:var(--muted);padding:8px 10px;border-radius:10px;background:#F6F8FA}
-    .check-list li.ok{color:var(--green);background:var(--green-soft)}
-    .route-link{display:block;text-decoration:none;background:var(--navy);color:#fff;border-radius:13px;padding:12px 15px;font-weight:700;text-align:center;margin-top:14px}
-    .route-note{font-size:14px;color:var(--muted);margin:11px 0 0;line-height:1.7}
-    .general-path{margin-top:20px;background:#F8FAFC;border:1px solid var(--line);border-radius:18px;padding:20px}
-    .general-path h3{font-size:20px;color:var(--navy);margin:0 0 7px}
-    .general-path p{font-size:15px;color:var(--muted);margin:0;line-height:1.8}
-    .special-note{margin-top:12px;border-right:4px solid var(--gold);background:var(--gold-soft);padding:12px 14px;border-radius:10px;font-size:14px;color:#5C4A20}
-    .sources{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-    .sources a{font-size:13px;text-decoration:none;color:var(--navy);border:1px solid #D7C990;background:#fff;padding:6px 10px;border-radius:999px}
-    .legacy-builder{display:none!important}
-    .builder-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);gap:22px;margin-top:28px;align-items:start}
-    .builder-form,.preview-card{background:#fff;border:1px solid rgba(11,26,43,.08);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
-    .builder-head{padding:24px 26px 18px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff,#FBFCFD)}
-    .builder-head h2{font-size:27px;line-height:1.35;color:var(--navy);margin:0 0 5px}
-    .builder-head p{font-size:15px;color:var(--muted);margin:0}
-    .builder-body{padding:24px 26px;display:grid;gap:20px}
-    .preview-column{position:sticky;top:96px}
-    .preview-head{padding:18px 20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:12px;background:#FAFBFC}
-    .preview-head strong{font-size:20px;color:var(--navy)}
-    .preview-head span{font-size:13px;color:var(--muted)}
-    .preview-body{padding:18px}
-    .preview-editor{width:100%;min-height:470px;border:0;resize:vertical;outline:0;background:#fff;color:var(--text);font-size:17px;line-height:2;direction:rtl;text-align:right}
-    .optional-section{border:1px solid var(--line);border-radius:14px;background:#FAFBFC;overflow:hidden}
-    .optional-section summary{cursor:pointer;list-style:none;padding:14px 16px;font-size:15px;font-weight:700;color:var(--navy);display:flex;align-items:center;justify-content:space-between}
-    .optional-section summary::-webkit-details-marker{display:none}
-    .optional-section summary:after{content:"+";font-size:22px;color:var(--gold)}
-    .optional-section[open] summary:after{content:"−"}
-    .optional-content{padding:2px 16px 17px}
-    .preview-route{margin:0 18px 18px;padding:15px;border:1px solid #D7C990;background:var(--gold-soft);border-radius:14px}
-    .preview-route strong{display:block;color:var(--navy);font-size:16px}
-    .path-flow{display:grid;grid-template-columns:1fr 44px 1fr 44px 1.15fr 44px 1fr;align-items:stretch;gap:0;margin-top:16px;direction:rtl}
-    .path-step{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px;text-align:center;display:flex;flex-direction:column;justify-content:center;min-height:118px}
-    .path-step b{display:grid;place-items:center;width:30px;height:30px;margin:0 auto 7px;border-radius:50%;background:var(--navy);color:#fff;font-size:14px}
-    .path-step strong{font-size:15px;color:var(--navy)}
-    .path-step span{font-size:12px;color:var(--muted);line-height:1.55;margin-top:4px}
-    .path-arrow{display:grid;place-items:center;color:var(--gold);font-size:25px;font-weight:800}
-    .path-outcomes{display:grid;gap:7px}
-    .path-outcome{border-radius:10px;padding:8px;font-size:12px;font-weight:600}
-    .path-outcome.accept{background:var(--green-soft);color:var(--green)}
-    .path-outcome.review{background:var(--gold-soft);color:#705719}
-    .export-row{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:18px}
-    .export-btn{padding:11px 10px;background:#fff;color:var(--navy);border:1px solid var(--line);font-size:14px}
-    .export-btn:hover{border-color:var(--gold);background:#FFFCF5}
-    .toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,30px);opacity:0;pointer-events:none;z-index:100;background:var(--navy);color:#fff;padding:10px 18px;border-radius:999px;font-size:14px;transition:.25s}
-    .toast.show{transform:translate(-50%,0);opacity:1}
-    .site-footer{padding:0 0 34px}
-    .footer-card{background:linear-gradient(145deg,var(--navy-3),var(--navy-2));color:#fff;border-radius:24px;padding:26px 30px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-    .footer-main{display:flex;align-items:center;gap:16px}
-    .footer-main img{width:118px;height:auto;filter:brightness(0) invert(1);opacity:.94}
-    .footer-copy{display:grid;gap:2px}
-    .footer-copy strong{font-size:16px}
-    .footer-copy span{font-size:13px;color:#BAC7D3}
-    .footer-social{display:flex;align-items:center;gap:9px;direction:ltr}
-    .footer-social strong{font-size:14px;margin-right:4px;color:#E2C86E}
-    .footer-social a{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;color:var(--gold);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12)}
-    .footer-social svg{width:16px;height:16px;fill:currentColor}
-    .print-only{display:none}
-    @media (max-width:820px){
-      body{font-size:17px}.header-logo{width:220px}.header-link{display:none}.hero{padding:52px 0 70px}.hero p{font-size:18px}
-      .intro-strip{grid-template-columns:1fr;margin-top:-42px}.steps{grid-template-columns:repeat(4,auto);overflow:hidden}.step-chip span{display:none}
-      .step-chip{justify-content:center}.form-grid,.choice-grid,.result-grid{grid-template-columns:1fr}.export-row{grid-template-columns:repeat(2,1fr)}
-      .footer-card{align-items:flex-start;flex-direction:column}.footer-main img{width:96px}.progress-wrap{top:76px}
-      .builder-grid{grid-template-columns:1fr}.preview-column{position:static}.path-flow{grid-template-columns:1fr;gap:8px}.path-arrow{transform:rotate(90deg);height:28px}
-    }
-    @media (max-width:520px){
-      .shell{width:min(100% - 22px,1040px)}.site-header .shell{width:calc(100% - 22px)}.header-row{min-height:68px}.header-logo{width:195px}
-      .hero{padding:42px 0 62px}.hero-mark{width:92px}.hero p{font-size:17px;line-height:1.75}.hero-note{font-size:13px}
-      .progress-wrap{top:68px}.panel-head{padding:22px 19px 17px}.panel-head h2{font-size:26px}.panel-body{padding:20px 17px}
-      .panel-actions{padding:16px;flex-direction:column-reverse}.panel-actions button{width:100%}.deadline-card.show{align-items:flex-start;flex-direction:column;gap:5px}
-      .letter-editor{min-height:570px;font-size:16px}.footer-card{padding:22px 18px}.footer-main{align-items:flex-start}.footer-social{width:100%;flex-wrap:wrap}
-    }
-    @media print{
-      @page{size:A4;margin:18mm}
-      body{background:#fff;font-size:12pt;color:#111}
-      body *{visibility:hidden}
-      body.printing .print-sheet,body.printing .print-sheet *{visibility:visible}
-      .print-sheet{display:block!important;position:absolute;inset:0;width:100%;font-family:"Saudi Riyal Symbol","IBM Plex Sans Arabic",Tahoma,sans-serif;direction:rtl}
-      .print-letter-logo{width:190px;margin:0 0 24px auto}
-      .print-letter-body{white-space:pre-wrap;line-height:2;text-align:right}
-      .print-letter-foot{margin-top:30px;padding-top:10px;border-top:1px solid #bbb;font-size:9pt;color:#666}
-    }
+    @font-face{font-family:"IBM Plex Sans Arabic";src:url("fonts/ibm-plex-sans-arabic-400.woff2") format("woff2");font-weight:400;font-display:swap}
+    @font-face{font-family:"IBM Plex Sans Arabic";src:url("fonts/ibm-plex-sans-arabic-500.woff2") format("woff2");font-weight:500;font-display:swap}
+    @font-face{font-family:"IBM Plex Sans Arabic";src:url("fonts/ibm-plex-sans-arabic-600.woff2") format("woff2");font-weight:600;font-display:swap}
+    @font-face{font-family:"IBM Plex Sans Arabic";src:url("fonts/ibm-plex-sans-arabic-700.woff2") format("woff2");font-weight:700;font-display:swap}
+    @font-face{font-family:"Saudi Riyal Symbol";src:url("fonts/saudi-riyal-symbol.ttf") format("truetype");font-weight:400;font-display:block;unicode-range:U+20C1}
+    :root{--navy:#0B1A2B;--navy2:#12304D;--gold:#C99A27;--gold2:#E8C766;--gold-soft:#FBF5E5;--bg:#F3F5F7;--surface:#fff;--text:#18212B;--muted:#647180;--line:#DCE2E8;--green:#24764C;--green-soft:#EAF6EF;--amber:#916511;--amber-soft:#FFF7E5;--red:#A9473B;--red-soft:#FBEFEB;--shadow:0 14px 40px rgba(11,26,43,.08);--radius:20px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:"Saudi Riyal Symbol","IBM Plex Sans Arabic",Tahoma,sans-serif;line-height:1.75;font-size:17px;-webkit-font-smoothing:antialiased}button,input,select,textarea{font:inherit}button,a{touch-action:manipulation}button{cursor:pointer}a{color:inherit}img,svg{display:block;max-width:100%}.shell{width:min(1180px,calc(100% - 32px));margin-inline:auto}.skip{position:fixed;top:-80px;right:16px;z-index:200;background:#fff;padding:10px 16px;border-radius:10px}.skip:focus{top:10px}
+    .site-header{position:sticky;top:0;z-index:70;background:rgba(255,255,255,.96);backdrop-filter:blur(14px);border-bottom:1px solid rgba(11,26,43,.08)}.header-row{height:70px;display:flex;align-items:center;justify-content:space-between;gap:16px}.header-logo{width:225px}.header-actions{display:flex;align-items:center;gap:9px}.version{font-size:12px;color:var(--muted);padding:5px 9px;border-radius:999px;background:#F1F3F5}.quiet-btn,.outline-btn,.primary-btn,.gold-btn{border-radius:12px;border:0;font-weight:700;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;transition:.2s}.quiet-btn{background:transparent;color:var(--navy);padding:8px 10px}.outline-btn{background:#fff;color:var(--navy);border:1px solid var(--line);padding:10px 15px}.primary-btn{background:var(--navy);color:#fff;padding:11px 18px}.gold-btn{background:var(--gold);color:var(--navy);padding:11px 18px}.primary-btn:hover,.gold-btn:hover,.outline-btn:hover{transform:translateY(-1px);box-shadow:0 7px 20px rgba(11,26,43,.11)}
+    .hero{background:linear-gradient(145deg,#07131F,var(--navy2));color:#fff;padding:34px 0 30px;overflow:hidden;position:relative}.hero:after{content:"";position:absolute;width:320px;height:320px;border:1px solid rgba(201,154,39,.13);border-radius:50%;left:-150px;top:-210px;box-shadow:0 0 0 58px rgba(201,154,39,.035),0 0 0 116px rgba(201,154,39,.025)}.hero-row{position:relative;z-index:1;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center}.hero h1{font-size:clamp(30px,4vw,46px);line-height:1.25;margin:0 0 8px}.hero p{margin:0;color:#D8E1E9;font-size:18px;max-width:710px}.hero-mark{width:90px;filter:drop-shadow(0 12px 22px rgba(0,0,0,.22))}.privacy-line{display:flex;align-items:center;gap:8px;margin-top:15px;color:#E8D58E;font-size:14px}.privacy-line svg{width:18px;height:18px;fill:currentColor}
+    main{padding:22px 0 70px}.draft-banner{display:none;background:var(--gold-soft);border:1px solid #E3CF92;border-radius:15px;padding:13px 16px;margin-bottom:16px;align-items:center;justify-content:space-between;gap:15px}.draft-banner.show{display:flex}.draft-banner strong{color:var(--navy)}.draft-actions{display:flex;gap:8px;flex:0 0 auto}
+    .path-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 20px;box-shadow:0 7px 24px rgba(11,26,43,.05);margin-bottom:20px}.path-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start}.path-head h2{font-size:19px;color:var(--navy);margin:0}.path-head p{font-size:14px;color:var(--muted);margin:2px 0 0}.path-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:14px}.path-step{background:#F7F9FA;border:1px solid #E5E9ED;border-radius:12px;padding:11px 12px;min-height:84px;position:relative}.path-step:not(:last-child):after{content:"←";position:absolute;left:-15px;top:26px;z-index:2;width:20px;height:28px;display:grid;place-items:center;color:var(--gold);font-weight:800}.path-step b{display:inline-grid;place-items:center;width:25px;height:25px;border-radius:50%;background:var(--navy);color:#fff;font-size:12px;margin-bottom:5px}.path-step strong{display:block;color:var(--navy);font-size:14px;line-height:1.5}.path-step span{display:block;color:var(--muted);font-size:12px;line-height:1.5;margin-top:2px}.general-60{display:none;margin-top:10px;padding:9px 12px;background:var(--gold-soft);border-radius:10px;color:#654F18;font-size:13px}.general-60.show{display:block}
+    .mode-bar{background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px 16px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;gap:18px}.mode-copy strong{display:block;color:var(--navy);font-size:18px}.mode-copy span{font-size:13px;color:var(--muted)}.segmented{display:flex;padding:4px;background:#EEF1F4;border-radius:12px;gap:4px}.segmented button{border:0;background:transparent;color:#566271;border-radius:9px;padding:9px 14px;font-weight:700}.segmented button.active{background:#fff;color:var(--navy);box-shadow:0 4px 12px rgba(11,26,43,.08)}
+    .builder-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(390px,.95fr);gap:20px;align-items:start}.form-card,.preview-card{background:#fff;border:1px solid rgba(11,26,43,.08);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}.preview-column{position:sticky;top:90px}.card-head{padding:20px 22px 16px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff,#FBFCFD)}.card-head h2{font-size:25px;line-height:1.35;color:var(--navy);margin:0 0 4px}.card-head p{font-size:14px;color:var(--muted);margin:0}.form-body{padding:22px;display:grid;gap:26px}.section{padding-bottom:24px;border-bottom:1px solid #E9EDF0}.section:last-child{border-bottom:0;padding-bottom:0}.section-title{display:flex;align-items:flex-start;gap:10px;margin-bottom:13px}.section-number{width:30px;height:30px;border-radius:10px;background:var(--gold-soft);color:var(--amber);display:grid;place-items:center;font-weight:800;flex:0 0 auto}.section-title h3{font-size:19px;color:var(--navy);line-height:1.45;margin:1px 0 0}.section-title p{font-size:13px;color:var(--muted);margin:2px 0 0}.input,.select{width:100%;border:1.5px solid #D6DDE4;border-radius:12px;background:#fff;color:var(--text);padding:10px 12px;outline:0;min-height:49px}.input:focus,.select:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(201,154,39,.12)}textarea.input{min-height:105px;resize:vertical;line-height:1.75}.field{margin-top:13px}.field:first-child{margin-top:0}.field label,.field-label{display:block;font-size:14px;font-weight:700;color:var(--navy);margin-bottom:6px}.field-help{font-size:12px;color:var(--muted);margin-top:5px}.inline-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.latin{direction:ltr;text-align:left;font-variant-numeric:tabular-nums}.check-line{display:flex;gap:9px;align-items:center;margin-top:9px;font-size:14px;color:#3F4A56}.check-line input{width:18px;height:18px;accent-color:var(--navy)}
+    .platform-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.platform-card{border:1.5px solid var(--line);border-radius:13px;background:#fff;padding:12px;text-align:right;display:flex;align-items:center;gap:10px;min-height:70px}.platform-card:hover{border-color:#CDB56F;background:#FFFCF5}.platform-card.active{border-color:var(--gold);background:var(--gold-soft);box-shadow:0 0 0 3px rgba(201,154,39,.09)}.platform-icon{width:38px;height:38px;border-radius:11px;background:var(--navy);color:#fff;display:grid;place-items:center;font-weight:800;font-size:14px;flex:0 0 auto}.platform-card strong{display:block;color:var(--navy);font-size:14px;line-height:1.35}.platform-card span{display:block;color:var(--muted);font-size:11px;line-height:1.45;margin-top:2px}
+    .reason-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.reason-card{position:relative;border:1.5px solid var(--line);border-radius:13px;background:#fff;padding:13px 13px 38px;text-align:right;min-height:108px}.reason-card:hover{border-color:#CDB56F}.reason-card strong{display:block;color:var(--navy);font-size:14px;line-height:1.5}.reason-card span{display:block;color:var(--muted);font-size:12px;line-height:1.5;margin-top:3px}.reason-state{position:absolute;right:12px;bottom:10px;font-size:11px;font-weight:700;color:#798491}.reason-card.active{border-color:var(--green);background:var(--green-soft)}.reason-card.active .reason-state{color:var(--green)}
+    .question-card{border:1px solid #DCE3E7;border-radius:14px;padding:14px;margin-top:10px;background:#FAFBFC}.question-card h4{font-size:15px;color:var(--navy);margin:0 0 10px}.question-card .field{margin-top:10px}.question-card .field label{font-size:13px}.empty-note{padding:14px;border-radius:12px;background:#F6F8F9;color:var(--muted);font-size:13px}.evidence-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.evidence-option{border:1px solid var(--line);border-radius:11px;padding:10px 11px;display:flex;align-items:center;gap:8px;font-size:13px}.evidence-option input{width:17px;height:17px;accent-color:var(--navy)}.evidence-option.selected{border-color:var(--green);background:var(--green-soft);color:var(--green)}.case-tip{margin-top:12px;padding:11px 13px;border-radius:11px;background:var(--gold-soft);border-right:4px solid var(--gold);font-size:13px;color:#654F18}.evidence-status{margin-top:10px;border-radius:11px;padding:10px 12px;font-size:13px;background:var(--amber-soft);color:var(--amber)}.evidence-status.good{background:var(--green-soft);color:var(--green)}.evidence-status.weak{background:var(--red-soft);color:var(--red)}
+    .deadline-choices{display:grid;gap:7px}.radio-row{border:1px solid var(--line);border-radius:11px;padding:9px 11px;display:flex;align-items:center;gap:9px;font-size:13px}.radio-row input{width:17px;height:17px;accent-color:var(--navy)}.deadline-fields{margin-top:12px}.deadline-result{display:none;margin-top:12px;border-radius:14px;padding:13px 14px;background:var(--green-soft);border:1px solid #C8DDCF}.deadline-result.show{display:block}.deadline-result.warning{background:var(--amber-soft);border-color:#E5CE8D}.deadline-result.expired{background:var(--red-soft);border-color:#E9BDB7}.deadline-result strong{display:block;color:var(--navy);font-size:17px}.deadline-result span{display:block;color:var(--muted);font-size:12px;margin-top:2px}.deadline-result b{display:block;margin-top:5px;font-size:13px;font-weight:600}.request-suggestion{display:none;margin-bottom:10px;padding:10px 12px;border-radius:11px;background:var(--gold-soft);color:#654F18;font-size:13px}.request-suggestion.show{display:block}
+    .route-card{border:1px solid #D8C888;background:var(--gold-soft);border-radius:14px;padding:14px}.route-card h4{margin:0;color:var(--navy);font-size:16px}.route-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:10px 0}.route-step{background:#fff;border-radius:10px;padding:9px;font-size:11px;color:#44505D}.route-step b{display:block;color:var(--navy);font-size:12px}.route-card .primary-btn{width:100%;margin-top:4px}.route-disabled{font-size:12px;color:var(--muted);text-align:center;padding:5px}
+    .identity-section{display:none}.letter-mode .identity-section{display:block}.preview-head{padding:14px 16px;border-bottom:1px solid var(--line);background:#FAFBFC}.preview-top{display:flex;align-items:center;justify-content:space-between;gap:10px}.preview-top strong{font-size:19px;color:var(--navy)}.preview-tabs{display:flex;gap:5px;margin-top:10px}.preview-tabs button{border:1px solid var(--line);background:#fff;color:var(--muted);border-radius:9px;padding:6px 11px;font-size:12px;font-weight:700}.preview-tabs button.active{background:var(--navy);color:#fff;border-color:var(--navy)}.letter-mode .preview-tabs{display:none}.preview-body{padding:16px}.editor-wrap{position:relative}.preview-editor{width:100%;min-height:370px;border:0;outline:0;resize:vertical;color:var(--text);background:#fff;font-size:16px;line-height:1.95;direction:rtl;text-align:right}.editor-meta{border-top:1px solid var(--line);padding-top:9px;display:flex;align-items:center;justify-content:space-between;gap:10px;color:var(--muted);font-size:12px}.counter.over{color:var(--red);font-weight:700}.dirty-alert{display:none;margin:11px 0 0;border-radius:11px;padding:10px 11px;background:var(--amber-soft);color:#6B5117;font-size:12px;align-items:center;justify-content:space-between;gap:10px}.dirty-alert.show{display:flex}.copy-row{display:grid;grid-template-columns:1fr auto;gap:8px;margin-top:13px}.copy-row .gold-btn{width:100%}.readiness-card{margin-top:13px;border:1px solid var(--line);border-radius:14px;padding:13px}.readiness-head{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:9px}.readiness-head strong{color:var(--navy);font-size:15px}.readiness-score{color:var(--green);font-weight:800}.ready-list{list-style:none;padding:0;margin:0;display:grid;gap:5px}.ready-list li{font-size:12px;color:#7A8490;padding:5px 7px;background:#F6F8F9;border-radius:8px}.ready-list li.ok{color:var(--green);background:var(--green-soft)}.direct-tip{display:none;margin-top:9px;background:var(--gold-soft);border-radius:9px;padding:8px 10px;color:#654F18;font-size:12px}.direct-tip.show{display:block}.other-options{margin-top:13px;border-top:1px solid var(--line);padding-top:12px}.other-options summary{cursor:pointer;color:var(--navy);font-size:13px;font-weight:700}.export-row{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:9px}.export-row button{border:1px solid var(--line);background:#fff;color:var(--navy);border-radius:9px;padding:8px;font-size:12px;font-weight:700}.post-copy{display:none;margin-top:13px;border:1px solid #C7DDCF;background:var(--green-soft);border-radius:14px;padding:13px}.post-copy.show{display:block}.post-copy h4{margin:0 0 7px;color:var(--navy);font-size:14px}.post-copy ul{margin:0;padding-right:19px;font-size:12px;color:#3F5C4C}.example-row{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}.example-btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 11px;color:var(--navy);font-size:12px;font-weight:600}
+    .toast{position:fixed;left:50%;bottom:25px;transform:translate(-50%,30px);opacity:0;pointer-events:none;z-index:200;background:var(--navy);color:#fff;padding:10px 17px;border-radius:999px;font-size:13px;transition:.25s}.toast.show{opacity:1;transform:translate(-50%,0)}.mobile-preview-btn{display:none;position:fixed;z-index:80;left:12px;right:12px;bottom:max(10px,env(safe-area-inset-bottom));border:0;background:var(--gold);color:var(--navy);border-radius:14px;padding:13px;font-weight:800;box-shadow:0 12px 32px rgba(11,26,43,.25)}.drawer-backdrop{display:none;position:fixed;inset:0;background:rgba(5,13,22,.55);z-index:150}.drawer-backdrop.open{display:block}.mobile-drawer{position:absolute;left:0;right:0;bottom:0;background:#fff;border-radius:22px 22px 0 0;padding:14px 16px max(18px,env(safe-area-inset-bottom));max-height:86vh;overflow:auto}.drawer-handle{width:44px;height:5px;background:#D8DDE2;border-radius:99px;margin:0 auto 12px}.drawer-head{display:flex;justify-content:space-between;align-items:center;gap:10px}.drawer-head strong{color:var(--navy)}.drawer-close{border:0;background:#EEF1F3;border-radius:50%;width:34px;height:34px}.mobile-editor{width:100%;min-height:320px;margin-top:10px;border:1px solid var(--line);border-radius:12px;padding:11px;resize:none;background:#FAFBFC;line-height:1.9;direction:rtl}.drawer-actions{display:grid;grid-template-columns:1fr auto;gap:8px;margin-top:9px}
+    footer{padding:0 0 34px}.footer-card{background:linear-gradient(145deg,#07131F,var(--navy2));color:#fff;border-radius:22px;padding:22px 26px;display:flex;align-items:center;justify-content:space-between;gap:20px}.footer-main{display:flex;align-items:center;gap:14px}.footer-main img{width:112px;filter:brightness(0) invert(1);opacity:.94}.footer-copy strong{display:block;font-size:15px}.footer-copy span{display:block;color:#BCC8D3;font-size:12px}.social{display:flex;align-items:center;gap:8px;direction:ltr}.social strong{color:var(--gold2);font-size:12px}.social a{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:var(--gold2)}.social svg{width:16px;height:16px;fill:currentColor}.print-sheet{display:none}
+    @media(max-width:900px){.builder-grid{grid-template-columns:1fr}.preview-column{position:static}.platform-grid{grid-template-columns:repeat(2,1fr)}.path-flow{grid-template-columns:repeat(2,1fr)}.path-step:nth-child(2):after{display:none}.hero-mark{width:78px}}
+    @media(max-width:640px){body{font-size:16px;padding-bottom:74px}.shell{width:calc(100% - 22px)}.header-row{height:64px}.header-logo{width:184px}.version,.header-actions .quiet-btn{display:none}.hero{padding:25px 0 22px}.hero-row{grid-template-columns:1fr auto;gap:14px}.hero h1{font-size:28px}.hero p{font-size:15px;line-height:1.65}.hero-mark{width:58px}.privacy-line{font-size:12px;margin-top:10px}.path-card{padding:15px}.path-head{display:block}.path-flow{grid-template-columns:1fr}.path-step:not(:last-child):after{content:"↓";left:14px;top:auto;bottom:-19px}.path-step:nth-child(2):after{display:grid}.mode-bar{display:block}.segmented{margin-top:10px}.segmented button{flex:1}.form-body,.card-head{padding-right:16px;padding-left:16px}.platform-grid,.reason-grid,.evidence-grid,.inline-fields{grid-template-columns:1fr}.route-steps{grid-template-columns:1fr}.preview-column{display:none}.mobile-preview-btn{display:block}.footer-card{flex-direction:column;align-items:flex-start}.draft-banner{align-items:flex-start;flex-direction:column}.draft-actions{width:100%}.draft-actions button{flex:1}.copy-row{grid-template-columns:1fr}.copy-row .outline-btn{width:100%}}
+    @media print{body{background:#fff;padding:0}.site-header,.hero,main,footer,.toast,.mobile-preview-btn,.drawer-backdrop{display:none!important}.print-sheet{display:block!important;white-space:pre-wrap;direction:rtl;text-align:right;font-size:15pt;line-height:2;padding:35px}.print-sheet h1{color:#0B1A2B;font-size:20pt;border-bottom:2px solid #C99A27;padding-bottom:10px}.print-foot{margin-top:35px;border-top:1px solid #ddd;padding-top:10px;color:#666;font-size:10pt}}
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#tool">انتقل إلى الأداة</a>
+  <a class="skip" href="#builder">الانتقال إلى الأداة</a>
   <header class="site-header">
     <div class="shell header-row">
-      <a href="#top" aria-label="مخالفات، أعلى الصفحة"><img class="header-logo" src="assets/logo-v2.png?v=4.1.2" alt="مخالفات"></a>
-      <a class="header-link" href="#tool">ابدأ إعداد الاعتراض</a>
+      <img class="header-logo" src="assets/logo-v2.png" alt="مخالفات">
+      <div class="header-actions"><span class="version">الإصدار 5.0.0</span><button class="quiet-btn" id="newObjectionTop" type="button">اعتراض جديد</button><a class="outline-btn" href="#builder">ابدأ الآن</a></div>
     </div>
   </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="shell">
-        <img class="hero-mark" src="assets/mark-v2.png?v=4.1.2" alt="">
-        <div class="eyebrow">أداة استرشادية للمنشآت</div>
-        <h1>رتب اعتراضك واعرف المهلة وطريقة التقديم</h1>
-        <p>أدخل بيانات المخالفة، ثم تساعدك الأداة على ترتيب الوقائع والأسباب وإعداد مسودة اعتراض قابلة للمراجعة.</p>
-        <div class="hero-note">مخصصة لمخالفات الجهات الحكومية على المنشآت</div><br>
-        <button class="primary-btn" type="button" onclick="startTool()">ابدأ الآن</button>
-      </div>
-    </section>
+  <section class="hero">
+    <div class="shell hero-row">
+      <div><h1>جهز نص اعتراضك للمنصة</h1><p>اختر ما حدث معك، وأضف المعلومات المتوفرة، وستتولى الأداة إعداد نص مناسب للصق في خانة الاعتراض.</p><div class="privacy-line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.8 4 5.2v5.1c0 5.2 3.3 9.9 8 11.9 4.7-2 8-6.7 8-11.9V5.2L12 1.8Zm0 2.4 5.8 2.4v3.7c0 4.1-2.4 7.8-5.8 9.5-3.4-1.7-5.8-5.4-5.8-9.5V6.6L12 4.2Z"/></svg>تعمل الأداة داخل جهازك وتستخدم إجاباتك لإعداد النص</div></div>
+      <img class="hero-mark" src="assets/mark-v2.png" alt="">
+    </div>
+  </section>
 
-    <section class="tool-wrap" id="tool">
-      <div class="shell">
-        <div class="intro-strip" aria-label="مزايا الأداة">
-          <div class="intro-item"><div class="intro-icon">1</div><div><strong>احسب المهلة</strong><span>أدخل تاريخ معرفتك بالمخالفة، وأضف مدة الاعتراض عند توفرها.</span></div></div>
-          <div class="intro-item"><div class="intro-icon">2</div><div><strong>رتب الاعتراض</strong><span>اجمع الوقائع والأسباب والمستندات في مسودة واحدة.</span></div></div>
-          <div class="intro-item"><div class="intro-icon">3</div><div><strong>اعرف طريقة التقديم</strong><span>انتقل إلى خدمة الاعتراض المناسبة للجهة.</span></div></div>
-        </div>
+  <main id="builder">
+    <div class="shell">
+      <div class="draft-banner" id="draftBanner"><div><strong>تمت استعادة مسودة اعتراضك السابقة</strong><div class="field-help">يمكنك متابعة التعبئة أو بدء اعتراض جديد.</div></div><div class="draft-actions"><button class="primary-btn" id="continueDraft" type="button">متابعة</button><button class="outline-btn" id="discardDraft" type="button">بدء اعتراض جديد</button></div></div>
 
-        <div class="legacy-builder" aria-hidden="true">
-        <div class="progress-wrap" id="progressWrap">
-          <div class="progress-card">
-            <div class="steps">
-              <div class="step-chip active" data-step-chip="1"><b>1</b><span>المخالفة والمهلة</span></div>
-              <div class="step-chip" data-step-chip="2"><b>2</b><span>الوقائع والأسباب</span></div>
-              <div class="step-chip" data-step-chip="3"><b>3</b><span>مقدم الاعتراض</span></div>
-              <div class="step-chip" data-step-chip="4"><b>4</b><span>النتيجة والتقديم</span></div>
-            </div>
-            <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
-          </div>
-        </div>
+      <section class="path-card" aria-labelledby="pathTitle">
+        <div class="path-head"><div><h2 id="pathTitle">المسار العام للاعتراض</h2><p>يبدأ بالاعتراض أمام الجهة، ثم تنتقل للخطوة التالية بحسب نظام المخالفة.</p></div><button class="outline-btn" id="exampleToggle" type="button">جرب بمثال جاهز</button></div>
+        <div class="example-row" id="exampleRow" hidden><button class="example-btn" data-example="license" type="button">ترخيص بلدي كان ساريا</button><button class="example-btn" data-example="branch" type="button">مخالفة سجلت على فرع آخر</button><button class="example-btn" data-example="duplicate" type="button">مخالفة مكررة</button></div>
+        <div class="path-flow"><div class="path-step"><b>1</b><strong>ظهور المخالفة</strong><span>في إشعار أو داخل منصة الجهة</span></div><div class="path-step"><b>2</b><strong>الاعتراض أمام الجهة</strong><span>خلال المهلة المرتبطة بالمخالفة</span></div><div class="path-step"><b>3</b><strong>نتيجة الاعتراض</strong><span>قبول أو رفض أو انتهاء مدة البت</span></div><div class="path-step"><b>4</b><strong>التظلم أو الدعوى التالية</strong><span>بحسب نظام المخالفة</span></div></div>
+        <div class="general-60" id="general60">المحكمة الإدارية خلال 60 يومًا في المسار العام، فيما لم يرد مسار خاص للمخالفة.</div>
+      </section>
 
-        <form id="objectionForm" novalidate>
-          <section class="panel active" data-panel="1">
-            <div class="panel-head"><small>الخطوة 1 من 4</small><h2>بيانات المخالفة والمهلة</h2><p>انقل بيانات المخالفة من الإشعار أو من حسابك في منصة الجهة.</p></div>
-            <div class="panel-body">
-              <div class="form-grid">
-                <div class="field full">
-                  <label for="agency">الجهة مصدرة المخالفة <span class="req">*</span></label>
-                  <select class="input" id="agency" required>
-                    <option value="">اختر الجهة</option>
-                    <option value="balady">وزارة البلديات والإسكان</option>
-                    <option value="hrsd">وزارة الموارد البشرية والتنمية الاجتماعية</option>
-                    <option value="commerce">وزارة التجارة</option>
-                    <option value="sfda">الهيئة العامة للغذاء والدواء</option>
-                    <option value="tga">الهيئة العامة للنقل</option>
-                    <option value="other">جهة أخرى</option>
-                  </select>
-                </div>
-                <div class="field full" id="otherAgencyWrap" hidden>
-                  <label for="otherAgency">اسم الجهة <span class="req">*</span></label>
-                  <input class="input" id="otherAgency" type="text" placeholder="اكتب اسم الجهة">
-                </div>
-                <div class="field">
-                  <label for="violationNumber">رقم المخالفة أو القرار <span class="req">*</span></label>
-                  <input class="input" id="violationNumber" type="text" inputmode="numeric" placeholder="مثال: 123456" required>
-                </div>
-                <div class="field">
-                  <label for="violationType">نوع المخالفة</label>
-                  <input class="input" id="violationType" type="text" placeholder="مثال: اشتراطات النشاط">
-                </div>
-                <div class="field">
-                  <label for="noticeDate">تاريخ معرفتك بالمخالفة <span class="req">*</span></label>
-                  <input class="input latin-date" id="noticeDate" type="date" lang="en" dir="ltr" required>
-                  <div class="field-help" id="noticeDateAlt">تاريخ وصول الإشعار أو اليوم الذي ظهرت فيه المخالفة.</div>
-                </div>
-                <div class="field">
-                  <label for="deadlineDays">مدة الاعتراض بالأيام</label>
-                  <input class="input" id="deadlineDays" type="number" inputmode="numeric" min="1" max="3650" placeholder="مثال: 30">
-                  <div class="field-help">أضف المدة عند وجودها في الإشعار أو منصة الجهة، ويمكنك المتابعة بدونها.</div>
-                </div>
-                <div class="field">
-                  <label for="violationDate">تاريخ وقوع المخالفة</label>
-                  <input class="input latin-date" id="violationDate" type="date" lang="en" dir="ltr">
-                  <div class="field-help" id="violationDateAlt">اختياري إذا كان مختلفا عن تاريخ التبليغ.</div>
-                </div>
-                <div class="field">
-                  <label for="amount">قيمة المخالفة</label>
-                <div class="money-wrap"><input class="input" id="amount" type="text" inputmode="decimal" placeholder="0"><span class="sar" aria-label="ريال سعودي">⃁</span></div>
-                </div>
-                <div class="field full">
-                  <label for="city">المدينة أو الفرع</label>
-                  <input class="input" id="city" type="text" placeholder="مثال: فرع جدة">
-                </div>
-              </div>
-              <div class="deadline-card" id="deadlineCard" aria-live="polite">
-                <div class="deadline-copy"><strong id="deadlineTitle"></strong><span id="deadlineDates"></span></div>
-                <div class="deadline-number" id="deadlineRemaining"></div>
-              </div>
-            </div>
-            <div class="panel-actions"><span></span><button class="secondary-btn" type="button" onclick="nextStep(1)">التالي</button></div>
-          </section>
+      <section class="mode-bar" aria-label="نوع الاعتراض"><div class="mode-copy"><strong id="modeTitle">نص اعتراض للمنصة</strong><span id="modeDescription">نص مركز للصق في أيقونة الاعتراض، من دون بيانات خطاب.</span></div><div class="segmented"><button class="active" data-mode="text" type="button">جهز نص اعتراضك للمنصة</button><button data-mode="letter" type="button">أحتاج خطاب اعتراض كامل</button></div></section>
 
-          <section class="panel" data-panel="2">
-            <div class="panel-head"><small>الخطوة 2 من 4</small><h2>الوقائع وأسباب الاعتراض</h2><p>اختر ما ينطبق على حالتك، وستجهز الأداة أسباب الاعتراض تلقائيا.</p></div>
-            <div class="panel-body">
-              <div class="form-grid">
-                <div class="field full">
-                  <label for="violationDescription">وصف المخالفة كما ورد في الإشعار <span class="req">*</span></label>
-                  <textarea class="input" id="violationDescription" placeholder="اكتب وصف المخالفة أو المادة المذكورة في الإشعار" required></textarea>
-                </div>
-                <div class="field full">
-                  <div class="field-title">ما أسباب اعتراضك؟</div>
-                  <div class="choice-grid">
-                    <label class="choice"><input type="checkbox" name="reason" value="data"><span><strong>خطأ في البيانات أو نسبة المخالفة</strong><span>مثل رقم الفرع أو المركبة أو الشخص أو وصف الواقعة.</span></span></label>
-                    <label class="choice"><input type="checkbox" name="reason" value="license"><span><strong>لدي ترخيص أو مستند ساري</strong><span>كان ساريا وقت المخالفة ويمكن إرفاقه.</span></span></label>
-                    <label class="choice"><input type="checkbox" name="reason" value="description"><span><strong>الوصف لا يطابق ما حدث</strong><span>الواقعة أو النشاط لا ينطبق عليه الوصف المذكور.</span></span></label>
-                    <label class="choice"><input type="checkbox" name="reason" value="duplicate"><span><strong>المخالفة مكررة</strong><span>سبق تسجيل مخالفة أخرى على الواقعة نفسها.</span></span></label>
-                    <label class="choice"><input type="checkbox" name="reason" value="circumstance"><span><strong>ظرف خارج عن السيطرة</strong><span>يوجد ظرف يمكن إثباته أثر في الالتزام.</span></span></label>
-                    <label class="choice"><input type="checkbox" name="reason" value="corrected"><span><strong>تمت معالجة الملاحظة</strong><span>تم التصحيح ويوجد ما يثبت ذلك.</span></span></label>
-                  </div>
-                  <div class="tip">اختر السبب الذي يطابق ما حدث فعلا، وأرفق ما يدعمه.</div>
-                </div>
-                <div class="field full">
-                  <label for="reasonDetails">تفاصيل إضافية تدعم اعتراضك</label>
-                  <textarea class="input" id="reasonDetails" placeholder="اختياري، مثال: كانت بطاقة التشغيل سارية وقت الزيارة"></textarea>
-                </div>
-                <div class="field full">
-                  <label for="evidence">المستندات التي ستدعم اعتراضك</label>
-                  <textarea class="input" id="evidence" placeholder="مثال: صورة الترخيص، إشعار المخالفة، عقد البيع، شهادة الوزن"></textarea>
-                </div>
-                <div class="field full">
-                  <label for="requestType">ماذا تطلب من الجهة؟ <span class="req">*</span></label>
-                  <select class="input" id="requestType" required>
-                    <option value="cancel">إلغاء المخالفة</option>
-                    <option value="reduce">تخفيض المخالفة أو إعادة تقديرها</option>
-                    <option value="correct">تصحيح القرار أو بيانات المخالفة</option>
-                    <option value="review">إعادة النظر في المخالفة</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="panel-actions"><button class="ghost-btn" type="button" onclick="goStep(1)">السابق</button><button class="secondary-btn" type="button" onclick="nextStep(2)">التالي</button></div>
-          </section>
-
-          <section class="panel" data-panel="3">
-            <div class="panel-head"><small>الخطوة 3 من 4</small><h2>بيانات مقدم الاعتراض</h2><p>تستخدم هذه البيانات في المسودة فقط.</p></div>
-            <div class="panel-body">
-              <div class="form-grid">
-                <div class="field"><label for="applicantName">اسم مقدم الاعتراض <span class="req">*</span></label><input class="input" id="applicantName" type="text" placeholder="الاسم الكامل" required></div>
-                <div class="field"><label for="entityName">اسم المنشأة <span class="req">*</span></label><input class="input" id="entityName" type="text" placeholder="اسم المؤسسة أو الشركة" required></div>
-                <div class="field"><label for="applicantCapacity">صفة مقدم الاعتراض</label><input class="input" id="applicantCapacity" type="text" placeholder="مثال: المالك أو المدير"></div>
-                <div class="field"><label for="nationalId">رقم الهوية أو الإقامة</label><input class="input" id="nationalId" type="text" inputmode="numeric" placeholder="اختياري"></div>
-                <div class="field"><label for="commercialRecord">رقم السجل التجاري</label><input class="input" id="commercialRecord" type="text" inputmode="numeric" placeholder="اختياري"></div>
-                <div class="field"><label for="licenseNumber">رقم الرخصة أو المنشأة</label><input class="input" id="licenseNumber" type="text" placeholder="اختياري"></div>
-                <div class="field full"><label for="phone">رقم الجوال</label><input class="input" id="phone" type="tel" inputmode="tel" placeholder="اختياري"></div>
-              </div>
-            </div>
-            <div class="panel-actions"><button class="ghost-btn" type="button" onclick="goStep(2)">السابق</button><button class="secondary-btn" type="button" onclick="nextStep(3)">عرض النتيجة</button></div>
-          </section>
-
-          <section class="panel" data-panel="4">
-            <div class="panel-head"><small>الخطوة 4 من 4</small><h2>مسودة الاعتراض وطريقة التقديم</h2><p>راجع النص وعدله قبل تقديمه، ثم أرفق المستندات التي تدعم اعتراضك.</p></div>
-            <div class="panel-body">
-              <div class="result-grid">
-                <div class="result-card">
-                  <div class="result-card-head"><strong>مسودة الاعتراض</strong><span style="font-size:13px;color:var(--muted)">قابلة للتعديل</span></div>
-                  <div class="result-card-body"><textarea class="letter-editor" id="letterEditor" aria-label="مسودة الاعتراض"></textarea></div>
-                </div>
-                <aside>
-                  <div class="status-card"><strong id="resultDeadlineTitle">حالة المهلة</strong><span id="resultDeadlineText"></span></div>
-                  <div class="result-card" style="margin-bottom:14px">
-                    <div class="result-card-head"><strong>اكتمال الاعتراض</strong><div class="readiness"><b id="readinessScore">0%</b></div></div>
-                    <div class="result-card-body"><ul class="check-list" id="readinessList"></ul></div>
-                  </div>
-                  <div class="result-card">
-                    <div class="result-card-head"><strong>طريقة التقديم</strong></div>
-                    <div class="result-card-body">
-                      <div id="routeAgency" style="font-weight:700;color:var(--navy)"></div>
-                      <p class="route-note" id="routeNote"></p>
-                      <a class="route-link" id="routeLink" target="_blank" rel="noopener">فتح خدمة الاعتراض</a>
-                    </div>
-                  </div>
-                </aside>
-              </div>
-
-              <div class="general-path">
-                <h3>المسار العام للاعتراض</h3>
-                <p>يبدأ الاعتراض أمام الجهة مصدرة القرار خلال المهلة المقررة، ثم يمكن اللجوء إلى المحكمة الإدارية بعد رفض التظلم أو انتهاء مدة البت، فيما لم يرد نص خاص.</p>
-                <div class="special-note">بعض المخالفات لها أحكام وطريقة اعتراض مختلفة، مثل المخالفات الزكوية والضريبية وبعض قرارات التأمينات. لذلك راجع المهلة وطريقة الاعتراض المكتوبة في إشعار الجهة.</div>
-                <div class="sources">
-                  <a href="https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/f2f7b465-b576-4f47-a8e7-a9a700f27202/1" target="_blank" rel="noopener">نظام المرافعات أمام ديوان المظالم</a>
-                  <a href="https://gstc.gov.sa/ar/Help/FAQs/Pages/default.aspx" target="_blank" rel="noopener">المنازعات الزكوية والضريبية</a>
-                  <a href="https://www.gosi.gov.sa/GOSIOnline/FAQ_Employer" target="_blank" rel="noopener">اعتراضات التأمينات</a>
-                </div>
-              </div>
-
-              <div class="export-row">
-                <button class="export-btn" type="button" onclick="copyLetter()">نسخ النص</button>
-                <button class="export-btn" type="button" onclick="printLetter()">طباعة أو PDF</button>
-                <button class="export-btn" type="button" onclick="downloadWord()">تحميل Word</button>
-                <button class="export-btn" type="button" onclick="downloadSummaryImage()">تحميل صورة الملخص</button>
-              </div>
-            </div>
-            <div class="panel-actions"><button class="ghost-btn" type="button" onclick="goStep(3)">السابق</button><button class="ghost-btn" type="button" onclick="resetTool()">ابدأ من جديد</button></div>
-          </section>
-        </form>
-        </div>
-
-        <div class="builder-grid" id="simpleBuilder">
-          <form class="builder-form" id="simpleForm">
-            <div class="builder-head">
-              <h2>جهز نص اعتراضك</h2>
-              <p>اختر الأسباب التي تنطبق على حالتك، وسيظهر النص جاهزا في الجهة الأخرى.</p>
-            </div>
-            <div class="builder-body">
-              <div class="form-grid">
-                <div class="field full">
-                  <label for="simpleAgency">جهة المخالفة</label>
-                  <select class="input" id="simpleAgency">
-                    <option value="">اختر الجهة</option>
-                    <option value="balady">وزارة البلديات والإسكان</option>
-                    <option value="hrsd">وزارة الموارد البشرية والتنمية الاجتماعية</option>
-                    <option value="commerce">وزارة التجارة</option>
-                    <option value="sfda">الهيئة العامة للغذاء والدواء</option>
-                    <option value="tga">الهيئة العامة للنقل</option>
-                    <option value="other">جهة أخرى</option>
-                  </select>
-                </div>
-                <div class="field full" id="simpleOtherAgencyWrap" hidden>
-                  <label for="simpleOtherAgency">اسم الجهة</label>
-                  <input class="input" id="simpleOtherAgency" type="text" placeholder="اكتب اسم الجهة">
-                </div>
-                <div class="field">
-                  <label for="simpleViolationNumber">رقم المخالفة</label>
-                  <input class="input" id="simpleViolationNumber" type="text" inputmode="numeric" placeholder="اختياري">
-                </div>
-                <div class="field">
-                  <label for="simpleViolationType">نوع المخالفة</label>
-                  <input class="input" id="simpleViolationType" type="text" placeholder="اختياري">
-                </div>
-              </div>
-
-              <div class="field">
-                <label for="simpleViolationDescription">ماذا كتبت الجهة عن المخالفة؟</label>
-                <textarea class="input" id="simpleViolationDescription" placeholder="اختياري، انسخ وصف المخالفة أو اكتبه باختصار"></textarea>
-              </div>
-
-              <div class="field">
-                <div class="field-title">اختر أسباب اعتراضك</div>
-                <div class="choice-grid">
-                  <label class="choice"><input type="checkbox" name="simpleReason" value="noNotice"><span><strong>ظهرت المخالفة دون إشعار</strong><span>اكتشفتها في منصة الجهة أو عند الاستعلام.</span></span></label>
-                  <label class="choice"><input type="checkbox" name="simpleReason" value="data"><span><strong>خطأ في البيانات</strong><span>مثل الفرع أو المركبة أو الشخص أو تاريخ الواقعة.</span></span></label>
-                  <label class="choice"><input type="checkbox" name="simpleReason" value="license"><span><strong>لدي ترخيص أو مستند ساري</strong><span>كان ساريا وقت تسجيل المخالفة.</span></span></label>
-                  <label class="choice"><input type="checkbox" name="simpleReason" value="description"><span><strong>وصف المخالفة مختلف عما حدث</strong><span>الواقعة أو النشاط يختلف عن الوصف المسجل.</span></span></label>
-                  <label class="choice"><input type="checkbox" name="simpleReason" value="duplicate"><span><strong>المخالفة مكررة</strong><span>سجلت أكثر من مرة على الواقعة نفسها.</span></span></label>
-                  <label class="choice"><input type="checkbox" name="simpleReason" value="circumstance"><span><strong>ظرف خارج عن السيطرة</strong><span>يوجد ظرف يمكن إثباته أثر في الالتزام.</span></span></label>
-                  <label class="choice"><input type="checkbox" name="simpleReason" value="corrected"><span><strong>عالجت الملاحظة</strong><span>تم التصحيح ويوجد مستند يثبت ذلك.</span></span></label>
-                </div>
-                <div class="tip">كل اختيار يضيف سببا مكتوبا إلى نص الاعتراض مباشرة.</div>
-              </div>
-
-              <div class="field">
-                <label for="simpleReasonDetails">تفاصيل خاصة بحالتك</label>
-                <textarea class="input" id="simpleReasonDetails" placeholder="اختياري، أضف معلومة أو تاريخا يدعم اعتراضك"></textarea>
-              </div>
-
-              <div class="field">
-                <label for="simpleEvidence">المستندات التي سترفقها</label>
-                <textarea class="input" id="simpleEvidence" placeholder="اختياري، مثال: صورة الترخيص وإشعار المخالفة"></textarea>
-              </div>
-
-              <div class="field">
-                <label for="simpleRequestType">طلبك من الجهة</label>
-                <select class="input" id="simpleRequestType">
-                  <option value="cancel">إلغاء المخالفة</option>
-                  <option value="reduce">تخفيض المخالفة أو إعادة تقديرها</option>
-                  <option value="correct">تصحيح القرار أو بيانات المخالفة</option>
-                  <option value="review">إعادة النظر في المخالفة</option>
-                </select>
-              </div>
-
-              <details class="optional-section">
-                <summary>المهلة وبيانات إضافية</summary>
-                <div class="optional-content">
-                  <div class="form-grid">
-                    <div class="field">
-                      <label for="simpleNoticeDate">تاريخ معرفتك بالمخالفة</label>
-                      <input class="input latin-date" id="simpleNoticeDate" type="date" lang="en" dir="ltr">
-                      <div class="field-help" id="simpleNoticeDateAlt">تاريخ وصول الإشعار أو اليوم الذي ظهرت فيه المخالفة.</div>
-                    </div>
-                    <div class="field">
-                      <label for="simpleDeadlineDays">مدة الاعتراض بالأيام</label>
-                      <input class="input" id="simpleDeadlineDays" type="number" inputmode="numeric" min="1" max="3650" placeholder="مثال: 30">
-                      <div class="field-help">أضف المدة عند توفرها في الإشعار أو منصة الجهة.</div>
-                    </div>
-                    <div class="field">
-                      <label for="simpleAmount">قيمة المخالفة</label>
-                      <div class="money-wrap"><input class="input" id="simpleAmount" type="text" inputmode="decimal" placeholder="اختياري"><span class="sar" aria-label="ريال سعودي">⃁</span></div>
-                    </div>
-                    <div class="field">
-                      <label for="simpleCity">المدينة أو الفرع</label>
-                      <input class="input" id="simpleCity" type="text" placeholder="اختياري">
-                    </div>
-                  </div>
-                  <div class="deadline-card" id="simpleDeadlineCard" aria-live="polite">
-                    <div class="deadline-copy"><strong id="simpleDeadlineTitle"></strong><span id="simpleDeadlineDates"></span></div>
-                    <div class="deadline-number" id="simpleDeadlineRemaining"></div>
-                  </div>
-                </div>
-              </details>
-            </div>
-          </form>
-
-          <aside class="preview-column">
-            <section class="preview-card">
-              <div class="preview-head"><strong>نص الاعتراض</strong><span>يتحدث تلقائيا مع كل اختيار</span></div>
-              <div class="preview-body"><textarea class="preview-editor" id="simpleLetterEditor" aria-label="نص الاعتراض">اختر سبب اعتراضك، وسيظهر النص هنا جاهزا للنسخ.</textarea></div>
-              <div class="preview-route" id="simpleRouteCard" hidden>
-                <strong id="simpleRouteAgency"></strong>
-                <p class="route-note" id="simpleRouteNote"></p>
-                <a class="route-link" id="simpleRouteLink" target="_blank" rel="noopener">فتح خدمة الاعتراض</a>
-              </div>
-              <div class="export-row" style="padding:0 18px 18px;margin-top:0">
-                <button class="export-btn" type="button" onclick="copySimpleLetter()">نسخ النص</button>
-                <button class="export-btn" type="button" onclick="printSimpleLetter()">طباعة أو PDF</button>
-                <button class="export-btn" type="button" onclick="downloadSimpleWord()">تحميل Word</button>
-                <button class="export-btn" type="button" onclick="downloadSimpleImage()">تحميل صورة</button>
-              </div>
+      <div class="builder-grid">
+        <form class="form-card" id="objectionForm" novalidate>
+          <div class="card-head"><h2>بيانات الحالة</h2><p>أضف المتوفر لديك، وسيظهر النص في الجهة المقابلة أثناء التعبئة.</p></div>
+          <div class="form-body">
+            <section class="section">
+              <div class="section-title"><span class="section-number">1</span><div><h3>أين ظهرت المخالفة؟</h3><p>اختر المنصة أو الجهة التي تعرض المخالفة.</p></div></div>
+              <div class="platform-grid" id="platformGrid"></div>
+              <div class="field" id="otherAgencyWrap" hidden><label for="otherAgency">اسم الجهة أو المنصة</label><input class="input" id="otherAgency" autocomplete="organization"></div>
+              <div class="inline-fields" style="margin-top:13px"><div class="field"><label for="violationNumber">رقم المخالفة</label><input class="input latin" id="violationNumber" inputmode="numeric" placeholder="مثال: 123456"></div><div class="field"><label for="violationDate">تاريخ تسجيل المخالفة</label><input class="input latin" id="violationDate" type="date" lang="en" dir="ltr"></div></div>
             </section>
-          </aside>
-        </div>
 
-        <section class="general-path" aria-labelledby="generalPathTitle">
-          <h3 id="generalPathTitle">المسار العام للاعتراض</h3>
-          <p>هذا هو المسار المعتاد للمخالفات الإدارية، ويطبق فيما لم يرد مسار خاص.</p>
-          <div class="path-flow" aria-label="مراحل الاعتراض العامة">
-            <div class="path-step"><b>1</b><strong>ظهور المخالفة</strong><span>في إشعار الجهة أو منصتها</span></div>
-            <div class="path-arrow">←</div>
-            <div class="path-step"><b>2</b><strong>الاعتراض أمام الجهة</strong><span>خلال المهلة المقررة للمخالفة</span></div>
-            <div class="path-arrow">←</div>
-            <div class="path-step"><b>3</b><strong>نتيجة الاعتراض</strong><div class="path-outcomes"><div class="path-outcome accept">قبول الاعتراض وتنتهي المخالفة</div><div class="path-outcome review">رفض الاعتراض أو انتهاء مدة البت</div></div></div>
-            <div class="path-arrow">←</div>
-            <div class="path-step"><b>4</b><strong>المحكمة الإدارية</strong><span>خلال 60 يوما في المسار العام</span></div>
-          </div>
-          <div class="special-note">بعض المخالفات لها أحكام وطريقة اعتراض مختلفة، مثل المخالفات الزكوية والضريبية وبعض قرارات التأمينات. لذلك راجع المهلة وطريقة الاعتراض المكتوبة في إشعار الجهة.</div>
-          <div class="sources">
-            <a href="https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/f2f7b465-b576-4f47-a8e7-a9a700f27202/1" target="_blank" rel="noopener">نظام المرافعات أمام ديوان المظالم</a>
-            <a href="https://gstc.gov.sa/ar/Help/FAQs/Pages/default.aspx" target="_blank" rel="noopener">المنازعات الزكوية والضريبية</a>
-            <a href="https://www.gosi.gov.sa/GOSIOnline/FAQ_Employer" target="_blank" rel="noopener">اعتراضات التأمينات</a>
-          </div>
-        </section>
-      </div>
-    </section>
-  </main>
+            <section class="section">
+              <div class="section-title"><span class="section-number">2</span><div><h3>ماذا حدث معك؟</h3><p>يمكنك اختيار أكثر من سبب.</p></div></div>
+              <div class="reason-grid" id="reasonGrid"></div>
+            </section>
 
-  <footer class="site-footer">
-    <div class="shell footer-card">
-      <div class="footer-main">
-        <img src="https://almohammdin.github.io/tawassu_branch/naif-logo-v2.png" alt="نايف المحمدي">
-        <div class="footer-copy"><strong>تطوير وإشراف نايف المحمدي</strong><span>مخالفات | مساعد إعداد الاعتراض</span><span>الإصدار 4.1.2</span><span>أداة استرشادية، وتحتاج الحالات المعقدة إلى مراجعة مختص</span></div>
-      </div>
-      <div class="footer-social">
-        <strong>Almohammdin</strong>
-        <a href="https://x.com/almohammdin" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.2 2H22l-8.3 9.5L23.5 22h-7.7l-6-7.9L2.9 22H-.9l8.9-10.2L-1.4 2h7.9l5.4 7.2L18.2 2Zm-1.3 18h2.1L5.4 3.9H3.2L16.9 20Z"/></svg></a>
-        <a href="https://www.linkedin.com/in/almohammdin/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M5.3 7.9H1.7V22h3.6V7.9ZM3.5 2A2.1 2.1 0 1 0 3.5 6.2 2.1 2.1 0 0 0 3.5 2ZM22 13.9c0-4.2-2.2-6.2-5.2-6.2-2.4 0-3.5 1.3-4.1 2.2v-2H9.1V22h3.6v-7c0-1.8.3-3.6 2.6-3.6 2.2 0 2.3 2.1 2.3 3.7V22H22v-8.1Z"/></svg></a>
-        <a href="https://www.snapchat.com/add/almohammdin" target="_blank" rel="noopener" aria-label="Snapchat"><svg viewBox="0 0 24 24"><path d="M12.206.793c.99 0 4.347.276 5.93 3.821.529 1.193.403 3.219.299 4.847l-.003.06c-.012.18-.022.345-.03.51.075.045.203.09.401.09.3-.016.659-.12 1.033-.301.165-.088.344-.104.464-.104.182 0 .359.029.509.09.45.149.734.479.734.838.015.449-.39.839-1.213 1.168-.089.029-.209.075-.344.119-.45.135-1.139.36-1.333.81-.09.224-.061.524.12.868l.015.015c.06.136 1.526 3.475 4.791 4.014.255.044.435.27.42.509 0 .075-.015.149-.045.225-.24.569-1.273.988-3.146 1.271-.059.091-.12.375-.164.57-.029.179-.074.36-.134.553-.076.271-.27.405-.555.405h-.03c-.135 0-.313-.031-.538-.074-.36-.075-.765-.135-1.273-.135-.3 0-.599.015-.913.074-.6.104-1.123.464-1.723.884-.853.599-1.826 1.288-3.294 1.288-.06 0-.119-.015-.18-.015h-.149c-1.468 0-2.427-.675-3.279-1.288-.599-.42-1.107-.779-1.707-.884-.314-.045-.629-.074-.928-.074-.54 0-.958.089-1.272.149-.211.043-.391.074-.54.074-.374 0-.523-.224-.583-.42-.061-.192-.09-.389-.135-.567-.046-.181-.105-.494-.166-.57-1.918-.222-2.95-.642-3.189-1.226-.031-.063-.052-.15-.055-.225-.015-.243.165-.465.42-.509 3.264-.54 4.73-3.879 4.791-4.02l.016-.029c.18-.345.224-.645.119-.869-.195-.434-.884-.658-1.332-.809-.121-.029-.24-.074-.346-.119-1.107-.435-1.257-.93-1.197-1.273.09-.479.674-.793 1.168-.793.146 0 .27.029.383.074.42.194.789.3 1.104.3.234 0 .384-.06.465-.105l-.046-.569c-.098-1.626-.225-3.651.307-4.837C7.392 1.077 10.739.807 11.727.807l.419-.015h.06z"/></svg></a>
-        <a href="https://linktr.ee/almohammdin" target="_blank" rel="noopener" aria-label="Linktree"><svg viewBox="0 0 24 24"><path d="M13.736 5.852 17.644 2l1.92 1.92-3.852 3.736h5.644v2.736h-5.66l3.868 3.752-1.92 1.92-5.276-5.28-5.276 5.28-1.92-1.92 3.868-3.752H3.38V7.656h5.644L5.172 3.92 7.092 2l3.932 3.852V0h2.712v5.852ZM11.024 24v-8.604h2.712V24h-2.712Z"/></svg></a>
+            <section class="section">
+              <div class="section-title"><span class="section-number">3</span><div><h3>المعلومات التي تبني الاعتراض</h3><p>تظهر الأسئلة المناسبة للأسباب التي اخترتها.</p></div></div>
+              <div id="conditionalQuestions"><div class="empty-note">اختر ما حدث معك لعرض الأسئلة المناسبة.</div></div>
+              <div class="field"><label for="violationDescription">انسخ وصف المخالفة كما ظهر لك</label><textarea class="input" id="violationDescription" placeholder="يمكن نسخ الوصف من المنصة أو الإشعار"></textarea><label class="check-line"><input type="checkbox" id="descriptionUnavailable">الإشعار غير متوفر لدي</label></div>
+              <div class="field"><label for="extraInfo">هل توجد معلومة أخرى مهمة؟</label><textarea class="input" id="extraInfo" placeholder="اختياري"></textarea></div>
+            </section>
+
+            <section class="section">
+              <div class="section-title"><span class="section-number">4</span><div><h3>ما الإثباتات المتوفرة؟</h3><p>تتغير القائمة بحسب سبب الاعتراض.</p></div></div>
+              <div class="evidence-grid" id="evidenceGrid"></div>
+              <div class="case-tip" id="caseTip" hidden></div>
+              <div class="evidence-status" id="evidenceStatus">اختر سبب الاعتراض لعرض الإثباتات المناسبة.</div>
+            </section>
+
+            <section class="section">
+              <div class="section-title"><span class="section-number">5</span><div><h3>هل تعرف مدة الاعتراض أو تاريخ نهايتها؟</h3><p>يظهر حقل التاريخ أو المدة عند اختياره.</p></div></div>
+              <div class="deadline-choices" id="deadlineChoices">
+                <label class="radio-row"><input type="radio" name="deadlineType" value="notice_days">المدة مكتوبة في الإشعار</label>
+                <label class="radio-row"><input type="radio" name="deadlineType" value="end_date">تاريخ النهاية مكتوب في المنصة</label>
+                <label class="radio-row"><input type="radio" name="deadlineType" value="notice_unknown">وصلتني المخالفة والمدة غير مكتوبة</label>
+                <label class="radio-row"><input type="radio" name="deadlineType" value="discovered">اكتشفت المخالفة من دون إشعار</label>
+                <label class="radio-row"><input type="radio" name="deadlineType" value="unsure">لست متأكدا</label>
+              </div>
+              <div class="deadline-fields" id="deadlineFields"></div>
+              <div class="deadline-result" id="deadlineResult"></div>
+            </section>
+
+            <section class="section">
+              <div class="section-title"><span class="section-number">6</span><div><h3>اختر طلبك من الجهة</h3><p>تقترح الأداة طلبا يناسب السبب، ويمكنك تغييره.</p></div></div>
+              <div class="request-suggestion" id="requestSuggestion"></div>
+              <select class="select" id="requestType"><option value="">اختر الطلب</option><option value="cancel">إلغاء المخالفة</option><option value="correct_cancel">تصحيح البيانات أو إلغاء المخالفة</option><option value="cancel_duplicate">إلغاء المخالفة المكررة</option><option value="reconsider">إعادة النظر في المخالفة</option><option value="reduce">تخفيف الجزاء أو إعادة تقديره</option><option value="reconsider_reduce">إعادة النظر أو التخفيف</option></select>
+            </section>
+
+            <section class="section identity-section">
+              <div class="section-title"><span class="section-number">7</span><div><h3>بيانات الخطاب الكامل</h3><p>تستخدم في المخاطبة والتوقيع فقط.</p></div></div>
+              <div class="inline-fields"><div class="field"><label for="applicantName">الاسم</label><input class="input" id="applicantName" autocomplete="name"></div><div class="field"><label for="entityName">اسم المنشأة</label><input class="input" id="entityName" autocomplete="organization"></div><div class="field"><label for="identityNumber">رقم الهوية أو السجل</label><input class="input latin" id="identityNumber" inputmode="numeric"></div><div class="field"><label for="phone">رقم الجوال</label><input class="input latin" id="phone" inputmode="tel"></div></div>
+            </section>
+
+            <section class="section">
+              <div class="section-title"><span class="section-number">7</span><div><h3>طريقة التقديم</h3><p>تظهر بعد اختيار المنصة.</p></div></div>
+              <div class="route-card" id="routeCard"><div class="route-disabled">اختر المنصة لعرض خطوات التقديم.</div></div>
+            </section>
+          </div>
+        </form>
+
+        <aside class="preview-column">
+          <section class="preview-card">
+            <div class="preview-head"><div class="preview-top"><strong id="previewTitle">نص الاعتراض</strong><span class="counter" id="charCounter">0 / 1000</span></div><div class="preview-tabs"><button class="active" data-kind="short" type="button">نص مختصر</button><button data-kind="detailed" type="button">نص مفصل</button></div></div>
+            <div class="preview-body">
+              <div class="editor-wrap"><textarea class="preview-editor" id="previewEditor" aria-label="نص الاعتراض"></textarea></div>
+              <div class="editor-meta"><span>يمكنك تعديل النص قبل نسخه</span><button class="quiet-btn" id="shortenText" type="button">اختصر النص</button></div>
+              <div class="dirty-alert" id="dirtyAlert"><span>تغيرت الإجابات وبقي تعديلك محفوظا.</span><button class="outline-btn" id="refreshText" type="button">تحديث النص من الإجابات</button></div>
+              <div class="copy-row"><button class="gold-btn" id="copyText" type="button">نسخ نص الاعتراض</button><button class="outline-btn" id="resetTool" type="button">اعتراض جديد</button></div>
+
+              <div class="readiness-card"><div class="readiness-head"><strong>فحص الجاهزية</strong><span class="readiness-score" id="readinessScore">0%</span></div><ul class="ready-list" id="readinessList"></ul><div class="direct-tip" id="directTip"></div></div>
+
+              <details class="other-options"><summary>خيارات أخرى</summary><div class="export-row"><button id="downloadWord" type="button">Word</button><button id="printPdf" type="button">PDF</button><button id="downloadImage" type="button">صورة</button></div></details>
+
+              <div class="post-copy" id="postCopy"><h4>بعد فتح خدمة الاعتراض</h4><ul><li>راجع رقم المخالفة</li><li>الصق النص</li><li>أرفق المستندات</li><li>قدم الاعتراض</li><li>احفظ رقم الطلب</li><li>احتفظ بصورة من النص والمرفقات</li></ul></div>
+            </div>
+          </section>
+        </aside>
       </div>
     </div>
-  </footer>
+  </main>
 
-  <div class="print-sheet print-only" id="printSheet"><img class="print-letter-logo" src="assets/logo-v2.png" alt=""><div class="print-letter-body" id="printLetterBody"></div><div class="print-letter-foot" id="printLetterFoot"></div></div>
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <footer><div class="shell footer-card"><div class="footer-main"><img src="assets/logo-v2.png" alt="مخالفات"><div class="footer-copy"><strong>مساعد إعداد الاعتراض</strong><span>أداة استرشادية، والمهلة وطريقة التقديم تعتمد على نظام المخالفة والجهة.</span></div></div><div class="social"><strong>Almohammdin</strong><a href="https://x.com/almohammdin" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.2 2H22l-8.3 9.5L23.5 22h-7.7l-6-7.9L2.9 22H-.9l8.9-10.2L-1.4 2h7.9l5.4 7.2L18.2 2Zm-1.3 18h2.1L5.4 3.9H3.2L16.9 20Z"/></svg></a><a href="https://www.linkedin.com/in/almohammdin/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M5.3 7.9H1.7V22h3.6V7.9ZM3.5 2A2.1 2.1 0 1 0 3.5 6.2 2.1 2.1 0 0 0 3.5 2ZM22 13.9c0-4.2-2.2-6.2-5.2-6.2-2.4 0-3.5 1.3-4.1 2.2v-2H9.1V22h3.6v-7c0-1.8.3-3.6 2.6-3.6 2.2 0 2.3 2.1 2.3 3.7V22H22v-8.1Z"/></svg></a><a href="https://www.snapchat.com/add/almohammdin" target="_blank" rel="noopener" aria-label="Snapchat"><svg viewBox="0 0 24 24"><path d="M12.2.8c1 0 4.3.3 5.9 3.8.5 1.2.4 3.2.3 4.8 0 .2 0 .4-.1.6.1.1.2.1.4.1.3 0 .7-.1 1-.3.2-.1.4-.1.5-.1.2 0 .4 0 .5.1.5.1.7.5.7.8 0 .5-.4.8-1.2 1.2-.1 0-.2.1-.4.1-.4.1-1.1.4-1.3.8-.1.2-.1.5.1.9 0 0 1.5 3.5 4.8 4 .3 0 .4.3.4.5 0 .1 0 .1-.1.2-.2.6-1.3 1-3.1 1.3-.1.1-.1.4-.2.6 0 .2-.1.4-.1.6-.1.3-.3.4-.6.4-.1 0-.3 0-.5-.1-.4-.1-.8-.1-1.3-.1-.3 0-.6 0-.9.1-.6.1-1.1.5-1.7.9-.9.6-1.8 1.3-3.3 1.3h-.3c-1.5 0-2.4-.7-3.3-1.3-.6-.4-1.1-.8-1.7-.9-.3 0-.6-.1-.9-.1-.5 0-1 .1-1.3.1-.2.1-.4.1-.5.1-.4 0-.5-.2-.6-.4-.1-.2-.1-.4-.1-.6-.1-.2-.1-.5-.2-.6-1.9-.2-3-.6-3.2-1.2 0-.1-.1-.2-.1-.3 0-.2.2-.5.4-.5 3.3-.5 4.7-3.9 4.8-4 .2-.4.2-.7.1-.9-.2-.4-.9-.7-1.3-.8-.1 0-.2-.1-.3-.1-1.1-.4-1.3-.9-1.2-1.3.1-.5.7-.8 1.2-.8.1 0 .3 0 .4.1.4.2.8.3 1.1.3.2 0 .4-.1.5-.1l-.1-.6c-.1-1.6-.2-3.7.3-4.8C7.4 1.1 10.7.8 11.7.8h.5Z"/></svg></a></div></div></footer>
+
+  <button class="mobile-preview-btn" id="mobilePreviewButton" type="button">عرض نص الاعتراض</button>
+  <div class="drawer-backdrop" id="drawerBackdrop"><div class="mobile-drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle"><div class="drawer-handle"></div><div class="drawer-head"><strong id="drawerTitle">نص الاعتراض</strong><button class="drawer-close" id="drawerClose" type="button" aria-label="إغلاق">×</button></div><textarea class="mobile-editor" id="mobileEditor" aria-label="معاينة نص الاعتراض"></textarea><div class="drawer-actions"><button class="gold-btn" id="mobileCopy" type="button">نسخ نص الاعتراض</button><button class="outline-btn" id="mobileRefresh" type="button">تحديث النص</button></div></div></div>
+  <div class="toast" id="toast" role="status"></div>
+  <section class="print-sheet"><h1>الاعتراض</h1><div id="printBody"></div><div class="print-foot" id="printFoot"></div></section>
 
   <script>
-    const VERSION="4.1.2";
-    const agencyData={
-      balady:{name:"وزارة البلديات والإسكان",url:"https://balady.gov.sa/ar/services/%D8%AE%D8%AF%D9%85%D8%A9-%D8%A7%D9%84%D8%A7%D8%B9%D8%AA%D8%B1%D8%A7%D8%B6",note:"قدّم الاعتراض من خدمة الاعتراض في منصة بلدي، واختر المخالفة وأرفق ما يدعم اعتراضك."},
-      hrsd:{name:"وزارة الموارد البشرية والتنمية الاجتماعية",url:"https://www.hrsd.gov.sa/ministry-services/services/%D8%A7%D9%84%D8%A7%D8%B9%D8%AA%D8%B1%D8%A7%D8%B6%D8%A7%D8%AA-%D9%88%D8%A7%D9%84%D8%AA%D8%B3%D9%88%D9%8A%D8%A7%D8%AA-%D8%B9%D9%84%D9%89-%D9%85%D8%AE%D8%A7%D9%84%D9%81%D8%A7%D8%AA-%D8%A7%D9%84%D8%B9%D9%85%D9%84",note:"استخدم خدمة الاعتراضات والتسويات على مخالفات العمل وأرفق المستندات المرتبطة بالحالة."},
-      commerce:{name:"وزارة التجارة",url:"https://mc.gov.sa/ar/eservices/Pages/ServiceDetails.aspx?sID=3",note:"قدّم الاعتراض من خدمة الاعتراضات على قرارات مخالفات اللجان والتحصيل."},
-      sfda:{name:"الهيئة العامة للغذاء والدواء",url:"https://www.sfda.gov.sa/ar/nnjzha",note:"استخدم خدمة الاعتراض المناسبة لنوع النشاط أو المخالفة، وأرفق ما يدعم طلبك."},
-      tga:{name:"الهيئة العامة للنقل",url:"https://os.tga.gov.sa/",note:"قدّم الاعتراض عبر خدمة الاستعلام والاعتراض الإلكتروني، ثم اختر المخالفة وأرفق الإثباتات."},
-      other:{name:"جهة أخرى",url:"https://business.sa/ar/objections",note:"راجع إشعار المخالفة أو صفحة الاعتراضات في المركز السعودي للأعمال لمعرفة خدمة التقديم المناسبة."}
-    };
-    const reasonText={
-      data:"وجود خطأ في البيانات أو في نسبة المخالفة إلى المنشأة.",
-      license:"وجود ترخيص أو مستند ساري وقت الواقعة يدعم موقف المنشأة.",
-      description:"عدم تطابق وصف المخالفة مع الواقعة أو النشاط كما حدث فعلا.",
-      duplicate:"تكرار المخالفة على الواقعة نفسها.",
-      circumstance:"وجود ظرف خارج عن السيطرة أثر في الالتزام ويمكن إثباته.",
-      corrected:"معالجة الملاحظة محل المخالفة وإرفاق ما يثبت التصحيح."
-    };
-    const requestText={cancel:"إلغاء المخالفة",reduce:"تخفيض المخالفة أو إعادة تقديرها",correct:"تصحيح القرار أو بيانات المخالفة",review:"إعادة النظر في المخالفة"};
-    let currentStep=1;
-
+    const VERSION="5.0.0";
+    const DRAFT_KEY="mukhaalafat-draft-v5";
     const $=id=>document.getElementById(id);
-    const toLatinDigits=value=>String(value).replace(/[٠-٩]/g,d=>"0123456789"["٠١٢٣٤٥٦٧٨٩".indexOf(d)]).replace(/[۰-۹]/g,d=>"0123456789"["۰۱۲۳۴۵۶۷۸۹".indexOf(d)]);
-    const val=id=>toLatinDigits($(id)?.value||"").trim();
-    const escapeHtml=s=>String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
-
-    function startTool(){$("tool").scrollIntoView({behavior:"smooth",block:"start"});setTimeout(()=>$("agency").focus(),500)}
-    function goStep(step){
-      currentStep=step;
-      document.querySelectorAll("[data-panel]").forEach(p=>p.classList.toggle("active",Number(p.dataset.panel)===step));
-      document.querySelectorAll("[data-step-chip]").forEach(c=>{const n=Number(c.dataset.stepChip);c.classList.toggle("active",n===step);c.classList.toggle("done",n<step)});
-      $("progressBar").style.width=`${step*25}%`;
-      if(step===4) buildResult();
-      $("progressWrap").scrollIntoView({behavior:"smooth",block:"start"});
-    }
-    function validateStep(step){
-      const panel=document.querySelector(`[data-panel="${step}"]`);
-      const required=[...panel.querySelectorAll("[required]")];
-      if(step===1&&val("agency")==="other"&&!val("otherAgency")){showToast("اكتب اسم الجهة");$("otherAgency").focus();return false}
-      for(const field of required){if(!field.value.trim()){showToast("أكمل الحقول المطلوبة");field.focus();return false}}
-      if(step===2&&!document.querySelector('input[name="reason"]:checked')){showToast("اختر سبب اعتراضك");return false}
-      return true;
-    }
-    function nextStep(step){if(validateStep(step))goStep(step+1)}
-
-    function selectedAgency(){
-      const key=val("agency")||"other";
-      const base=agencyData[key]||agencyData.other;
-      return {...base,name:key==="other"?(val("otherAgency")||"الجهة المختصة"):base.name};
-    }
-    function toDate(value){if(!value)return null;const [y,m,d]=value.split("-").map(Number);return new Date(y,m-1,d,12,0,0)}
-    function gregorian(date){return new Intl.DateTimeFormat("ar-SA-u-nu-latn-ca-gregory",{weekday:"long",day:"numeric",month:"long",year:"numeric"}).format(date)}
-    function hijri(date){return new Intl.DateTimeFormat("ar-SA-u-nu-latn-ca-islamic-umalqura",{day:"numeric",month:"long",year:"numeric"}).format(date)}
-    function fullDateLine(date){return `${gregorian(date)} | ${hijri(date)}`}
-    function todayLine(){const d=new Date();return `${new Intl.DateTimeFormat("ar-SA-u-nu-latn",{weekday:"long"}).format(d)} | ${hijri(d)} | ${new Intl.DateTimeFormat("ar-SA-u-nu-latn-ca-gregory",{day:"numeric",month:"long",year:"numeric"}).format(d)} م`}
-    function deadlineInfo(){
-      const start=toDate(val("noticeDate"));const days=Number(val("deadlineDays"));
-      if(!start||!days)return null;
-      const end=new Date(start);end.setDate(end.getDate()+days);end.setHours(23,59,59,999);
-      const now=new Date();const remaining=Math.ceil((end-now)/86400000);
-      return {start,end,remaining};
-    }
-    function updateDeadline(){
-      const info=deadlineInfo();const card=$("deadlineCard");
-      if(!info){card.className="deadline-card";return}
-      card.className="deadline-card show";
-      let title="آخر يوم متوقع للتقديم";let label=`متبقي ${info.remaining} يوم`;
-      if(info.remaining<0){card.classList.add("expired");title="المهلة المحسوبة منتهية";label=`منذ ${Math.abs(info.remaining)} يوم`}
-      else if(info.remaining<=7){card.classList.add("warning");label=info.remaining===0?"اليوم آخر يوم":`متبقي ${info.remaining} يوم`}
-      $("deadlineTitle").textContent=title;$("deadlineDates").textContent=`${gregorian(info.end)} م | ${hijri(info.end)}`;
-      $("deadlineRemaining").textContent=label;
-    }
-    function updateAltDate(inputId,targetId){const d=toDate(val(inputId));$(targetId).textContent=d?hijri(d):inputId==="noticeDate"?"تاريخ وصول الإشعار أو اليوم الذي ظهرت فيه المخالفة.":"اختياري إذا كان مختلفا عن تاريخ معرفتك بالمخالفة."}
-
-    function buildLetter(){
-      const agency=selectedAgency();const info=deadlineInfo();
-      const reasons=[...document.querySelectorAll('input[name="reason"]:checked')].map(x=>reasonText[x.value]);
-      const amount=val("amount")?`، وقيمتها ${val("amount")} ⃁`:"";
-      const city=val("city")?`، والمرتبطة بـ ${val("city")}`:"";
-      const vdate=toDate(val("violationDate"));const notice=toDate(val("noticeDate"));
-      const dates=[];if(vdate)dates.push(`بتاريخ ${gregorian(vdate)} م الموافق ${hijri(vdate)}`);if(notice)dates.push(`وقد علمت بها بتاريخ ${gregorian(notice)} م الموافق ${hijri(notice)}`);
-      const timely=info&&info.remaining>=0?"وأتقدم بهذا الاعتراض خلال المهلة المحسوبة وفقا للبيانات المدخلة.":"وأتقدم بهذا الاعتراض طالبا من الجهة مراجعة المخالفة والبيانات والمستندات المرفقة.";
-      const identity=[
-        val("entityName")?`المنشأة: ${val("entityName")}`:"",
-        val("applicantName")?`مقدم الاعتراض: ${val("applicantName")}`:"",
-        val("applicantCapacity")?`الصفة: ${val("applicantCapacity")}`:"",
-        val("nationalId")?`رقم الهوية أو الإقامة: ${val("nationalId")}`:"",
-        val("commercialRecord")?`رقم السجل التجاري: ${val("commercialRecord")}`:"",
-        val("licenseNumber")?`رقم الرخصة أو المنشأة: ${val("licenseNumber")}`:"",
-        val("phone")?`رقم الجوال: ${val("phone")}`:""
-      ].filter(Boolean).join("\n");
-      return [
-        `السادة / ${agency.name}`,
-        `الموضوع: اعتراض على المخالفة رقم (${val("violationNumber")})`,
-        "",
-        "السلام عليكم ورحمة الله وبركاته، وبعد:",
-        "",
-        `أتقدم باعتراضي على المخالفة رقم (${val("violationNumber")})${amount}${city}${dates.length?" "+dates.join("، "):""}. ${timely}`,
-        "",
-        "وقائع المخالفة:",
-        val("violationDescription"),
-        "",
-        "أسباب الاعتراض:",
-        reasons.length?reasons.map((r,i)=>`${i+1}. ${r}`).join("\n"):"",
-        val("reasonDetails")?`تفاصيل إضافية:\n${val("reasonDetails")}`:"",
-        "",
-        val("evidence")?`المستندات المؤيدة:\n${val("evidence")}\n`:"",
-        `الطلب:\nأطلب ${requestText[val("requestType")]||"إعادة النظر في المخالفة"} بعد مراجعة الوقائع والمستندات المرفقة.`,
-        "",
-        "وتفضلوا بقبول التحية،",
-        identity,
-        `التاريخ: ${todayLine()}`
-      ].filter((line,index,arr)=>line!==""||arr[index-1]!=="").join("\n");
-    }
-    function readiness(){
-      const items=[
-        [Boolean(val("agency")&&val("violationNumber")),"بيانات المخالفة"],
-        [Boolean(val("noticeDate")),"تاريخ معرفة المخالفة"],
-        [Boolean(val("violationDescription")&&document.querySelector('input[name="reason"]:checked')),"الوقائع وأسباب الاعتراض"],
-        [Boolean(val("evidence")),"المستندات المؤيدة"],
-        [Boolean(val("applicantName")&&val("entityName")),"بيانات مقدم الاعتراض"]
-      ];
-      return {items,score:Math.round(items.filter(x=>x[0]).length/items.length*100)};
-    }
-    function buildResult(){
-      const agency=selectedAgency();const info=deadlineInfo();
-      $("letterEditor").value=buildLetter();
-      if(info){
-        $("resultDeadlineTitle").textContent=info.remaining>=0?"المهلة المحسوبة":"المهلة المحسوبة منتهية";
-        $("resultDeadlineText").textContent=`${info.remaining>=0?`متبقي ${info.remaining} يوم. `:`انتهت منذ ${Math.abs(info.remaining)} يوم. `}آخر يوم متوقع: ${gregorian(info.end)} م | ${hijri(info.end)}`;
-      }else{$("resultDeadlineTitle").textContent="المهلة تحتاج مراجعة";$("resultDeadlineText").textContent="راجع إشعار المخالفة أو منصة الجهة لمعرفة مدة الاعتراض، وقدم اعتراضك في أقرب وقت."}
-      const ready=readiness();$("readinessScore").textContent=`${ready.score}%`;
-      $("readinessList").innerHTML=ready.items.map(([ok,label])=>`<li class="${ok?"ok":""}">${ok?"✓":"○"} ${label}</li>`).join("");
-      $("routeAgency").textContent=agency.name;$("routeNote").textContent=agency.note;$("routeLink").href=agency.url;
-    }
-    async function copyLetter(){try{await navigator.clipboard.writeText($("letterEditor").value);showToast("تم نسخ الاعتراض")}catch{showToast("تعذر النسخ، حدد النص وانسخه")}}
-    function printLetter(){
-      $("printLetterBody").textContent=$("letterEditor").value;$("printLetterFoot").textContent=`أعدت المسودة بواسطة أداة مخالفات | الإصدار ${VERSION} | ${todayLine()}`;
-      document.body.classList.add("printing");window.print();setTimeout(()=>document.body.classList.remove("printing"),800);
-    }
-    function downloadWord(){
-      const body=escapeHtml($("letterEditor").value).replace(/\n/g,"<br>");
-      const html=`<!doctype html><html dir="rtl"><head><meta charset="utf-8"><style>body{font-family:'IBM Plex Sans Arabic',Tahoma,sans-serif;direction:rtl;text-align:right;font-size:16pt;line-height:2;padding:35px;color:#111}h1{font-size:18pt;color:#0B1A2B}</style></head><body><h1>مسودة اعتراض</h1>${body}</body></html>`;
-      downloadBlob(new Blob(["\ufeff",html],{type:"application/msword"}),`اعتراض-${val("violationNumber")||"مخالفة"}.doc`);showToast("تم تجهيز ملف Word");
-    }
-    function wrapCanvas(ctx,text,x,y,maxWidth,lineHeight,maxLines=6){
-      const words=String(text||"").split(/\s+/);let line="",lines=[];
-      for(const word of words){const test=line?`${line} ${word}`:word;if(ctx.measureText(test).width>maxWidth&&line){lines.push(line);line=word}else line=test}
-      if(line)lines.push(line);lines=lines.slice(0,maxLines);lines.forEach((l,i)=>ctx.fillText(l,x,y+i*lineHeight));return y+lines.length*lineHeight;
-    }
-    async function downloadSummaryImage(){
-      await document.fonts.ready;
-      const canvas=document.createElement("canvas");canvas.width=1200;canvas.height=1500;const ctx=canvas.getContext("2d");ctx.direction="rtl";ctx.textAlign="right";
-      const grad=ctx.createLinearGradient(0,0,1200,420);grad.addColorStop(0,"#07131F");grad.addColorStop(1,"#12304D");ctx.fillStyle="#F4F6F8";ctx.fillRect(0,0,1200,1500);ctx.fillStyle=grad;ctx.fillRect(0,0,1200,390);
-      const mark=await loadImage("assets/mark-v2.png");ctx.drawImage(mark,900,72,190,190);
-      ctx.fillStyle="#fff";ctx.font="700 86px 'IBM Plex Sans Arabic'";ctx.fillText("مخالفات",840,155);ctx.fillStyle="#D9BD65";ctx.font="600 34px 'IBM Plex Sans Arabic'";ctx.fillText("ملخص الاعتراض",840,215);ctx.fillStyle="#D7E0E9";ctx.font="400 26px 'IBM Plex Sans Arabic'";ctx.fillText(todayLine(),840,274);
-      const agency=selectedAgency(),info=deadlineInfo(),ready=readiness();
-      ctx.fillStyle="#fff";roundRect(ctx,70,430,1060,235,26);ctx.fill();ctx.fillStyle="#0B1A2B";ctx.font="600 30px 'IBM Plex Sans Arabic'";ctx.fillText("بيانات المخالفة",1070,490);ctx.font="500 27px 'IBM Plex Sans Arabic'";ctx.fillText(`الجهة: ${agency.name}`,1070,545);ctx.fillText(`رقم المخالفة: ${val("violationNumber")}`,1070,592);ctx.font="500 27px 'Saudi Riyal Symbol','IBM Plex Sans Arabic'";ctx.fillText(`قيمة المخالفة: ${val("amount")?val("amount")+" ⃁":"غير مضافة"}`,1070,639);
-      ctx.fillStyle="#fff";roundRect(ctx,70,700,1060,260,26);ctx.fill();ctx.fillStyle="#0B1A2B";ctx.font="600 30px 'IBM Plex Sans Arabic'";ctx.fillText("المهلة واكتمال الاعتراض",1070,760);ctx.font="700 49px 'IBM Plex Sans Arabic'";ctx.fillStyle=info&&info.remaining<0?"#B64C3F":"#1F7A4D";ctx.fillText(info?(info.remaining>=0?`متبقي ${info.remaining} يوم`:`منتهية منذ ${Math.abs(info.remaining)} يوم`):"راجع مدة الاعتراض",1070,830);ctx.fillStyle="#5E6A78";ctx.font="500 25px 'IBM Plex Sans Arabic'";if(info)ctx.fillText(`${gregorian(info.end)} م | ${hijri(info.end)}`,1070,882);ctx.fillStyle="#0B1A2B";ctx.font="700 40px 'IBM Plex Sans Arabic'";ctx.fillText(`اكتمال الاعتراض ${ready.score}%`,1070,930);
-      ctx.fillStyle="#fff";roundRect(ctx,70,995,1060,330,26);ctx.fill();ctx.fillStyle="#0B1A2B";ctx.font="600 30px 'IBM Plex Sans Arabic'";ctx.fillText("الخطوة التالية",1070,1055);ctx.fillStyle="#334150";ctx.font="500 27px 'IBM Plex Sans Arabic'";let y=wrapCanvas(ctx,agency.note,1070,1112,930,45,4);ctx.fillStyle="#8B691B";ctx.font="500 23px 'IBM Plex Sans Arabic'";wrapCanvas(ctx,"راجع المهلة وطريقة الاعتراض المكتوبة في إشعار الجهة قبل التقديم.",1070,y+18,930,38,3);
-      ctx.fillStyle="#0B1A2B";ctx.fillRect(0,1380,1200,120);ctx.fillStyle="#D9BD65";ctx.font="600 28px 'IBM Plex Sans Arabic'";ctx.fillText("Almohammdin",1080,1434);ctx.fillStyle="#CFD9E2";ctx.font="400 22px 'IBM Plex Sans Arabic'";ctx.fillText(`مخالفات | الإصدار ${VERSION}`,1080,1473);
-      canvas.toBlob(blob=>{downloadBlob(blob,`ملخص-اعتراض-${val("violationNumber")||"مخالفة"}.png`);showToast("تم تجهيز صورة الملخص")},"image/png",1);
-    }
-    function roundRect(ctx,x,y,w,h,r){ctx.beginPath();ctx.roundRect(x,y,w,h,r)}
-    function loadImage(src){return new Promise((resolve,reject)=>{const img=new Image();img.onload=()=>resolve(img);img.onerror=reject;img.src=src})}
-    function downloadBlob(blob,name){const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
-    function showToast(message){const t=$("toast");t.textContent=message;t.classList.add("show");clearTimeout(showToast.timer);showToast.timer=setTimeout(()=>t.classList.remove("show"),2300)}
-    function resetTool(){if(!confirm("سيتم مسح البيانات المدخلة. هل تريد البدء من جديد؟"))return;$("objectionForm").reset();$("otherAgencyWrap").hidden=true;$("deadlineCard").className="deadline-card";goStep(1);showToast("تم بدء اعتراض جديد")}
-
-    $("agency").addEventListener("change",()=>{$("otherAgencyWrap").hidden=val("agency")!=="other"});
-    $("noticeDate").addEventListener("change",()=>{updateAltDate("noticeDate","noticeDateAlt");updateDeadline()});
-    $("violationDate").addEventListener("change",()=>updateAltDate("violationDate","violationDateAlt"));
-    $("deadlineDays").addEventListener("input",updateDeadline);
-    document.querySelectorAll('input[inputmode="numeric"],input[inputmode="decimal"],input[inputmode="tel"]').forEach(input=>input.addEventListener("input",()=>{input.value=toLatinDigits(input.value)}));
-
-    const simpleReasonText={
-      noNotice:"ظهرت المخالفة في منصة الجهة أو عند الاستعلام قبل وصول إشعار بها، وأطلب اعتماد تاريخ معرفتي الفعلية بها عند مراجعة المهلة.",
-      data:"توجد بيانات مرتبطة بالمخالفة تحتاج إلى تصحيح، وأطلب مراجعتها ومطابقتها مع بيانات المنشأة والواقعة.",
-      license:"كان الترخيص أو المستند المطلوب ساريا وقت تسجيل المخالفة، والمستند المؤيد مرفق مع الاعتراض.",
-      description:"وصف المخالفة المسجل يختلف عن الواقعة كما حدثت فعلا، وأطلب مراجعة الوصف والبيانات المرتبطة به.",
-      duplicate:"سجلت المخالفة أكثر من مرة على الواقعة نفسها، وأطلب التحقق من التكرار وإلغاء القيد المكرر.",
-      circumstance:"أثر ظرف خارج عن السيطرة في الالتزام وقت الواقعة، ويوجد ما يدعم ذلك ضمن المستندات.",
-      corrected:"تمت معالجة الملاحظة محل المخالفة، وأرفقت ما يثبت التصحيح والإجراء المتخذ."
+    const platforms={
+      balady:{label:"بلدي",agency:"وزارة البلديات والإسكان",abbr:"بل",url:"https://balady.gov.sa/ar/services/%D8%AE%D8%AF%D9%85%D8%A9-%D8%A7%D9%84%D8%A7%D8%B9%D8%AA%D8%B1%D8%A7%D8%B6",general60:true},
+      qiwa:{label:"قوى",agency:"وزارة الموارد البشرية",abbr:"قو",url:"https://www.hrsd.gov.sa/ministry-services/services/%D8%A7%D9%84%D8%A7%D8%B9%D8%AA%D8%B1%D8%A7%D8%B6%D8%A7%D8%AA-%D9%88%D8%A7%D9%84%D8%AA%D8%B3%D9%88%D9%8A%D8%A7%D8%AA-%D8%B9%D9%84%D9%89-%D9%85%D8%AE%D8%A7%D9%84%D9%81%D8%A7%D8%AA-%D8%A7%D9%84%D8%B9%D9%85%D9%84",general60:false},
+      sfda:{label:"هيئة الغذاء والدواء",agency:"الهيئة العامة للغذاء والدواء",abbr:"غذ",url:"https://www.sfda.gov.sa/ar/nnjzha",general60:false},
+      tga:{label:"هيئة النقل",agency:"الهيئة العامة للنقل",abbr:"نق",url:"https://os.tga.gov.sa/",general60:false},
+      gosi:{label:"التأمينات",agency:"المؤسسة العامة للتأمينات الاجتماعية",abbr:"تأ",url:"https://www.gosi.gov.sa/ar/BusinessServices/ServiceDetails/Review_Decision",general60:false},
+      zatca:{label:"الزكاة والضريبة",agency:"هيئة الزكاة والضريبة والجمارك",abbr:"زك",url:"https://zatca.gov.sa/ar/eServices/Pages/eServices-021.aspx",general60:false},
+      commerce:{label:"وزارة التجارة",agency:"وزارة التجارة",abbr:"تج",url:"https://mc.gov.sa/ar/eservices/Pages/ServiceDetails.aspx?sID=3",general60:false},
+      absher:{label:"أبشر",agency:"الإدارة العامة للمرور",abbr:"أب",url:"https://www.absher.sa/",general60:false},
+      other:{label:"جهة أخرى",agency:"الجهة المختصة",abbr:"+",url:"",general60:false}
     };
-    const simpleRequestText={cancel:"إلغاء المخالفة",reduce:"تخفيض المخالفة أو إعادة تقديرها",correct:"تصحيح القرار أو بيانات المخالفة",review:"إعادة النظر في المخالفة"};
-    const simpleVal=id=>toLatinDigits($(id)?.value||"").trim();
+    const reasons={
+      wrongTarget:{title:"المخالفة على فرع أو شخص أو مركبة غير صحيحة",short:"خطأ في البيانات",request:"correct_cancel",tip:"هذا السبب يستفيد من مستند يربط البيان الصحيح بالفرع أو الشخص أو المركبة.",required:["platform_shot"],questions:[{id:"wrongField",label:"ما البيان المكتوب خطأ؟",type:"text"},{id:"correctData",label:"ما البيان الصحيح؟",type:"text"},{id:"wrongProof",label:"ما المستند الذي يثبت ذلك؟",type:"text"}]},
+      license:{title:"لدي ترخيص أو مستند كان ساريا",short:"ترخيص أو مستند ساري",request:"cancel",tip:"هذا السبب يحتاج صورة الترخيص وتاريخ صلاحيته.",required:["license"],questions:[{id:"licenseType",label:"ما نوع الترخيص؟",type:"text"},{id:"licenseNumber",label:"ما رقمه؟",type:"text"},{id:"licenseExpiry",label:"متى ينتهي؟",type:"date"},{id:"licenseValid",label:"هل كان ساريا يوم تسجيل المخالفة؟",type:"select",options:["نعم","بحسب التاريخ الظاهر في المستند","أحتاج مراجعة التاريخ"]}]},
+      mismatch:{title:"المكتوب في المخالفة مختلف عما حدث",short:"اختلاف وصف الواقعة",request:"reconsider",tip:"صورة الموقع أو المنصة تساعد في شرح الفرق بين الوصف والواقعة.",required:["platform_shot"],questions:[{id:"actualEvent",label:"ماذا حدث فعليا؟",type:"textarea"},{id:"mismatchPoint",label:"ما الجزء المختلف في وصف الجهة؟",type:"text"}]},
+      duplicate:{title:"المخالفة مكررة",short:"مخالفة مكررة",request:"cancel_duplicate",tip:"هذا السبب يحتاج رقم المخالفة الأخرى أو صورة تظهر المخالفتين.",required:["duplicate_notice"],questions:[{id:"duplicateNumber",label:"ما رقم المخالفة الأخرى؟",type:"text"},{id:"sameIncident",label:"هل التاريخ والموقع والواقعة نفسها؟",type:"select",options:["نعم","متشابهة وتحتاج مراجعة","يوجد اختلاف بسيط"]}]},
+      noNotice:{title:"اكتشفت المخالفة ولم يصلني إشعار",short:"اكتشاف المخالفة دون إشعار",request:"reconsider",tip:"احتفظ بصورة من المنصة وما يثبت تاريخ اكتشاف المخالفة.",required:["platform_shot"],questions:[{id:"discoveryDate",label:"متى اكتشفت المخالفة؟",type:"date"},{id:"discoveryWay",label:"أين ظهرت لك؟",type:"text"}]},
+      circumstance:{title:"حصل ظرف أثر في الالتزام",short:"ظرف أثر في الالتزام",request:"reconsider_reduce",tip:"أضف مستندا يوضح الظرف وتوقيته متى كان متوفرا.",required:["other_doc"],questions:[{id:"circumstanceWhat",label:"ما الظرف الذي حصل؟",type:"textarea"},{id:"circumstanceImpact",label:"كيف أثر في الالتزام؟",type:"textarea"}]},
+      corrected:{title:"عالجت الملاحظة وأطلب إعادة النظر في الجزاء",short:"معالجة الملاحظة",request:"reduce",tip:"فاتورة الإصلاح أو صورة المعالجة تدعم هذا السبب.",required:["repair_invoice"],questions:[{id:"correctiveAction",label:"ما الإجراء الذي اتخذته؟",type:"textarea"},{id:"correctionDate",label:"متى تمت المعالجة؟",type:"date"}]},
+      other:{title:"سبب آخر",short:"سبب آخر",request:"reconsider",tip:"اختر مستندا يرتبط بالسبب الذي ستضيفه.",required:["other_doc"],questions:[{id:"otherReason",label:"ما السبب؟",type:"textarea"},{id:"otherFact",label:"ما المعلومة الأهم التي تدعمه؟",type:"text"}]}
+    };
+    const evidenceLabels={license:"صورة الترخيص",notice:"إشعار المخالفة",platform_shot:"صورة من المنصة",duplicate_notice:"المخالفة الأخرى المكررة",sale_contract:"عقد البيع أو نقل الملكية",site_photo:"صورة الموقع",repair_invoice:"فاتورة الإصلاح أو المعالجة",other_doc:"مستند آخر"};
+    const requestLabels={cancel:"إلغاء المخالفة",correct_cancel:"تصحيح البيانات أو إلغاء المخالفة",cancel_duplicate:"إلغاء المخالفة المكررة",reconsider:"إعادة النظر في المخالفة",reduce:"تخفيف الجزاء أو إعادة تقديره",reconsider_reduce:"إعادة النظر أو التخفيف"};
+    const baseState={mode:"text",platform:"",otherAgency:"",violationNumber:"",violationDate:"",reasons:[],answers:{},violationDescription:"",descriptionUnavailable:false,extraInfo:"",evidence:[],deadlineType:"",deadlineStart:"",deadlineDays:"",deadlineEnd:"",requestType:"",applicantName:"",entityName:"",identityNumber:"",phone:""};
+    let state=structuredClone(baseState),pendingDraft=null,previewKind="short",requestSuggested="",editCache={short:{dirty:false,text:""},detailed:{dirty:false,text:""},letter:{dirty:false,text:""}},saving=true;
 
-    function selectedSimpleAgency(){
-      const key=simpleVal("simpleAgency");
-      if(!key)return null;
-      const base=agencyData[key]||agencyData.other;
-      return {...base,name:key==="other"?(simpleVal("simpleOtherAgency")||"الجهة المختصة"):base.name};
-    }
-    function simpleDeadlineInfo(){
-      const start=toDate(simpleVal("simpleNoticeDate"));const days=Number(simpleVal("simpleDeadlineDays"));
-      if(!start||!days)return null;
-      const end=new Date(start);end.setDate(end.getDate()+days);end.setHours(23,59,59,999);
-      return {start,end,remaining:Math.ceil((end-new Date())/86400000)};
-    }
-    function updateSimpleDeadline(){
-      const info=simpleDeadlineInfo(),card=$("simpleDeadlineCard");
-      if(!info){card.className="deadline-card";return}
-      card.className="deadline-card show";
-      let title="آخر يوم متوقع للتقديم",label=`متبقي ${info.remaining} يوم`;
-      if(info.remaining<0){card.classList.add("expired");title="المهلة المحسوبة منتهية";label=`منذ ${Math.abs(info.remaining)} يوم`}
-      else if(info.remaining<=7){card.classList.add("warning");label=info.remaining===0?"اليوم آخر يوم":`متبقي ${info.remaining} يوم`}
-      $("simpleDeadlineTitle").textContent=title;$("simpleDeadlineDates").textContent=`${gregorian(info.end)} م | ${hijri(info.end)}`;$("simpleDeadlineRemaining").textContent=label;
-    }
-    function buildSimpleLetter(){
-      const reasons=[...document.querySelectorAll('input[name="simpleReason"]:checked')].map(x=>simpleReasonText[x.value]).filter(Boolean);
-      if(!reasons.length)return "اختر سبب اعتراضك، وسيظهر النص هنا جاهزا للنسخ.";
-      const number=simpleVal("simpleViolationNumber")?` رقم (${simpleVal("simpleViolationNumber")})`:"";
-      const type=simpleVal("simpleViolationType")?` بشأن ${simpleVal("simpleViolationType")}`:"";
-      const amount=simpleVal("simpleAmount")?`، وقيمتها ${simpleVal("simpleAmount")} ⃁`:"";
-      const city=simpleVal("simpleCity")?`، والمرتبطة بـ ${simpleVal("simpleCity")}`:"";
-      const description=simpleVal("simpleViolationDescription")?`\n\nوصف المخالفة:\n${simpleVal("simpleViolationDescription")}`:"";
-      const details=simpleVal("simpleReasonDetails")?`\n\nتفاصيل إضافية:\n${simpleVal("simpleReasonDetails")}`:"";
-      const evidence=simpleVal("simpleEvidence")?`\n\nالمستندات المرفقة:\n${simpleVal("simpleEvidence")}`:"";
-      const info=simpleDeadlineInfo();
-      const timing=info&&info.remaining>=0?"\n\nيقدم هذا الاعتراض خلال المهلة المحسوبة وفقا للبيانات المدخلة.":"";
-      return `أتقدم باعتراضي على المخالفة${number}${type}${amount}${city}.${description}\n\nأسباب الاعتراض:\n${reasons.map((reason,index)=>`${index+1}. ${reason}`).join("\n")}${details}${evidence}${timing}\n\nوبناء على ذلك أطلب ${simpleRequestText[simpleVal("simpleRequestType")]||"إعادة النظر في المخالفة"} بعد مراجعة البيانات والمستندات المرفقة.`;
-    }
-    function updateSimpleBuilder(){
-      $("simpleLetterEditor").value=buildSimpleLetter();
-      const agency=selectedSimpleAgency(),card=$("simpleRouteCard");
-      if(agency){card.hidden=false;$("simpleRouteAgency").textContent=agency.name;$("simpleRouteNote").textContent=agency.note;$("simpleRouteLink").href=agency.url}else card.hidden=true;
-      updateSimpleDeadline();
-    }
-    async function copySimpleLetter(){
-      const text=$("simpleLetterEditor").value;if(text.startsWith("اختر سبب")){showToast("اختر سبب اعتراضك");return}
-      try{await navigator.clipboard.writeText(text);showToast("تم نسخ نص الاعتراض")}catch{showToast("حدد النص وانسخه")}
-    }
-    function printSimpleLetter(){
-      $("printLetterBody").textContent=$("simpleLetterEditor").value;$("printLetterFoot").textContent=`أعد النص بواسطة أداة مخالفات | الإصدار ${VERSION} | ${todayLine()}`;
-      document.body.classList.add("printing");window.print();setTimeout(()=>document.body.classList.remove("printing"),800);
-    }
-    function downloadSimpleWord(){
-      const body=escapeHtml($("simpleLetterEditor").value).replace(/\n/g,"<br>");
-      const html=`<!doctype html><html dir="rtl"><head><meta charset="utf-8"><style>body{font-family:'IBM Plex Sans Arabic',Tahoma,sans-serif;direction:rtl;text-align:right;font-size:16pt;line-height:2;padding:35px;color:#111}h1{font-size:18pt;color:#0B1A2B}</style></head><body><h1>نص الاعتراض</h1>${body}</body></html>`;
-      downloadBlob(new Blob(["\ufeff",html],{type:"application/msword"}),`اعتراض-${simpleVal("simpleViolationNumber")||"مخالفة"}.doc`);showToast("تم تجهيز ملف Word");
-    }
-    async function downloadSimpleImage(){
-      await document.fonts.ready;
-      const canvas=document.createElement("canvas");canvas.width=1200;canvas.height=1500;const ctx=canvas.getContext("2d");ctx.direction="rtl";ctx.textAlign="right";
-      const grad=ctx.createLinearGradient(0,0,1200,390);grad.addColorStop(0,"#07131F");grad.addColorStop(1,"#12304D");ctx.fillStyle="#F4F6F8";ctx.fillRect(0,0,1200,1500);ctx.fillStyle=grad;ctx.fillRect(0,0,1200,390);
-      const mark=await loadImage("assets/mark-v2.png");ctx.drawImage(mark,900,72,190,190);ctx.fillStyle="#fff";ctx.font="700 82px 'IBM Plex Sans Arabic'";ctx.fillText("مخالفات",840,155);ctx.fillStyle="#D9BD65";ctx.font="600 34px 'IBM Plex Sans Arabic'";ctx.fillText("نص الاعتراض",840,215);ctx.fillStyle="#D7E0E9";ctx.font="400 26px 'IBM Plex Sans Arabic'";ctx.fillText(todayLine(),840,274);
-      ctx.fillStyle="#fff";roundRect(ctx,70,430,1060,780,26);ctx.fill();ctx.fillStyle="#0B1A2B";ctx.font="600 30px 'IBM Plex Sans Arabic'";ctx.fillText("الاعتراض",1070,495);ctx.fillStyle="#334150";ctx.font="500 27px 'IBM Plex Sans Arabic'";wrapCanvas(ctx,$("simpleLetterEditor").value.replace(/\n+/g," "),1070,555,930,47,12);
-      const agency=selectedSimpleAgency();if(agency){ctx.fillStyle="#fff";roundRect(ctx,70,1245,1060,105,20);ctx.fill();ctx.fillStyle="#0B1A2B";ctx.font="600 27px 'IBM Plex Sans Arabic'";ctx.fillText(`التقديم: ${agency.name}`,1070,1310)}
-      ctx.fillStyle="#0B1A2B";ctx.fillRect(0,1380,1200,120);ctx.fillStyle="#D9BD65";ctx.font="600 28px 'IBM Plex Sans Arabic'";ctx.fillText("Almohammdin",1080,1434);ctx.fillStyle="#CFD9E2";ctx.font="400 22px 'IBM Plex Sans Arabic'";ctx.fillText(`مخالفات | الإصدار ${VERSION}`,1080,1473);
-      canvas.toBlob(blob=>{downloadBlob(blob,`اعتراض-${simpleVal("simpleViolationNumber")||"مخالفة"}.png`);showToast("تم تجهيز الصورة")} ,"image/png",1);
-    }
+    function toLatin(value){return String(value??"").replace(/[٠-٩]/g,d=>"٠١٢٣٤٥٦٧٨٩".indexOf(d)).replace(/[۰-۹]/g,d=>"۰۱۲۳۴۵۶۷۸۹".indexOf(d))}
+    function escapeHtml(value){return String(value??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+    function dateText(value){if(!value)return "";const d=new Date(value+"T12:00:00");return new Intl.DateTimeFormat("ar-SA-u-nu-latn",{year:"numeric",month:"2-digit",day:"2-digit"}).format(d)}
+    function agencyName(){if(state.platform==="other")return state.otherAgency||"الجهة المختصة";return platforms[state.platform]?.agency||"الجهة المختصة"}
+    function currentKey(){return state.mode==="letter"?"letter":previewKind}
+    function showToast(message){const t=$("toast");t.textContent=message;t.classList.add("show");clearTimeout(showToast.timer);showToast.timer=setTimeout(()=>t.classList.remove("show"),2200)}
 
-    $("simpleForm").addEventListener("input",updateSimpleBuilder);
-    $("simpleForm").addEventListener("change",updateSimpleBuilder);
-    $("simpleAgency").addEventListener("change",()=>{$("simpleOtherAgencyWrap").hidden=simpleVal("simpleAgency")!=="other";updateSimpleBuilder()});
-    $("simpleNoticeDate").addEventListener("change",()=>{const d=toDate(simpleVal("simpleNoticeDate"));$("simpleNoticeDateAlt").textContent=d?hijri(d):"تاريخ وصول الإشعار أو اليوم الذي ظهرت فيه المخالفة.";updateSimpleBuilder()});
-    updateSimpleBuilder();
-    window.addEventListener("afterprint",()=>document.body.classList.remove("printing"));
+    function renderPlatforms(){$("platformGrid").innerHTML=Object.entries(platforms).map(([key,p])=>`<button class="platform-card ${state.platform===key?"active":""}" data-platform="${key}" type="button"><span class="platform-icon">${p.abbr}</span><span><strong>${p.label}</strong><span>${p.agency}</span></span></button>`).join("");$("otherAgencyWrap").hidden=state.platform!=="other";$("general60").classList.toggle("show",Boolean(platforms[state.platform]?.general60))}
+    function renderReasons(){$("reasonGrid").innerHTML=Object.entries(reasons).map(([key,r])=>{const active=state.reasons.includes(key);return `<button class="reason-card ${active?"active":""}" data-reason="${key}" type="button"><strong>${r.title}</strong><span>${r.short}</span><span class="reason-state">${active?"أضيف إلى الاعتراض ✓":"أضف إلى الاعتراض"}</span></button>`}).join("")}
+    function questionInput(q){const value=state.answers[q.id]||"";if(q.type==="textarea")return `<textarea class="input dynamic-answer" data-answer="${q.id}">${escapeHtml(value)}</textarea>`;if(q.type==="select")return `<select class="select dynamic-answer" data-answer="${q.id}"><option value="">اختر</option>${q.options.map(o=>`<option ${value===o?"selected":""}>${o}</option>`).join("")}</select>`;return `<input class="input dynamic-answer ${q.type==="date"?"latin":""}" data-answer="${q.id}" type="${q.type}" ${q.type==="date"?'lang="en" dir="ltr"':""} value="${escapeHtml(value)}">`}
+    function renderQuestions(){if(!state.reasons.length){$("conditionalQuestions").innerHTML='<div class="empty-note">اختر ما حدث معك لعرض الأسئلة المناسبة.</div>';return}$("conditionalQuestions").innerHTML=state.reasons.map(key=>{const r=reasons[key];return `<div class="question-card"><h4>${r.short}</h4>${r.questions.map(q=>`<div class="field"><label>${q.label}</label>${questionInput(q)}</div>`).join("")}</div>`}).join("")}
+    function evidenceOptions(){const base=["notice","platform_shot"];state.reasons.forEach(key=>{const r=reasons[key];r.required.forEach(x=>base.push(x));if(key==="wrongTarget")base.push("sale_contract");if(key==="mismatch")base.push("site_photo");if(key==="corrected")base.push("site_photo")});base.push("other_doc");return [...new Set(base)]}
+    function renderEvidence(){const options=evidenceOptions();state.evidence=state.evidence.filter(x=>options.includes(x));$("evidenceGrid").innerHTML=options.map(key=>`<label class="evidence-option ${state.evidence.includes(key)?"selected":""}"><input type="checkbox" data-evidence="${key}" ${state.evidence.includes(key)?"checked":""}>${evidenceLabels[key]}</label>`).join("");const first=reasons[state.reasons[0]];$("caseTip").hidden=!first;$("caseTip").textContent=first?.tip||"";updateEvidenceStatus()}
+    function updateEvidenceStatus(){const box=$("evidenceStatus");box.className="evidence-status";if(!state.reasons.length){box.textContent="اختر سبب الاعتراض لعرض الإثباتات المناسبة.";return}const required=[...new Set(state.reasons.flatMap(k=>reasons[k].required))];const hasRequired=required.some(x=>state.evidence.includes(x));if(hasRequired){box.classList.add("good");box.textContent="الإثبات الأساسي متوفر"}else if(state.evidence.length){box.textContent="أضف مستندا يدعم هذا السبب"}else{box.classList.add("weak");box.textContent="سيقدم الاعتراض من دون مستند مؤيد"}}
+    function renderDeadlineFields(){const type=state.deadlineType;let html="";if(type==="notice_days")html=`<div class="inline-fields"><div class="field"><label>تاريخ وصول الإشعار أو اكتشاف المخالفة</label><input class="input latin" id="deadlineStart" type="date" lang="en" dir="ltr" value="${state.deadlineStart}"></div><div class="field"><label>مدة الاعتراض بالأيام</label><input class="input latin" id="deadlineDays" inputmode="numeric" value="${state.deadlineDays}" placeholder="مثال: 30"></div></div>`;if(type==="end_date")html=`<div class="field"><label>تاريخ نهاية المهلة</label><input class="input latin" id="deadlineEnd" type="date" lang="en" dir="ltr" value="${state.deadlineEnd}"></div>`;$("deadlineFields").innerHTML=html;document.querySelectorAll('input[name="deadlineType"]').forEach(x=>x.checked=x.value===type);updateDeadlineResult()}
+    function deadlineInfo(){let end=null;if(state.deadlineType==="notice_days"&&state.deadlineStart&&Number(state.deadlineDays)){end=new Date(state.deadlineStart+"T23:59:59");end.setDate(end.getDate()+Number(state.deadlineDays))}if(state.deadlineType==="end_date"&&state.deadlineEnd)end=new Date(state.deadlineEnd+"T23:59:59");if(!end)return null;return {end,remaining:Math.ceil((end-new Date())/86400000)}}
+    function updateDeadlineResult(){const box=$("deadlineResult"),info=deadlineInfo();box.className="deadline-result";if(info){box.classList.add("show");if(info.remaining<0)box.classList.add("expired");else if(info.remaining<=7)box.classList.add("warning");box.innerHTML=`<strong>${info.remaining<0?`انتهت المدة المدخلة منذ ${Math.abs(info.remaining)} يوم`:`متبقي ${info.remaining} يوم`}</strong><span>تاريخ النهاية: ${dateText(info.end.toISOString().slice(0,10))}</span><b>حُسبت المدة بناء على التاريخ والمدة التي أدخلتها</b>`;return}if(["notice_unknown","discovered","unsure"].includes(state.deadlineType)){box.classList.add("show","warning");box.innerHTML="<strong>قدم اعتراضك في أقرب وقت</strong><span>واحتفظ بما يثبت تاريخ اكتشاف المخالفة، وتحقق من مهلة الجهة</span>"}}
+    function suggestRequest(){const suggestion=reasons[state.reasons[0]]?.request||"";if(suggestion&&(!state.requestType||state.requestType===requestSuggested)){state.requestType=suggestion;$("requestType").value=suggestion}requestSuggested=suggestion;const box=$("requestSuggestion");box.classList.toggle("show",Boolean(suggestion));box.textContent=suggestion?`الطلب المقترح: ${requestLabels[suggestion]}`:""}
+    function renderRoute(){const p=platforms[state.platform];if(!p){$("routeCard").innerHTML='<div class="route-disabled">اختر المنصة لعرض خطوات التقديم.</div>';return}const link=p.url?`<a class="primary-btn" href="${p.url}" target="_blank" rel="noopener">فتح خدمة الاعتراض</a>`:'<div class="route-disabled">استخدم رابط الاعتراض الموجود في إشعار الجهة أو داخل حسابك.</div>';$("routeCard").innerHTML=`<h4>${state.platform==="other"?agencyName():p.label}</h4><div class="route-steps"><div class="route-step"><b>1</b>افتح خدمة الاعتراض</div><div class="route-step"><b>2</b>اختر المخالفة من حسابك</div><div class="route-step"><b>3</b>الصق النص وأرفق المستندات</div></div>${link}`}
+
+    function reasonFact(key,detailed=false){const a=state.answers;const r=reasons[key];if(key==="wrongTarget")return a.wrongField||a.correctData?`البيان المسجل بشأن ${a.wrongField||"المخالفة"} غير مطابق، والبيان الصحيح هو ${a.correctData||"المبين في المستند المرفق"}${detailed&&a.wrongProof?`، ويؤيده ${a.wrongProof}`:""}.`:`تتعلق المخالفة بفرع أو شخص أو مركبة غير صحيحة، وأطلب مطابقة البيانات مع المستندات المرفقة.`;if(key==="license")return a.licenseType||a.licenseNumber?`كان ${a.licenseType||"الترخيص أو المستند"}${a.licenseNumber?` رقم (${toLatin(a.licenseNumber)})`:""} ساريا وقت تسجيل المخالفة${a.licenseExpiry?`، وتاريخ انتهائه ${dateText(a.licenseExpiry)}`:""}.`:`كان الترخيص أو المستند المطلوب ساريا وقت تسجيل المخالفة.`;if(key==="mismatch")return a.actualEvent?`الوصف المسجل يختلف عن الواقعة، إذ إن ما حدث فعليا هو: ${a.actualEvent}${detailed&&a.mismatchPoint?`، ويتركز الاختلاف في ${a.mismatchPoint}`:""}.`:`الوصف المسجل للمخالفة يختلف عما حدث فعليا، وأطلب مراجعة الواقعة والمستندات.`;if(key==="duplicate")return a.duplicateNumber?`ترتبط هذه المخالفة بالواقعة نفسها المسجلة في المخالفة رقم (${toLatin(a.duplicateNumber)})${a.sameIncident?`، و${a.sameIncident}`:""}.`:`سجلت المخالفة أكثر من مرة على الواقعة نفسها.`;if(key==="noNotice")return `ظهرت المخالفة في المنصة قبل وصول إشعار بها${a.discoveryDate?`، وعرفت بها بتاريخ ${dateText(a.discoveryDate)}`:""}${a.discoveryWay?` عبر ${a.discoveryWay}`:""}.`;if(key==="circumstance")return a.circumstanceWhat?`حصل ظرف أثر في الالتزام وهو ${a.circumstanceWhat}${detailed&&a.circumstanceImpact?`، وكان أثره ${a.circumstanceImpact}`:""}.`:`حصل ظرف أثر في الالتزام وقت الواقعة، وتوضح المرفقات أثره.`;if(key==="corrected")return a.correctiveAction?`تمت معالجة الملاحظة من خلال ${a.correctiveAction}${a.correctionDate?` بتاريخ ${dateText(a.correctionDate)}`:""}.`:`تمت معالجة الملاحظة محل المخالفة، وأرفقت ما يثبت الإجراء المتخذ.`;if(key==="other")return a.otherReason?`${a.otherReason}${detailed&&a.otherFact?`، ويدعم ذلك ${a.otherFact}`:""}.`:`يوجد سبب آخر موضح في المعلومات والمستندات المرفقة.`;return r?.title||""}
+    function buildShort(){if(!state.reasons.length)return "اختر ما حدث معك، وسيظهر نص الاعتراض هنا تلقائيا.";const number=state.violationNumber?` رقم (${toLatin(state.violationNumber)})`:"";const facts=state.reasons.map(k=>reasonFact(k,false)).join(" ");const description=state.violationDescription?` ووصفها في المنصة: ${state.violationDescription}.`:"";const extra=state.extraInfo?` كما أن ${state.extraInfo}.`:"";const evidence=state.evidence.length?` والمستندات المؤيدة المرفقة: ${state.evidence.map(x=>evidenceLabels[x]).join("، ")}.`:"";const request=requestLabels[state.requestType]||"مراجعة المخالفة";return `أتقدم باعتراضي على المخالفة${number}.${description} ${facts}${extra}${evidence} وبناء على ذلك أطلب ${request} بعد مراجعة البيانات والمرفقات.`.replace(/\s+/g," ").trim()}
+    function buildDetailed(){if(!state.reasons.length)return "اختر ما حدث معك، وسيظهر نص الاعتراض هنا تلقائيا.";const lines=[`أتقدم باعتراضي على المخالفة${state.violationNumber?` رقم (${toLatin(state.violationNumber)})`:""}${state.violationDate?` المسجلة بتاريخ ${dateText(state.violationDate)}`:""}.`];if(state.violationDescription)lines.push(`وصف المخالفة كما ظهر في المنصة: ${state.violationDescription}`);lines.push("أسباب الاعتراض:");state.reasons.forEach((key,i)=>lines.push(`${i+1}. ${reasonFact(key,true)}`));if(state.extraInfo)lines.push(`معلومة إضافية: ${state.extraInfo}`);if(state.evidence.length)lines.push(`المستندات المؤيدة: ${state.evidence.map(x=>evidenceLabels[x]).join("، ")}.`);lines.push(`الطلب: ${requestLabels[state.requestType]||"مراجعة المخالفة"} بعد مراجعة الوقائع والمستندات.`);return lines.join("\n\n")}
+    function buildLetter(){const body=buildDetailed();if(!state.reasons.length)return body;return [`السادة / ${agencyName()}`,`الموضوع: اعتراض على المخالفة${state.violationNumber?` رقم (${toLatin(state.violationNumber)})`:""}`,"","السلام عليكم ورحمة الله وبركاته، وبعد:","",body,"","وتفضلوا بقبول التحية،",state.applicantName?`الاسم: ${state.applicantName}`:"",state.entityName?`المنشأة: ${state.entityName}`:"",state.identityNumber?`رقم الهوية أو السجل: ${toLatin(state.identityNumber)}`:"",state.phone?`رقم الجوال: ${toLatin(state.phone)}`:"",`التاريخ: ${dateText(new Date().toISOString().slice(0,10))}`].filter((x,i,a)=>x!==""||a[i-1]!=="").join("\n")}
+    function generatedText(){return state.mode==="letter"?buildLetter():previewKind==="short"?buildShort():buildDetailed()}
+    function refreshPreview(force=false){const key=currentKey(),cache=editCache[key];if(force){cache.dirty=false;cache.text=generatedText()}else if(!cache.dirty)cache.text=generatedText();$("previewEditor").value=cache.text;$("mobileEditor").value=cache.text;$("dirtyAlert").classList.toggle("show",cache.dirty);updateCounter();updateReadiness()}
+    function updateCounter(){const count=$("previewEditor").value.length;$("charCounter").textContent=`${count} / 1000`;$("charCounter").classList.toggle("over",count>1000)}
+    function readiness(){const hasFact=Object.values(state.answers).some(Boolean)||Boolean(state.violationDescription||state.extraInfo);const items=[[state.reasons.length>0,"تم تحديد سبب الاعتراض"],[hasFact,"تمت إضافة حقيقة خاصة بالحالة"],[state.evidence.length>0,"تم تحديد الإثبات"],[Boolean(state.requestType),"تم اختيار الطلب"],[Boolean(state.deadlineType),"تمت مراجعة المهلة"]];return {items,score:Math.round(items.filter(x=>x[0]).length/items.length*100)}}
+    function readinessTip(){const a=state.answers;if(state.reasons.includes("license")&&!a.licenseExpiry)return "إضافة تاريخ انتهاء الترخيص ستقوي اعتراضك";if(state.reasons.includes("duplicate")&&!a.duplicateNumber)return "إضافة رقم المخالفة الأخرى ستقوي اعتراضك";if(state.reasons.includes("noNotice")&&!a.discoveryDate)return "إضافة تاريخ اكتشاف المخالفة ستقوي اعتراضك";if(state.reasons.includes("wrongTarget")&&!a.correctData)return "إضافة البيان الصحيح ستقوي اعتراضك";if(state.reasons.length&&!state.evidence.length)return "اختيار مستند مؤيد سيقوي اعتراضك";return ""}
+    function updateReadiness(){const r=readiness();$("readinessScore").textContent=`${r.score}%`;$("readinessList").innerHTML=r.items.map(([ok,label])=>`<li class="${ok?"ok":""}">${ok?"✓":"○"} ${label}</li>`).join("");const tip=readinessTip();$("directTip").classList.toggle("show",Boolean(tip));$("directTip").textContent=tip}
+    function saveDraft(){if(!saving)return;localStorage.setItem(DRAFT_KEY,JSON.stringify({...state,savedAt:Date.now()}))}
+    function formValue(id){return $(id)?.type==="checkbox"?$(id).checked:($(id)?.value??"")}
+    function collectStatic(){["otherAgency","violationNumber","violationDate","violationDescription","descriptionUnavailable","extraInfo","requestType","applicantName","entityName","identityNumber","phone"].forEach(id=>{state[id]=typeof formValue(id)==="string"?toLatin(formValue(id)):formValue(id)});document.querySelectorAll(".dynamic-answer").forEach(el=>state.answers[el.dataset.answer]=toLatin(el.value));const checked=document.querySelector('input[name="deadlineType"]:checked');if(checked)state.deadlineType=checked.value;if($("deadlineStart"))state.deadlineStart=$("deadlineStart").value;if($("deadlineDays"))state.deadlineDays=toLatin($("deadlineDays").value);if($("deadlineEnd"))state.deadlineEnd=$("deadlineEnd").value}
+    function applyValues(){["otherAgency","violationNumber","violationDate","violationDescription","extraInfo","requestType","applicantName","entityName","identityNumber","phone"].forEach(id=>{if($(id))$(id).value=state[id]||""});$("descriptionUnavailable").checked=Boolean(state.descriptionUnavailable)}
+    function afterAnswerChange(){collectStatic();updateEvidenceStatus();updateDeadlineResult();renderRoute();saveDraft();refreshPreview(false)}
+    function renderAll(){document.body.classList.toggle("letter-mode",state.mode==="letter");document.querySelectorAll("[data-mode]").forEach(b=>b.classList.toggle("active",b.dataset.mode===state.mode));$("modeTitle").textContent=state.mode==="letter"?"خطاب اعتراض كامل":"نص اعتراض للمنصة";$("modeDescription").textContent=state.mode==="letter"?"يضيف المخاطبة والتحية وبيانات مقدم الاعتراض والتوقيع.":"نص مركز للصق في أيقونة الاعتراض، من دون بيانات خطاب.";$("previewTitle").textContent=state.mode==="letter"?"خطاب الاعتراض":"نص الاعتراض";renderPlatforms();renderReasons();renderQuestions();renderEvidence();renderDeadlineFields();applyValues();suggestRequest();renderRoute();refreshPreview(false)}
+    function resetAll(confirmFirst=true){if(confirmFirst&&!confirm("سيتم مسح المسودة الحالية. هل تريد بدء اعتراض جديد؟"))return;saving=false;state=structuredClone(baseState);editCache={short:{dirty:false,text:""},detailed:{dirty:false,text:""},letter:{dirty:false,text:""}};previewKind="short";localStorage.removeItem(DRAFT_KEY);$("objectionForm").reset();saving=true;renderAll();showToast("تم بدء اعتراض جديد");window.scrollTo({top:$("builder").offsetTop-70,behavior:"smooth"})}
+    function applyExample(kind){state=structuredClone(baseState);state.platform="balady";state.deadlineType="unsure";state.requestType="";if(kind==="license"){state.violationNumber="123456";state.violationDescription="مزاولة النشاط دون ترخيص ساري";state.reasons=["license"];state.answers={licenseType:"رخصة نشاط تجاري",licenseNumber:"98765",licenseExpiry:"2026-12-31",licenseValid:"نعم"};state.evidence=["license","notice"]}if(kind==="branch"){state.violationNumber="234567";state.violationDescription="مخالفة اشتراطات على المنشأة";state.reasons=["wrongTarget"];state.answers={wrongField:"الفرع المرتبط بالمخالفة",correctData:"الفرع الآخر المبين في الرخصة",wrongProof:"الرخصة وصورة بيانات الفرعين"};state.evidence=["platform_shot","license"]}if(kind==="duplicate"){state.violationNumber="345678";state.violationDescription="تكرار قيد المخالفة على الواقعة نفسها";state.reasons=["duplicate"];state.answers={duplicateNumber:"345677",sameIncident:"نعم"};state.evidence=["duplicate_notice","platform_shot"]}editCache={short:{dirty:false,text:""},detailed:{dirty:false,text:""},letter:{dirty:false,text:""}};renderAll();saveDraft();showToast("تم تحميل المثال الجاهز")}
+    async function copyText(text=$("previewEditor").value){try{await navigator.clipboard.writeText(text);$("postCopy").classList.add("show");showToast("تم نسخ نص الاعتراض")}catch{showToast("حدد النص وانسخه")}}
+    function downloadBlob(blob,name){const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
+    function exportWord(){const body=escapeHtml($("previewEditor").value).replace(/\n/g,"<br>");const html=`<!doctype html><html dir="rtl"><head><meta charset="utf-8"><style>body{font-family:Tahoma,sans-serif;direction:rtl;text-align:right;font-size:15pt;line-height:2;padding:35px}</style></head><body>${body}</body></html>`;downloadBlob(new Blob(["\ufeff",html],{type:"application/msword"}),`اعتراض-${state.violationNumber||"مخالفة"}.doc`)}
+    function printPdf(){$("printBody").textContent=$("previewEditor").value;$("printFoot").textContent=`أعد بواسطة أداة مخالفات | الإصدار ${VERSION}`;window.print()}
+    function wrapCanvas(ctx,text,x,y,maxWidth,lineHeight,maxLines){const words=String(text).split(/\s+/),lines=[];let line="";for(const word of words){const test=line?line+" "+word:word;if(ctx.measureText(test).width>maxWidth&&line){lines.push(line);line=word}else line=test}if(line)lines.push(line);lines.slice(0,maxLines).forEach((l,i)=>ctx.fillText(l,x,y+i*lineHeight))}
+    function exportImage(){const canvas=document.createElement("canvas");canvas.width=1200;canvas.height=1400;const ctx=canvas.getContext("2d");ctx.direction="rtl";ctx.textAlign="right";ctx.fillStyle="#F3F5F7";ctx.fillRect(0,0,1200,1400);ctx.fillStyle="#0B1A2B";ctx.fillRect(0,0,1200,210);ctx.fillStyle="#E8C766";ctx.font="700 58px 'IBM Plex Sans Arabic',Tahoma";ctx.fillText("مخالفات",1100,95);ctx.fillStyle="#fff";ctx.font="500 31px 'IBM Plex Sans Arabic',Tahoma";ctx.fillText("نص الاعتراض",1100,150);ctx.fillStyle="#fff";ctx.roundRect(55,255,1090,1030,24);ctx.fill();ctx.fillStyle="#18212B";ctx.font="500 27px 'IBM Plex Sans Arabic',Tahoma";wrapCanvas(ctx,$("previewEditor").value.replace(/\n+/g," "),1085,325,970,47,19);ctx.fillStyle="#0B1A2B";ctx.fillRect(0,1330,1200,70);ctx.fillStyle="#E8C766";ctx.font="500 22px 'IBM Plex Sans Arabic',Tahoma";ctx.fillText(`مخالفات | ${VERSION}`,1100,1373);canvas.toBlob(blob=>downloadBlob(blob,`اعتراض-${state.violationNumber||"مخالفة"}.png`),"image/png")}
+
+    $("platformGrid").addEventListener("click",e=>{const b=e.target.closest("[data-platform]");if(!b)return;state.platform=b.dataset.platform;renderPlatforms();renderRoute();saveDraft();refreshPreview(false)});
+    $("reasonGrid").addEventListener("click",e=>{const b=e.target.closest("[data-reason]");if(!b)return;const key=b.dataset.reason;state.reasons=state.reasons.includes(key)?state.reasons.filter(x=>x!==key):[...state.reasons,key];renderReasons();renderQuestions();renderEvidence();suggestRequest();saveDraft();refreshPreview(false)});
+    $("evidenceGrid").addEventListener("change",e=>{const key=e.target.dataset.evidence;if(!key)return;state.evidence=e.target.checked?[...new Set([...state.evidence,key])]:state.evidence.filter(x=>x!==key);renderEvidence();saveDraft();refreshPreview(false)});
+    $("objectionForm").addEventListener("input",e=>{if(e.target.id==="requestType")requestSuggested="";afterAnswerChange()});
+    $("objectionForm").addEventListener("change",e=>{if(e.target.name==="deadlineType"){state.deadlineType=e.target.value;state.deadlineStart="";state.deadlineDays="";state.deadlineEnd="";renderDeadlineFields()}afterAnswerChange()});
+    document.querySelectorAll("[data-mode]").forEach(b=>b.addEventListener("click",()=>{state.mode=b.dataset.mode;saveDraft();renderAll()}));
+    document.querySelectorAll("[data-kind]").forEach(b=>b.addEventListener("click",()=>{previewKind=b.dataset.kind;document.querySelectorAll("[data-kind]").forEach(x=>x.classList.toggle("active",x.dataset.kind===previewKind));refreshPreview(false)}));
+    $("previewEditor").addEventListener("input",()=>{const cache=editCache[currentKey()];cache.dirty=true;cache.text=$("previewEditor").value;$("mobileEditor").value=cache.text;$("dirtyAlert").classList.add("show");updateCounter()});
+    $("refreshText").addEventListener("click",()=>refreshPreview(true));
+    $("shortenText").addEventListener("click",()=>{if(state.mode==="letter"){showToast("الاختصار متاح لنص المنصة");return}previewKind="short";document.querySelectorAll("[data-kind]").forEach(x=>x.classList.toggle("active",x.dataset.kind==="short"));refreshPreview(true);showToast("تم إعداد النسخة المختصرة")});
+    $("copyText").addEventListener("click",()=>copyText());$("mobileCopy").addEventListener("click",()=>copyText($("mobileEditor").value));
+    $("resetTool").addEventListener("click",()=>resetAll(true));$("newObjectionTop").addEventListener("click",()=>resetAll(true));
+    $("downloadWord").addEventListener("click",exportWord);$("printPdf").addEventListener("click",printPdf);$("downloadImage").addEventListener("click",exportImage);
+    $("exampleToggle").addEventListener("click",()=>{$("exampleRow").hidden=!$("exampleRow").hidden});document.querySelectorAll("[data-example]").forEach(b=>b.addEventListener("click",()=>applyExample(b.dataset.example)));
+    $("mobilePreviewButton").addEventListener("click",()=>{$("mobileEditor").value=editCache[currentKey()].text;$("drawerBackdrop").classList.add("open")});$("drawerClose").addEventListener("click",()=>$("drawerBackdrop").classList.remove("open"));$("drawerBackdrop").addEventListener("click",e=>{if(e.target===$("drawerBackdrop"))$("drawerBackdrop").classList.remove("open")});
+    $("mobileEditor").addEventListener("input",()=>{const cache=editCache[currentKey()];cache.dirty=true;cache.text=$("mobileEditor").value;$("previewEditor").value=cache.text});$("mobileRefresh").addEventListener("click",()=>{refreshPreview(true);$("mobileEditor").value=$("previewEditor").value;showToast("تم تحديث النص")});
+    $("continueDraft").addEventListener("click",()=>{state={...structuredClone(baseState),...pendingDraft};delete state.savedAt;pendingDraft=null;$("draftBanner").classList.remove("show");renderAll();showToast("تمت متابعة المسودة")});
+    $("discardDraft").addEventListener("click",()=>{pendingDraft=null;localStorage.removeItem(DRAFT_KEY);$("draftBanner").classList.remove("show");resetAll(false)});
+    const saved=localStorage.getItem(DRAFT_KEY);if(saved){try{pendingDraft=JSON.parse(saved);$("draftBanner").classList.add("show")}catch{localStorage.removeItem(DRAFT_KEY)}}
+    renderAll();
   </script>
 </body>
 </html>
