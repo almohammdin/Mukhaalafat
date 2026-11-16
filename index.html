@@ -7,22 +7,22 @@
   <meta name="description" content="أداة تساعدك على تجهيز نص اعتراض مختصر للمخالفات، ترتيب الإثباتات، مراجعة المهلة ومعرفة طريقة التقديم.">
   <meta name="theme-color" content="#0B1A2B">
   <link rel="canonical" href="https://almohammdin.github.io/Mukhaalafat/">
-  <link rel="icon" type="image/png" href="assets/mark-v2.png?v=5.3.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=5.3.0">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=5.3.0">
-  <link rel="manifest" href="site.webmanifest?v=5.3.0">
+  <link rel="icon" type="image/png" href="assets/mark-v2.png?v=5.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=5.4.0">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=5.4.0">
+  <link rel="manifest" href="site.webmanifest?v=5.4.0">
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://almohammdin.github.io/Mukhaalafat/">
   <meta property="og:title" content="مخالفات | مساعد إعداد الاعتراض">
   <meta property="og:description" content="اختر حالتك وجهز نص اعتراض مناسب للصق في منصة الجهة">
-  <meta property="og:image" content="https://almohammdin.github.io/Mukhaalafat/assets/mukhaalafat-og-v5.png?v=5.3.0">
+  <meta property="og:image" content="https://almohammdin.github.io/Mukhaalafat/assets/mukhaalafat-og-v5.png?v=5.4.0">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="مخالفات | مساعد إعداد الاعتراض">
   <meta name="twitter:description" content="اختر حالتك وجهز نص اعتراض مناسب للصق في منصة الجهة">
-  <meta name="twitter:image" content="https://almohammdin.github.io/Mukhaalafat/assets/mukhaalafat-og-v5.png?v=5.3.0">
+  <meta name="twitter:image" content="https://almohammdin.github.io/Mukhaalafat/assets/mukhaalafat-og-v5.png?v=5.4.0">
 
   <style>
     @font-face{font-family:"IBM Plex Sans Arabic";src:url("fonts/ibm-plex-sans-arabic-400.woff2") format("woff2");font-weight:400;font-display:swap}
@@ -57,7 +57,7 @@
   <header class="site-header">
     <div class="shell header-row">
       <img class="header-logo" src="assets/logo-v2.png" alt="مخالفات">
-      <div class="header-actions"><span class="version">الإصدار 5.3.0</span><button class="quiet-btn" id="newObjectionTop" type="button">اعتراض جديد</button><a class="outline-btn" href="#builder">ابدأ الآن</a></div>
+      <div class="header-actions"><span class="version">الإصدار 5.4.0</span><button class="quiet-btn" id="newObjectionTop" type="button">اعتراض جديد</button><a class="outline-btn" href="#builder">ابدأ الآن</a></div>
     </div>
   </header>
 
@@ -190,12 +190,13 @@
   <section class="print-sheet"><h1>الاعتراض</h1><div id="printBody"></div><div class="print-foot" id="printFoot"></div></section>
 
   <script>
-    const VERSION="5.3.0";
+    const VERSION="5.4.0";
     const DRAFT_KEY="mukhaalafat-draft-v5";
     const $=id=>document.getElementById(id);
     const platforms={
       balady:{label:"بلدي",agency:"وزارة البلديات والإسكان",logo:"assets/platforms/balady.png",url:"https://balady.gov.sa/ar/services/%D8%AE%D8%AF%D9%85%D8%A9-%D8%A7%D9%84%D8%A7%D8%B9%D8%AA%D8%B1%D8%A7%D8%B6",general60:true,defaultDeadline:"balady_fine"},
-      qiwa:{label:"قوى",agency:"وزارة الموارد البشرية",logo:"assets/platforms/qiwa.png",url:"https://www.hrsd.gov.sa/ministry-services/services/%D8%A7%D9%84%D8%A7%D8%B9%D8%AA%D8%B1%D8%A7%D8%B6-%D8%B9%D9%84%D9%89-%D9%85%D8%AE%D8%A7%D9%84%D9%81%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA%D9%81%D8%AA%D9%8A%D8%B4",general60:false,defaultDeadline:"qiwa_inspection"},
+      qiwa:{label:"مخالفات العمل",agency:"وزارة الموارد البشرية",logo:"assets/platforms/qiwa.png",url:"https://www.hrsd.gov.sa/ministry-services/services/%D8%A7%D9%84%D8%A7%D8%B9%D8%AA%D8%B1%D8%A7%D8%B6-%D8%B9%D9%84%D9%89-%D9%85%D8%AE%D8%A7%D9%84%D9%81%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA%D9%81%D8%AA%D9%8A%D8%B4",general60:false,defaultDeadline:"qiwa_inspection"},
+      domestic:{label:"العمالة المنزلية والمساندة",agency:"وزارة الموارد البشرية والتنمية الاجتماعية",url:"",general60:false,defaultDeadline:"domestic_manual"},
       sfda:{label:"هيئة الغذاء والدواء",agency:"الهيئة العامة للغذاء والدواء",logo:"assets/platforms/sfda.png",url:"https://www.sfda.gov.sa/ar/nnjzha",general60:false,defaultDeadline:"sfda_inspection"},
       tga:{label:"هيئة النقل",agency:"الهيئة العامة للنقل",logo:"assets/platforms/tga.png",url:"https://os.tga.gov.sa/",general60:false,defaultDeadline:"tga_general"},
       gosi:{label:"التأمينات",agency:"المؤسسة العامة للتأمينات الاجتماعية",logo:"assets/platforms/gosi.png",url:"https://www.gosi.gov.sa/ar/BusinessServices/ServiceDetails/Review_Decision",general60:false},
@@ -204,9 +205,11 @@
       other:{label:"جهة أخرى",agency:"الجهة المختصة",url:"",general60:false}
     };
     const deadlineProfiles={
+      domestic_manual:{platform:"domestic",label:"مهلة الحالة",manual:true,note:"حدد صفتك ونوع الحالة، ثم راجع المهلة الواردة في إشعار القرار."},
+      domestic_employer:{platform:"domestic",label:"اعتراض صاحب العمل على عقوبة وفق القرار 112377",days:60,startLabel:"متى تم تبليغك بالقرار؟",startShort:"من تاريخ التبليغ بالقرار",note:"تستخدم هذه المدة بعد مطابقة القرار ونطاق سريانه على حالتك. يستمر تنفيذ الغرامة أثناء الاعتراض.",source:"https://www.hrsd.gov.sa/sites/default/files/2026-02/qrar-wzary---112377.pdf",sourceLabel:"القرار 112377، البند الثالث"},
       balady_fine:{platform:"balady",label:"مخالفة أو غرامة بلدية",days:60,startLabel:"متى تم تبليغك بالعقوبة؟",startShort:"من تاريخ التبليغ",response:"معالجة الاعتراض خلال 15 يوم كحد أقصى",next:"60 يوم للتظلم أمام المحكمة الإدارية بعد تبليغ القرار",source:"https://istitlaa.ncc.gov.sa/ar/Royalcommissions/RCJY/RCJY3/Pages/1.aspx",sourceLabel:"لائحة الغرامات والجزاءات"},
       balady_license:{platform:"balady",label:"إيقاف أو إلغاء رخصة",days:60,startLabel:"متى تم إيقاف الرخصة أو إلغاؤها؟",startShort:"من تاريخ الإيقاف أو الإلغاء",response:"تعالج بلدي الاعتراض خلال 15 يوم كحد أقصى",source:"https://balady.gov.sa/ar/faq",sourceLabel:"منصة بلدي"},
-      qiwa_inspection:{platform:"qiwa",label:"مخالفة تفتيش عمل",days:60,startLabel:"متى صدر قرار العقوبة؟",startShort:"من تاريخ صدور القرار الإداري",source:"https://www.hrsd.gov.sa/ministry-services/services/%D8%A7%D9%84%D8%A7%D8%B9%D8%AA%D8%B1%D8%A7%D8%B6-%D8%B9%D9%84%D9%89-%D9%85%D8%AE%D8%A7%D9%84%D9%81%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA%D9%81%D8%AA%D9%8A%D8%B4",sourceLabel:"وزارة الموارد البشرية"},
+      qiwa_inspection:{platform:"qiwa",label:"مخالفة تفتيش عمل",days:60,startLabel:"متى تم تبليغك بقرار العقوبة؟",startShort:"من تاريخ التبليغ بالقرار",source:"https://www.hrsd.gov.sa/sites/default/files/2026-02/qrar-wzary---112377.pdf",sourceLabel:"القرار 112377، البند الثالث"},
       sfda_inspection:{platform:"sfda",label:"إجراء أو تقرير تفتيش",days:5,unit:"business",startLabel:"متى استلمت تقرير التفتيش؟",startShort:"من استلام تقرير التفتيش",source:"https://www.sfda.gov.sa/ar/news/89361",sourceLabel:"هيئة الغذاء والدواء"},
       sfda_clearance:{platform:"sfda",label:"رفض فسح إرسالية",days:60,startLabel:"متى صدر قرار عدم الفسح؟",startShort:"من تاريخ قرار الفسح",source:"https://www.sfda.gov.sa/ar/faq/5521379",sourceLabel:"هيئة الغذاء والدواء"},
       sfda_other:{platform:"sfda",label:"عقوبة أو قرار آخر",manual:true,note:"تعتمد المدة على نوع القرار. استخدم المدة الظاهرة في القرار أو الخدمة."},
@@ -278,7 +281,7 @@
     function updateEvidenceStatus(){const box=$("evidenceStatus");box.className="evidence-status";if(!state.reasons.length){box.textContent="اختر سبب الاعتراض لعرض الإثباتات المناسبة.";return}const required=[...new Set(state.reasons.flatMap(k=>reasons[k].required))];const hasRequired=required.some(x=>state.evidence.includes(x));if(hasRequired){box.classList.add("good");box.textContent="الإثبات الأساسي متوفر"}else if(state.evidence.length){box.textContent="أضف مستند يدعم هذا السبب"}else{box.classList.add("weak");box.textContent="سيقدم الاعتراض بدون مستند"}}
     function platformDeadlineProfiles(){return Object.entries(deadlineProfiles).filter(([,profile])=>profile.platform===state.platform)}
     function currentDeadlineProfile(){return deadlineProfiles[state.deadlineProfile]||null}
-    function useDeadlineProfile(id,clearDates=false){const profile=deadlineProfiles[id];state.deadlineProfile=id||"";if(profile&&!profile.manual){state.deadlineType="auto";state.deadlineDays=String(profile.days)}else if(profile?.manual){state.deadlineType="unsure";state.deadlineDays=""}if(clearDates){state.deadlineStart="";state.deadlineEnd=""}}
+    function useDeadlineProfile(id,clearDates=false){const profile=deadlineProfiles[id];state.deadlineProfile=id||"";if(profile&&!profile.manual){state.deadlineType="auto";state.deadlineDays=String(profile.days)}else{state.deadlineType="unsure";state.deadlineDays=""}if(clearDates){state.deadlineStart="";state.deadlineEnd=""}}
     function deadlineStage(title,strong,detail){return `<div class="deadline-stage"><b>${title}</b><strong>${strong}</strong><span>${detail}</span></div>`}
     function renderDeadlineAuto(){const host=$("deadlineAuto"),profiles=platformDeadlineProfiles();if(!state.platform){host.innerHTML='<div class="deadline-auto-empty">اختر الجهة أولا لتظهر مدة الاعتراض.</div>';return}if(!state.deadlineProfile||!deadlineProfiles[state.deadlineProfile]||deadlineProfiles[state.deadlineProfile].platform!==state.platform){useDeadlineProfile(platforms[state.platform]?.defaultDeadline||profiles[0]?.[0]||"",false)}const profile=currentDeadlineProfile(),selector=profiles.length>1?`<div class="field"><label for="deadlineProfile">ما نوع القرار أو المخالفة؟</label><select class="select" id="deadlineProfile">${profiles.map(([id,p])=>`<option value="${id}" ${id===state.deadlineProfile?"selected":""}>${p.label}</option>`).join("")}</select></div>`:"";if(!profile){host.innerHTML=selector||'<div class="deadline-auto-empty">اختر نوع القرار لتظهر المدة.</div>';return}const source=profile.source?`<a class="deadline-source" href="${profile.source}" target="_blank" rel="noopener">عرض المصدر</a>`:"",period=profile.manual?"تدخل حسب القرار":`${profile.days} ${profile.unit==="business"?"أيام عمل":"يوم"}`,stages=[deadlineStage("تقديم الاعتراض",period,profile.startShort||"بحسب القرار")];if(profile.response)stages.push(deadlineStage("رد الجهة","بعد التقديم",profile.response));if(profile.next)stages.push(deadlineStage("الخطوة التالية","بعد القرار",profile.next));host.innerHTML=`${selector}<div class="deadline-profile"><div class="deadline-profile-head"><div><strong>${profile.label}</strong><span>${profile.note||"اختر تاريخ بداية المدة ليظهر آخر يوم والعداد."}</span></div>${source}</div><div class="deadline-timeline">${stages.join("")}</div></div>`}
     function renderDeadlineFields(){const type=state.deadlineType,profile=currentDeadlineProfile();let html="";$("deadlineAutoChoice").hidden=!(profile&&!profile.manual);if(type==="auto"&&profile&&!profile.manual)html=`<div class="field"><label>${profile.startLabel}</label>${dateControl("deadlineStart",state.deadlineStart,"state",profile.startLabel)}</div>${profile.unit==="business"?'<p class="field-help">الحساب يستبعد الجمعة والسبت. راجع العطل الرسمية إذا صادفت نهاية المدة.</p>':""}`;if(type==="notice_days")html=`<div class="inline-fields"><div class="field"><label>تاريخ بداية المهلة</label>${dateControl("deadlineStart",state.deadlineStart,"state","تاريخ بداية المهلة")}</div><div class="field"><label>مدة الاعتراض بالأيام</label><input class="input latin" id="deadlineDays" inputmode="numeric" value="${escapeHtml(state.deadlineDays)}" placeholder="مثال: 30"></div></div>`;if(type==="end_date")html=`<div class="field"><label>تاريخ نهاية المهلة</label>${dateControl("deadlineEnd",state.deadlineEnd,"state","تاريخ نهاية المهلة")}</div>`;$("deadlineFields").innerHTML=html;document.querySelectorAll('input[name="deadlineType"]').forEach(x=>x.checked=x.value===type);updateDeadlineResult()}
@@ -302,7 +305,7 @@
     function readiness(){const hasFact=Object.values(state.answers).some(Boolean)||Boolean(state.violationDescription||state.extraInfo);const items=[[state.reasons.length>0,"تم تحديد سبب الاعتراض"],[hasFact,"تمت إضافة حقيقة خاصة بالحالة"],[state.evidence.length>0,"تم تحديد الإثبات"],[Boolean(state.requestType),"تم اختيار الطلب"],[Boolean(state.deadlineType),"تمت مراجعة المهلة"]];return {items,score:Math.round(items.filter(x=>x[0]).length/items.length*100)}}
     function readinessTip(){const a=state.answers;if(state.reasons.includes("license")&&a.licenseExpiry&&state.violationDate&&a.licenseExpiry<state.violationDate)return "راجع التاريخ: انتهاء الترخيص يسبق تاريخ المخالفة";if(state.reasons.includes("license")&&!a.licenseExpiry)return "إضافة تاريخ انتهاء الترخيص ستقوي اعتراضك";if(state.reasons.includes("duplicate")&&!a.duplicateNumber)return "إضافة رقم المخالفة الأخرى ستقوي اعتراضك";if(state.reasons.includes("noNotice")&&!a.discoveryDate)return "إضافة تاريخ اكتشاف المخالفة ستقوي اعتراضك";if(state.reasons.includes("wrongTarget")&&!a.correctData)return "إضافة البيان الصحيح ستقوي اعتراضك";if(state.reasons.length&&!state.evidence.length)return "اختيار مستند مؤيد سيقوي اعتراضك";return ""}
     function updateReadiness(){const r=readiness();$("readinessScore").textContent=`${r.score}%`;$("readinessList").innerHTML=r.items.map(([ok,label])=>`<li class="${ok?"ok":""}">${ok?"✓":"○"} ${label}</li>`).join("");const tip=readinessTip();$("directTip").classList.toggle("show",Boolean(tip));$("directTip").textContent=tip}
-    function saveDraft(){if(!saving)return;localStorage.setItem(DRAFT_KEY,JSON.stringify({...state,savedAt:Date.now()}))}
+    function saveDraft(){if(!saving)return;state.schemaVersion=VERSION;localStorage.setItem(DRAFT_KEY,JSON.stringify({...state,savedAt:Date.now()}))}
     function formValue(id){return $(id)?.type==="checkbox"?$(id).checked:($(id)?.value??"")}
     function collectStatic(){["otherAgency","violationNumber","violationDescription","descriptionUnavailable","extraInfo","requestType","applicantName","entityName","identityNumber","phone"].forEach(id=>{state[id]=typeof formValue(id)==="string"?toLatin(formValue(id)):formValue(id)});document.querySelectorAll(".dynamic-answer").forEach(el=>state.answers[el.dataset.answer]=toLatin(el.value));const checked=document.querySelector('input[name="deadlineType"]:checked');if(checked)state.deadlineType=checked.value;if($("deadlineDays"))state.deadlineDays=toLatin($("deadlineDays").value)}
     function applyValues(){["otherAgency","violationNumber","violationDescription","extraInfo","requestType","applicantName","entityName","identityNumber","phone"].forEach(id=>{if($(id))$(id).value=state[id]||""});$("descriptionUnavailable").checked=Boolean(state.descriptionUnavailable);$("violationDateField").innerHTML=dateControl("violationDate",state.violationDate,"state","تاريخ تسجيل المخالفة")}
@@ -335,10 +338,11 @@
     $("exampleToggle").addEventListener("click",()=>{$("exampleRow").hidden=!$("exampleRow").hidden});document.querySelectorAll("[data-example]").forEach(b=>b.addEventListener("click",()=>applyExample(b.dataset.example)));
     $("mobilePreviewButton").addEventListener("click",()=>{$("mobileEditor").value=editCache[currentKey()].text;$("drawerBackdrop").classList.add("open")});$("drawerClose").addEventListener("click",()=>$("drawerBackdrop").classList.remove("open"));$("drawerBackdrop").addEventListener("click",e=>{if(e.target===$("drawerBackdrop"))$("drawerBackdrop").classList.remove("open")});
     $("mobileEditor").addEventListener("input",()=>{const cache=editCache[currentKey()];cache.dirty=true;cache.text=$("mobileEditor").value;$("previewEditor").value=cache.text});$("mobileRefresh").addEventListener("click",()=>{refreshPreview(true);$("mobileEditor").value=$("previewEditor").value;showToast("تم تحديث النص")});
-    $("continueDraft").addEventListener("click",()=>{state={...structuredClone(baseState),...pendingDraft};delete state.savedAt;pendingDraft=null;$("draftBanner").classList.remove("show");renderAll();showToast("تمت متابعة المسودة")});
+    $("continueDraft").addEventListener("click",()=>{state={...structuredClone(baseState),...pendingDraft};delete state.savedAt;pendingDraft=null;$("draftBanner").classList.remove("show");if(state.platform==="qiwa"&&state.schemaVersion!==VERSION){useDeadlineProfile("qiwa_inspection",true)}renderAll();showToast("تمت الاستعادة")});
     $("discardDraft").addEventListener("click",()=>{pendingDraft=null;localStorage.removeItem(DRAFT_KEY);$("draftBanner").classList.remove("show");resetAll(false)});
     const saved=localStorage.getItem(DRAFT_KEY);if(saved){try{pendingDraft=JSON.parse(saved);$("draftBanner").classList.add("show")}catch{localStorage.removeItem(DRAFT_KEY)}}
     renderAll();
   </script>
+  <script src="domestic.js?v=5.4.0"></script>
 </body>
 </html>
