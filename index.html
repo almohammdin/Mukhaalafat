@@ -7,22 +7,22 @@
   <meta name="description" content="أداة تساعدك على تجهيز نص اعتراض مختصر للمخالفات، ترتيب الإثباتات، مراجعة المهلة ومعرفة طريقة التقديم.">
   <meta name="theme-color" content="#0B1A2B">
   <link rel="canonical" href="https://almohammdin.github.io/Mukhaalafat/">
-  <link rel="icon" type="image/png" href="assets/mark-v2.png?v=5.4.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=5.4.0">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=5.4.0">
-  <link rel="manifest" href="site.webmanifest?v=5.4.0">
+  <link rel="icon" type="image/png" href="assets/mark-v2.png?v=5.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=5.4.1">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=5.4.1">
+  <link rel="manifest" href="site.webmanifest?v=5.4.1">
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://almohammdin.github.io/Mukhaalafat/">
   <meta property="og:title" content="مخالفات | مساعد إعداد الاعتراض">
   <meta property="og:description" content="اختر حالتك وجهز نص اعتراض مناسب للصق في منصة الجهة">
-  <meta property="og:image" content="https://almohammdin.github.io/Mukhaalafat/assets/mukhaalafat-og-v5.png?v=5.4.0">
+  <meta property="og:image" content="https://almohammdin.github.io/Mukhaalafat/assets/mukhaalafat-og-v5.png?v=5.4.1">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="مخالفات | مساعد إعداد الاعتراض">
   <meta name="twitter:description" content="اختر حالتك وجهز نص اعتراض مناسب للصق في منصة الجهة">
-  <meta name="twitter:image" content="https://almohammdin.github.io/Mukhaalafat/assets/mukhaalafat-og-v5.png?v=5.4.0">
+  <meta name="twitter:image" content="https://almohammdin.github.io/Mukhaalafat/assets/mukhaalafat-og-v5.png?v=5.4.1">
 
   <style>
     @font-face{font-family:"IBM Plex Sans Arabic";src:url("fonts/ibm-plex-sans-arabic-400.woff2") format("woff2");font-weight:400;font-display:swap}
@@ -57,7 +57,7 @@
   <header class="site-header">
     <div class="shell header-row">
       <img class="header-logo" src="assets/logo-v2.png" alt="مخالفات">
-      <div class="header-actions"><span class="version">الإصدار 5.4.0</span><button class="quiet-btn" id="newObjectionTop" type="button">اعتراض جديد</button><a class="outline-btn" href="#builder">ابدأ الآن</a></div>
+      <div class="header-actions"><span class="version">الإصدار 5.4.1</span><button class="quiet-btn" id="newObjectionTop" type="button">اعتراض جديد</button><a class="outline-btn" href="#builder">ابدأ الآن</a></div>
     </div>
   </header>
 
@@ -190,13 +190,13 @@
   <section class="print-sheet"><h1>الاعتراض</h1><div id="printBody"></div><div class="print-foot" id="printFoot"></div></section>
 
   <script>
-    const VERSION="5.4.0";
+    const VERSION="5.4.1";
     const DRAFT_KEY="mukhaalafat-draft-v5";
     const $=id=>document.getElementById(id);
     const platforms={
       balady:{label:"بلدي",agency:"وزارة البلديات والإسكان",logo:"assets/platforms/balady.png",url:"https://balady.gov.sa/ar/services/%D8%AE%D8%AF%D9%85%D8%A9-%D8%A7%D9%84%D8%A7%D8%B9%D8%AA%D8%B1%D8%A7%D8%B6",general60:true,defaultDeadline:"balady_fine"},
       qiwa:{label:"مخالفات العمل",agency:"وزارة الموارد البشرية",logo:"assets/platforms/qiwa.png",url:"https://www.hrsd.gov.sa/ministry-services/services/%D8%A7%D9%84%D8%A7%D8%B9%D8%AA%D8%B1%D8%A7%D8%B6-%D8%B9%D9%84%D9%89-%D9%85%D8%AE%D8%A7%D9%84%D9%81%D8%A7%D8%AA-%D8%A7%D9%84%D8%AA%D9%81%D8%AA%D9%8A%D8%B4",general60:false,defaultDeadline:"qiwa_inspection"},
-      domestic:{label:"العمالة المنزلية والمساندة",agency:"وزارة الموارد البشرية والتنمية الاجتماعية",url:"",general60:false,defaultDeadline:"domestic_manual"},
+      domestic:{label:"العمالة المنزلية والمساندة",agency:"وزارة الموارد البشرية والتنمية الاجتماعية",logo:"https://www.hrsd.gov.sa/themes/custom/hrsd_saud/logo.svg",logoAlt:"شعار وزارة الموارد البشرية والتنمية الاجتماعية",url:"",general60:false,defaultDeadline:"domestic_manual"},
       sfda:{label:"هيئة الغذاء والدواء",agency:"الهيئة العامة للغذاء والدواء",logo:"assets/platforms/sfda.png",url:"https://www.sfda.gov.sa/ar/nnjzha",general60:false,defaultDeadline:"sfda_inspection"},
       tga:{label:"هيئة النقل",agency:"الهيئة العامة للنقل",logo:"assets/platforms/tga.png",url:"https://os.tga.gov.sa/",general60:false,defaultDeadline:"tga_general"},
       gosi:{label:"التأمينات",agency:"المؤسسة العامة للتأمينات الاجتماعية",logo:"assets/platforms/gosi.png",url:"https://www.gosi.gov.sa/ar/BusinessServices/ServiceDetails/Review_Decision",general60:false},
@@ -272,7 +272,7 @@
     function choosePickerDate(iso){const date=parseIso(iso);if(!date)return;picker.selectedDate=date;picker.gregorianView={year:date.getUTCFullYear(),month:date.getUTCMonth()};const h=hijriPartsFromDate(date);picker.hijriView={year:h.year,month:h.month};renderDatePicker()}
     function confirmPickerDate(){if(!picker.selectedDate)return;const value=isoDate(picker.selectedDate);if(picker.scope==="answer")state.answers[picker.targetId]=value;else state[picker.targetId]=value;state.dateSources[picker.targetId]=picker.mode;closeDatePicker();renderAll();saveDraft()}
 
-    function renderPlatforms(){$("platformGrid").innerHTML=Object.entries(platforms).map(([key,p])=>{const mark=p.logo?`<img class="platform-logo" src="${p.logo}?v=${VERSION}" alt="شعار ${p.label}">`:'<span class="platform-icon">+</span>';return `<button class="platform-card ${state.platform===key?"active":""}" data-platform="${key}" type="button">${mark}<span><strong>${p.label}</strong><span>${p.agency}</span></span></button>`}).join("");$("otherAgencyWrap").hidden=state.platform!=="other";$("general60").classList.toggle("show",Boolean(platforms[state.platform]?.general60))}
+    function renderPlatforms(){$("platformGrid").innerHTML=Object.entries(platforms).map(([key,p])=>{const mark=p.logo?`<img class="platform-logo" src="${p.logo}?v=${VERSION}" alt="${p.logoAlt||`شعار ${p.label}`}">`:'<span class="platform-icon">+</span>';return `<button class="platform-card ${state.platform===key?"active":""}" data-platform="${key}" type="button">${mark}<span><strong>${p.label}</strong><span>${p.agency}</span></span></button>`}).join("");$("otherAgencyWrap").hidden=state.platform!=="other";$("general60").classList.toggle("show",Boolean(platforms[state.platform]?.general60))}
     function renderReasons(){$("reasonGrid").innerHTML=Object.entries(reasons).map(([key,r])=>{const active=state.reasons.includes(key);return `<button class="reason-card ${active?"active":""}" data-reason="${key}" type="button"><strong>${r.title}</strong><span>${r.short}</span><span class="reason-state">${active?"أضيف إلى الاعتراض ✓":"أضف إلى الاعتراض"}</span></button>`}).join("")}
     function questionInput(q){const value=state.answers[q.id]||"";if(q.type==="textarea")return `<textarea class="input dynamic-answer" data-answer="${q.id}">${escapeHtml(value)}</textarea>`;if(q.type==="select")return `<select class="select dynamic-answer" data-answer="${q.id}"><option value="">اختر</option>${q.options.map(o=>`<option ${value===o?"selected":""}>${o}</option>`).join("")}</select>`;if(q.type==="date")return dateControl(q.id,value,"answer",q.label);return `<input class="input dynamic-answer" data-answer="${q.id}" type="${q.type}" value="${escapeHtml(value)}">`}
     function renderQuestions(){if(!state.reasons.length){$("conditionalQuestions").innerHTML='<div class="empty-note">اختر ما حدث معك لعرض الأسئلة المناسبة.</div>';return}$("conditionalQuestions").innerHTML=state.reasons.map(key=>{const r=reasons[key];return `<div class="question-card"><h4>${r.short}</h4>${r.questions.map(q=>`<div class="field"><label>${q.label}</label>${questionInput(q)}</div>`).join("")}</div>`}).join("")}
@@ -343,6 +343,6 @@
     const saved=localStorage.getItem(DRAFT_KEY);if(saved){try{pendingDraft=JSON.parse(saved);$("draftBanner").classList.add("show")}catch{localStorage.removeItem(DRAFT_KEY)}}
     renderAll();
   </script>
-  <script src="domestic.js?v=5.4.0"></script>
+  <script src="domestic.js?v=5.4.1"></script>
 </body>
 </html>
